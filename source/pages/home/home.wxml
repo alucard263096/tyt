@@ -1,0 +1,67 @@
+<!--pages/home/home.wxml-->
+<view>
+  <swiper autoplay='true' indicator-dots='true' style='width:750rpx;height:400rpx;' circular>
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+      <view>
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:400rpx;' mode="aspectFill"></image>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+<view class='padding white-block'>
+  <view class='flex-row flex-center text-center'>
+    <navigator url='/pages/chatroom/chatroom' class='flex-1'>
+      <view class='line-height-0'>
+        <image class='icon-30' src='{{uploadpath}}inst/{{instinfo.icon1}}'></image>
+      </view>
+      <view class='h6 margin-top-10'>
+        我们班群
+      </view>
+    </navigator>
+    <navigator url='/pages/noticelist/noticelist' class='flex-1'>
+      <view class='line-height-0'>
+        <image class='icon-30' src='{{uploadpath}}inst/{{instinfo.icon2}}'></image>
+      </view>
+      <view class='h6 margin-top-10'>
+        班级通知
+      </view>
+    </navigator>
+    <navigator  url='/pages/newslist/newslist'  class='flex-1'>
+      <view class='line-height-0'>
+        <image class='icon-30' src='{{uploadpath}}inst/{{instinfo.icon3}}'></image>
+      </view>
+      <view class='h6 margin-top-10'>
+        育儿分享
+      </view>
+    </navigator>
+    <navigator url='/pages/album/album' class='flex-1'>
+      <view class='line-height-0'>
+        <image class='icon-30' src='{{uploadpath}}inst/{{instinfo.icon4}}'></image>
+      </view>
+      <view class='h6 margin-top-10'>
+        宝贝精彩
+      </view>
+    </navigator>
+  </view>
+</view>
+
+<view class='white-block margin-top-10'>
+  <view class='padding-20'>
+    <view class="flex-row flex-bottom">
+      <view class='txt-bold flex-1'>热门资讯</view>
+      <navigator url='/pages/newslist/newslist' class=' text-right h6 txt-gray'>更多</navigator>
+    </view>
+  </view>
+  <navigator url='/pages/news/news?id={{item.id}}' class='border-top white-block padding-20 flex-row ' wx:for="{{newslist}}" wx:key="k" wx:for-index='idx'>
+    <view>
+      <image class='cover box-shadow' src='{{uploadpath}}news/{{item.cover}}' mode="aspectFill"></image>
+    </view>
+    <view class='flex-1'>
+      <view class='title'>{{item.name}}</view>
+      <view class='margin-top flex-row flex-bottom'>
+        <view class='flex-1 h6 txt-gray'>{{item.cat_id_name}}</view>
+        <view class='h6 txt-gray'>{{item.readcount}}阅读</view>
+      </view>
+    </view>
+  </navigator>
+</view>
