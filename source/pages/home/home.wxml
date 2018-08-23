@@ -23,7 +23,7 @@
         <image class='icon-30' src='{{uploadpath}}inst/{{instinfo.icon2}}'></image>
       </view>
       <view class='h6 margin-top-10'>
-        班级通知
+        班级通知   
       </view>
     </navigator>
     <navigator  url='/pages/newslist/newslist'  class='flex-1'>

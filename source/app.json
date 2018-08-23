@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/newspage/newspage",
     "pages/member/member",
     "pages/infoupdate/infoupdate",
     "pages/userbind/userbind",
