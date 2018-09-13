@@ -1,14 +1,22 @@
-// pages/content/content.js
-import { AppBase } from "../../appbase";
-import { ApiConfig } from "../../apis/apiconfig";
-import { InstApi } from "../../apis/inst.api.js";
+import {
+  AppBase
+} from "../../appbase";
+import {
+  ApiConfig
+} from "../../apis/apiconfig";
+import {
+  InstApi
+} from "../../apis/inst.api.js";
+import {
+  PeopleApi
+} from "../../apis/people.api.js";
 
 class Content extends AppBase {
   constructor() {
     super();
   }
   onLoad(options) {
-    options.class_id=1;
+    options.class_id = 1;
 
     this.Base.Page = this;
     //options.id=5;
@@ -16,32 +24,76 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    var instapi=new InstApi();
-    instapi.indexbanner({position:"home"},(indexbanner)=>{
-      that.Base.setMyData({ indexbanner: indexbanner});
+    var instapi = new InstApi();
+    instapi.indexbanner({
+      position: "home"
+    }, (indexbanner) => {
+      that.Base.setMyData({
+        indexbanner: indexbanner
+      });
     });
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
     });
 
+    var peopleapi = new PeopleApi();
+    peopleapi.list({}, (people) => {
+      var people = people[0];
+      var birth = people.birth_timespan;
+      var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
+      people.age = age;
+      this.Base.setMyData({ people });
+    });
+
+  }
+  handletouchmove(event) {
+    var currentX = event.touches[0].pageX
+    var currentY = event.touches[0].pageY
+    var tx = currentX - this.data.lastX
+    var ty = currentY - this.data.lastY
+    var text = ""
+    //左右方向滑动
+    if (Math.abs(tx) > Math.abs(ty)) {
+      if (tx < 0)
+        text = "向左滑动"
+      else if (tx > 0)
+        text = "向右滑动"
+    }
     
+    //上下方向滑动
+    else {
+      if (ty < 0)
+        text = "向上滑动"
+      else if (ty > 0)
+        text = "向下滑动"
+    }
 
-    // instapi.aboutuslist({ inhome: "Y" }, (aboutuslist) => {
-    //   that.Base.setMyData({ aboutuslist: aboutuslist });
-    // });
-    //instapi.newslist({ inhome:"Y" }, (newslist) => {
-    //   that.Base.setMyData({ newslist: newslist });
-    //});
-    // instapi.servicelist({ inhome: "Y" }, (servicelist) => {
-    //   that.Base.setMyData({ servicelist: servicelist });
-    // });
-    // instapi.productlist({ inhome: "Y" }, (productlist) => {
-    //   that.Base.setMyData({ productlist: productlist });
-    // }); 
+    //将当前坐标进行保存以进行下一次计算
+    this.data.lastX = currentX;
+    this.data.lastY = currentY;
+    if (text == "向左滑动") {
+      this.Base.setMyData({
+        "inleftswipe": true
+      })
+    }
+    if (text == "向右滑动") {
+      this.Base.setMyData({
+        "inrightswipe": true
+      })
 
-
-
-    
+    }
+  }
+  //滑动开始事件
+  handletouchtart(event) {
+    this.data.lastX = event.touches[0].pageX
+    this.data.lastY = event.touches[0].pageY
+  }
+  //滑动结束事件
+  handletouchend(event) {
+    this.data.currentGesture = 0;
+    this.setData({
+      text: "没有滑动"
+    });
   }
 
 }
@@ -49,4 +101,7 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.handletouchmove = content.handletouchmove;
+body.handletouchtart = content.handletouchtart;
+body.handletouchend = content.handletouchend;
 Page(body)

@@ -1,9 +1,79 @@
 <!--pages/content/content.wxml-->
-<import src="../../wxParse/wxParse.wxml" />
-<view class='bg-primary  flex-row bigheader'>
-  <view class='h4 '>{{title}}</view>
+<view>
+  <swiper autoplay='true' indicator-dots='true' style='width:750rpx;height:390rpx;' circular>
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+      <view>
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:390rpx;' mode="aspectFill"></image>
+      </view>
+    </swiper-item>
+  </swiper>
 </view>
 
-<view style='padding:20rpx;'>
-            <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+<dl class="menu">
+  <dt data-index="0" bindtap="tapMainMenu">智能排序</dt>
+  <dd class="{{subMenuDisplay[0]}} hide">
+    <ul>
+      <li class="{{subMenuHighLight[0][0]}}" data-index="0-0" bindtap="tapSubMenu">智能排序</li>
+      <li class="{{subMenuHighLight[0][1]}}" data-index="0-1" bindtap="tapSubMenu">最新加入</li>
+      <li class="{{subMenuHighLight[0][2]}}" data-index="0-2" bindtap="tapSubMenu">最近登录</li>
+    </ul>
+  </dd>
+  
+  <dt data-index="1" bindtap="tapMainMenu">基本筛选</dt>
+  <dd class="{{subMenuDisplay[1]}} hide">
+    <ul>
+      <li class="">居住地
+        <picker class='data_1 h4-5' mode="region" bindchange="bindRegionChange" value="{{region}} range='{{dom}}'" custom-item="{{customItem}}">
+          <input name='address' disabled='disabled' placeholder='请选择地址' value='{{region}}' class="picker h5">
+          </input>
+        </picker>
+        <image src='{{uploadpath}}resource/{{res.Right_black}}' class='icon-15-1'></image>
+      </li>
+      <li class="">年龄</li>
+      <li class="">身高</li>
+      <li class="">婚姻状况</li>
+      <li class="content_submit">
+        <button class='confirm h5' hover-class='hover_btn'>确定</button>
+        <button class='cancel h5' hover-class='hover_btn2'>取消</button>
+      </li>
+    </ul>
+  </dd>
+</dl>
+
+
+<!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class='screen_picker'>
+    <view class="content h5">
+      智能排序
+    </view>
+    <view><image class='screen_btm_icon1' src='{{uploadpath}}resource/{{res.icon_btm}}'></image></view>
+    
+    <view><image class='screen_btm_icon2' src='{{uploadpath}}resource/{{res.icon_btm}}'></image></view>
+    <view class="content2 h5">
+      基本筛选
+    </view>
+  </picker> -->
+
+
+
+
+
+
+
+
+
+
+<view class='lath'>
 </view>
+
+<navigator url='/pages/details/details?shownext=Y&&id={{item.id}}' class='Head_portrait' wx:for="{{people}}" wx:key="k">
+  <image class=' abstract_img' src='{{uploadpath}}people/{{item.photo}}'></image>
+  <view class='s1 h5'>
+    {{people.name}}
+  </view>
+  <view class='s2 h6'>
+    <label class='age'>{{item.birth}}</label>|
+    <label class='height'>{{item.height}}cm</label>|
+    <label class='education'>{{item.quality_name}}</label>|
+    <label class='income'>{{item.income}}元/月</label>
+  </view>
+</navigator>

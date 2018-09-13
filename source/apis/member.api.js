@@ -7,10 +7,11 @@ import { MemberApi } from '../../apis/member.api';
 var memberApi=new MemberApi();
         *******/
 import { ApiConfig } from 'apiconfig';
+
 export class MemberApi
 {
 			//获取用户的信息
-				getuserinfo(json, callback, showLoading = true) {
+			getuserinfo(json, callback, showLoading = true) {
 
 					if (showLoading)
 					ApiConfig.ShowLoading();
@@ -73,9 +74,9 @@ export class MemberApi
 					})
 				  }
                 
-			//用户提交注册
+			
+      //用户提交注册
 				register(json, callback, showLoading = true) {
-
 					if (showLoading)
 					ApiConfig.ShowLoading();
     

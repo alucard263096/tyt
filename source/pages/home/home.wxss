@@ -1,5 +1,9 @@
 /* pages/home/home.wxss */
 
+.hide {
+  display: none;
+}
+
 .title {
   height: 86rpx;
   display: -webkit-box;
@@ -7,9 +11,87 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
-.cover{
+
+.syn {
+  width: 600rpx;
+  height: 160rpx;
+  background: #ffff;
+  border-radius: 25rpx;
+  margin-top: 660rpx;
+  margin-left: 35rpx;
+}
+
+.cover {
   margin-right: 30rpx;
   width: 200rpx;
-  height:156rpx;
+  height: 156rpx;
   border-radius: 6rpx;
+}
+
+.pos{
+position:absolute;
+height:calc( 80vh - 198rpx );
+
+}
+
+.inleftswipe {
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation: missingant 1.5s;
+  -webkit-animation: missingant 1.5s;
+}
+
+.inrightswipe {
+
+    position: absolute;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation: right 1.5s;
+  -webkit-animation: right 1.5s;
+}
+
+@keyframes missingant {
+  from {
+    background: white;
+    width: 654rpx;
+    height: 850rpx;
+    position: fixed;
+    top: 0px;
+    left: 5vw;
+    border-radius: 25rpx;
+  }
+
+  to {
+    background: white;
+    width: 654rpx;
+    height: 850rpx;
+    position: fixed;
+    top: 0px;
+    left: 5vw;
+    margin-left: -100vw;
+    border-radius: 25rpx;
+    display: none;
+  }
+}
+
+@keyframes right {
+  0% {
+    left: 5vw;
+  }
+
+  25% {
+    left: 25vw;
+  }
+
+  50% {
+    left: 50vw;
+  }
+
+  75% {
+    left: 75vw;
+  }
+
+  100% {
+    left: 100vw;
+  }
 }
