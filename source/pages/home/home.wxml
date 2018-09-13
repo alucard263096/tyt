@@ -9,7 +9,7 @@
   </swiper>
 </view>
 
-<navigator hidden='true' url='/pages/?shownext=Y&id={{item.id}}' class='pos flex-row flex-center'  style='z-index:99;'  >
+<navigator url='/pages/?shownext=Y&id={{item.id}}' class='pos flex-row flex-center'    >
   <view class='padding-L-T-R-40' >
     <view class='syn' style='position:absolute;'>
       <view class='name_1 h4'>{{people.name}}</view>
@@ -28,7 +28,7 @@
   </view>
 </navigator>
 
-<navigator url='/pages/?shownext=Y&id={{item.id}}' class=' flex-row flex-center {{inleftswipe==true?"inleftswipe":""}} {{inrightswipe==true?"inrightswipe":""}}'  >
+<navigator  animation="{{animationLsi}}"  url='/pages/?shownext=Y&id={{item.id}}' class='pos  flex-row flex-center '  >
   <view class='padding-L-T-R-40' bindtouchstart="handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
     <view class='syn' style='position:absolute;'>
       <view class='name_1 h4'>{{people.name}}</view>

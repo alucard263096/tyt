@@ -81,6 +81,17 @@ class Content extends AppBase {
         "inrightswipe": true
       })
 
+
+      let animation = wx.createAnimation({
+        duration: 1000,
+        timingFunction: 'ease'
+      })
+
+      animation.translateX(500).step()
+      this.setData({
+        animationLsi: animation.export()
+      });
+
     }
   }
   //滑动开始事件
