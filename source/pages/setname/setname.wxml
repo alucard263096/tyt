@@ -1,0 +1,8 @@
+<!--pages/setname/setname.wxml-->
+<view>
+<input type='text' focus='true' confirm-hold='flase'  class='set padding-20 h5' maxlength='10' placeholder='请输入3-10个汉字、字母或数字' value='' name="name" style='text-align:left'>
+</input>
+<button class='h5 details_btn' hover-class='hover_btn'>确定修改</button>
+<view class='fontcolor margin-20 h6' style='width:700rpx;text-align:left;'>为了您的信息安全,请不要填写微信、QQ、手机号等带有联系方式的个人信息</view>
+</view>
+

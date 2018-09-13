@@ -1,0 +1,158 @@
+<!--pages/editing/editing.wxml-->
+<view class='editing_head'>
+  <text class='editing_txt'>编辑资料</text>
+  <view class='editing_headimg'>
+    头像
+    <image class='edt_head abstract_img ' src='{{uploadpath}}people/{{people.photo}}'></image>
+  </view>
+
+  <view class='editing_photo'>
+    <view class='editing_img'>
+      <navigator url='/pages/photo/photo?shownext=Y&id={{item.id}}'>
+        <cover-image src='{{uploadpath}}resource/{{res.insert}}' class='editing_insert edt_img'></cover-image>
+      </navigator>
+      <scroll-view class="editing-box" scroll-x="true">
+        <view class="editing-item">
+          <image src='{{uploadpath}}resource/{{res.kb}}' class='edt_img '></image>
+        </view>
+        <view class="editing-item">
+          <image src='{{uploadpath}}resource/{{res.mj}}' class='edt_img '></image>
+        </view>
+        <view class="editing-item">
+          <image src='{{uploadpath}}resource/{{res.lbj}}' class='edt_img '></image>
+        </view>
+        <view class="editing-item">
+          <image src='{{uploadpath}}resource/{{res.ai}}' class='edt_img '></image>
+        </view>
+        <view class="editing-item">
+          <image src='{{uploadpath}}resource/{{res.kg}}' class='edt_img '></image>
+        </view>
+        <view class="editing-item">
+          <image src='{{uploadpath}}resource/{{res.tm}}' class='edt_img '></image>
+        </view>
+      </scroll-view>
+    </view>
+
+
+  </view>
+</view>
+
+<view class='lath'>
+</view>
+
+<view class='editing_data'>
+  <view class='data'>
+    <label class='mine_dt h4-5'>姓名</label>
+    <navigator class='data_1 h4-5'>{{people.name}}
+      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
+    </navigator>
+  </view>
+</view>
+
+<view class='editing_data'>
+  <view class='data'>
+    <label class='mine_dt h4-5'>昵称</label>
+    <navigator class='data_1 h4-5' url='/pages/setname/setname?shownext=Y&id={{item.id}}'>可编辑资料
+      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
+    </navigator>
+  </view>
+</view>
+
+<view class='editing_data'>
+  <view class='edt_data'>
+    <label class='mine_dt h4-5'>性别</label>
+    <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
+      <view class="edt_pf fontcolor h5">
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.gender_name}}' value='{{array[index]}}' name="sex" style='text-align:right'>
+        </input>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='editing_data'>
+  <view class='data' style='margin-right:70rpx;'>
+    <label class='mine_dt h4-5'>年龄</label>
+    <label class='data_1 h4-5'>{{people.age}}岁
+    </label>
+  </view>
+</view>
+
+<view class='editing_data'>
+  <view class='edt_data'>
+    <label class='mine_dt h4-5'>生日</label>
+    <picker class='data_1 h4-5' mode="date" bindchange="bindRegionChangedate" value="{{region_date}} range='{{date}}'" custom-item="{{customItem}}">
+      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
+      <view class="edt_pf fontcolor h5">
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.birth}}' value='{{region_date}}' name="sex" style='text-align:right'>
+        </input>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='editing_data'>
+  <view class='data'>
+    <label class='mine_dt h4-5'>身高</label>
+    <picker mode="selector" bindchange="bindPickerChangehig" value="{{hig}}" range="{{height}}">
+      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
+      <view class="edt_pf fontcolor h5">
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.height}}' value='{{height[hig]}}' name="sex" style='text-align:right'>
+        </input>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='editing_data'>
+  <view class='data'>
+    <label class='mine_dt h4-5'>学历</label>
+    <picker mode="selector" bindchange="bindPickerChangequa" value="{{qua}}" range="{{quality}}">
+      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
+      <view class="edt_pf fontcolor h5">
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.quality_name}}' value='{{quality[qua]}}' name="quality" style='text-align:right'>
+        </input>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='editing_data'>
+  <view class='data'>
+    <label class='mine_dt h4-5'>月收入</label>
+    <picker mode="selector" bindchange="bindPickerChangeincome" value="{{inc}}" range="{{income}}">
+      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
+      <view class="edt_pf fontcolor h5">
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.income}}' value='{{income[inc]}}' name="quality" style='text-align:right'>
+        </input>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='editing_data'>
+  <view class='data'>
+    <label class='mine_dt h4-5'>居住地</label>
+    <label class='data_1 h4-5'>{{people.country_id}}
+      <navigator class='edt_address' url='/pages/address/address?shownext=Y&id={{item.id}}'>
+        <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_img icon-15-1'></image>
+      </navigator>
+    </label>
+  </view>
+</view>
+
+<view class='mine_data2'>
+  <view class='data'>
+    <label class='mine_dt h4-5'>婚姻状况</label>
+    <picker mode="selector" bindchange="bindPickerChangemarriage" value="{{mrg}}" range="{{marriage}}">
+      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
+      <view class="edt_pf fontcolor h5">
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.status}}' value='{{marriage[mrg]}}' name="quality" style='text-align:right'>
+        </input>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view><button class='h5 details_btn' hover-class='hover_btn'>确定修改</button></view>

@@ -1,0 +1,37 @@
+/* pages/blacklist/blacklist.wxss */
+
+.relieve_btn {
+  border: 0;
+  width: 157rpx;
+  height: 61rpx;
+  line-height: 63rpx;
+  background: #ee055c;
+  color: white;
+}
+
+.hover_btn {
+  border: 0;
+  width: 157rpx;
+  height: 61rpx;
+  line-height: 63rpx;
+  background: #b10544;
+  color: white;
+}
+.blacklist_data{
+  border-bottom: 2px solid #ddd;
+}
+.blacklist_img{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.blacklist_headimg{
+  padding: 20rpx 20rpx 15rpx 30rpx;
+}
+.blacklist_name{
+  width: 140rpx;
+  font-family: 微软雅黑;
+}
+.right{
+  padding-left: 200rpx;
+}

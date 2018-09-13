@@ -1,0 +1,9 @@
+/* pages/register/register.wxss */
+
+.hover_btn{
+  height: 80rpx;
+  width: 700rpx;
+  line-height: 80rpx;
+  color: white;
+  background-color:#a80a44;
+}

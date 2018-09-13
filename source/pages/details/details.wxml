@@ -1,0 +1,71 @@
+<!--pages/details/details.wxml-->
+<view class='details_all'>
+  <image class='details_mine'>
+    <view style='text-align:center'>
+      <image class=' details_headimg' src='{{UserInfo.avatarUrl}}'></image>
+    </view>
+    <view></view>
+    <view style='text-align:center'>
+      <label class='details_wxname'>{{UserInfo.nickName}}</label>
+    </view>
+
+    <view class='details_introduce'>
+      <text class='details_wxname h6' space='ensp' selectable='true'>自我介绍</text>
+    </view>
+
+
+  </image>
+
+  <view class='details_mid'>
+    <view class='details_img'>
+      <scroll-view class="details-box" scroll-x="true">
+        <view class="details-item">
+          <image wx:for="people" wx:key="k" src='{{uploadpath}}people/{{people.photo}}' class='details_img '></image>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class='details_lath'>
+  </view>
+
+  <view class='fonthead h4'>
+    基本资料
+  </view>
+  <!-- <label class='ll'>{{people.gender_name}}</label> -->
+  <view class='details_lath2'>
+  </view>
+
+  <view class='details'>
+    <view class='details_content h5'>
+      <label>昵称：</label>
+      <label class='margin-top-10'>性别</label>
+      <label class='margin-top-10'>生日：</label>
+      <label class='margin-top-10'>身高：</label>
+      <label class='margin-top-10'>学历：</label>
+      <label class='margin-top-10'>月收入：</label>
+      <label class='margin-top-10'>居住地：</label>
+      <label class='margin-top-10'>婚姻状况：</label>
+      <label class='margin-top-10'>子女情况：</label>
+    </view>
+    <view class='details_info'>
+      <label class='h5'>{{UserInfo.nickName}}</label>
+      <label class='margin-top-10 h5'>{{people.gender_name}}</label>
+      <label class='margin-top-10 h5'>{{people.birth}}</label>
+      <label class='margin-top-10 h5'>{{people.height}}</label>
+      <label class='margin-top-10 h5'>{{people.quality_name}}</label>
+      <label class='margin-top-10 h5'>{{people.income}}</label>
+      <label class='margin-top-10 h5'>{{people.country_id}}</label>
+      <label class='margin-top-10 h5'>{{people.status}}</label>
+      <label class='margin-top-10 h5'>{{people.children}}</label>
+    </view>
+
+  </view>
+
+  <view class='details_lath2'>
+  </view>
+
+  <view class='details_bottom'>
+    <navigator class='details_btn h5' url='/pages/talk/talk?shownext=Y&&id={{item.id}}'>发起相亲</navigator>
+  </view>
+</view>

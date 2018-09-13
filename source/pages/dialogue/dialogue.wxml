@@ -1,0 +1,32 @@
+<!--pages/dialogue/dialogue.wxml-->
+
+<dl class="menu">
+  <dt data-index="0" bindtap="tapMainMenu">智能排序</dt>
+  <dd class="{{subMenuDisplay[0]}}">
+    <ul>
+      <li class="{{subMenuHighLight[0][0]}}" data-index="0-0" bindtap="tapSubMenu">智能排序</li>
+      <li class="{{subMenuHighLight[0][1]}}" data-index="0-1" bindtap="tapSubMenu">最新加入</li>
+      <li class="{{subMenuHighLight[0][2]}}" data-index="0-2" bindtap="tapSubMenu">最近登录</li>
+    </ul>
+  </dd>
+  
+  <dt data-index="1" bindtap="tapMainMenu">基本筛选</dt>
+  <dd class="{{subMenuDisplay[1]}}">
+    <ul>
+      <li class="">居住地
+        <picker class='data_1 h4-5' mode="region" bindchange="bindRegionChange" value="{{region}} range='{{dom}}'" custom-item="{{customItem}}">
+          <input name='address' disabled='disabled' placeholder='请选择地址' value='{{region}}' class="picker h5">
+          </input>
+        </picker>
+        <image src='{{uploadpath}}resource/{{res.Right_black}}' class='icon-15-1'></image>
+      </li>
+      <li class="">年龄</li>
+      <li class="">身高</li>
+      <li class="">婚姻状况</li>
+      <li class="content_submit">
+        <button class='confirm h5' hover-class='hover_btn'>确定</button>
+        <button class='cancel h5' hover-class='hover_btn2'>取消</button>
+      </li>
+    </ul>
+  </dd>
+</dl>

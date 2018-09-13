@@ -1,0 +1,9 @@
+/* pages/mine/mine.wxss */
+.dt_img{
+  float: right;
+  margin-top: 11rpx;
+}
+.dt_input{
+  width: 450rpx;
+  text-align: right;
+}

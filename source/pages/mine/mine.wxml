@@ -1,0 +1,63 @@
+<!--pages/mine/mine.wxml-->
+<view class='mine_top'>
+     <view class='mine_portrait'>
+      <image  class=' abstract_img' src='{{UserInfo.avatarUrl}}'></image>
+     </view>
+      <view class='mine_img h5'>
+        {{UserInfo.nickName}}
+      </view>
+</view>
+
+<view class='mine_lath'>
+</view>
+
+<view class='mine_data'> 
+   <view class='data'>
+   <image src='{{uploadpath}}resource/{{res.mineinfo}}' class='mine_data_img'></image>
+    <label class='mine_dt h4-5'>我的资料</label>
+    <navigator class='data_1 h5' url='/pages/editing/editing?shownext=Y&id={{item.id}}'>可编辑资料<image src='{{uploadpath}}resource/{{res.reg_right}}' class='dt_imgs icon-15-1'></image></navigator>
+   </view>
+</view>
+
+<navigator class='mine_data2' url='/pages/matchmaker/matchmaker?shownext=Y&id={{item.id}}'> 
+   <view class='data'>
+   <image src='{{uploadpath}}resource/{{res.reg_matchmaker}}' class='mine_data_img2'></image>
+    <label class='mine_dt h4-5'>媒人信息</label>
+    <navigator class='data_1 h5'>查看媒人信息<image src='{{uploadpath}}resource/{{res.reg_right}}' class='dt_imgs icon-15-1'></image></navigator>
+   </view>
+</navigator>
+
+<view class='mine_lath'>
+</view>
+
+<view class='mine_data'> 
+   <view class='data'>
+   <image src='{{uploadpath}}resource/{{res.shield}}' class='mine_data_img3'></image>
+    <label class='mine_dt h4-5'>屏蔽设置</label>
+    <navigator class='data_1 h5' url='/pages/shield/shield?shownext=Y&id={{item.id}}'>可设置不被人看到的选项<image src='{{uploadpath}}resource/{{res.reg_right}}' class='dt_imgs icon-15-1'></image></navigator>
+   </view>
+</view>
+
+<view class='mine_data'> 
+  <view class='data'>
+   <image src='{{uploadpath}}resource/{{res.village}}' class='mine_data_img3'></image>
+    <label class='mine_dt h4-5'>所在地址</label>
+    <navigator class='data_1 h5' url='/pages/address/address?shownext=Y&id={{item.id}}'>可修改地区<image src='{{uploadpath}}resource/{{res.reg_right}}' class='dt_imgs icon-15-1'></image></navigator>
+  </view>
+</view>
+
+<view class='mine_data'>
+   <view class='data'>
+   <image src='{{uploadpath}}resource/{{res.blacklist}}' class='mine_data_img4'></image>
+    <label class='mine_dt h4-5'>黑名单</label>
+    <navigator class='data_1 h5' url='/pages/blacklist/blacklist?shownext=Y&id={{item.id}}'>可设置黑名单<image src='{{uploadpath}}resource/{{res.reg_right}}' class='dt_imgs icon-15-1'></image></navigator>
+   </view>
+</view>
+
+<view class='mine_data2'> 
+   <view class='data'>
+   <image src='{{uploadpath}}resource/{{res.phone}}' class='mine_data_img5'></image>
+    <label class='mine_dt h4-5'>联系客服</label>
+    <label class='data_1 h5'>拨打客服热线<image src='{{uploadpath}}resource/{{res.reg_right}}' class='dt_imgs icon-15-1'></image></label>
+   </view>
+</view>

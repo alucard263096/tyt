@@ -1,0 +1,30 @@
+/* pages/matchmaker/matchmaker.wxss */
+Page{
+  background: rgb(255, 251, 254);
+}
+
+.Mtm{
+  margin: 30rpx;
+  display: flex;
+  flex-direction:column;
+}
+.photo{
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+}
+.m{
+box-shadow: rgb(207, 206, 206) 7rpx 2rpx 7rpx 0rpx;
+background: #eba0c465;
+padding-left: 30rpx;
+border-radius: 13rpx;
+margin-top: 20rpx;
+height: 300rpx;
+width: 500rpx;
+}
+.br{
+  border: 1rpx dashed #d4237a;
+  width: 90%;
+  height: 1rpx;
+  margin-top: 10rpx;
+}

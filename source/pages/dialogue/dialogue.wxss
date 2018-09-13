@@ -1,0 +1,92 @@
+/* pages/dialogue/dialogue.wxss */
+
+.menu {
+  display: block;
+  height: 38px;
+}
+
+.menu dt {
+  font-size: 15px;
+  float: left;
+  /*hack*/
+  width: 49.72%;
+  height: 38px;
+  border-right: 1px solid #d2d2d2;
+  border-bottom: 1px solid #d2d2d2;
+  text-align: center;
+  background-color: #f4f4f4;
+  color: #5a5a5a;
+  line-height: 38px;
+}
+
+.menu dd {
+  position: absolute;
+  width: 100%;
+  /*hack*/
+  top: 39px;
+  left: 0;
+  z-index: 999;
+}
+
+.menu li {
+  font-size: 14px;
+  line-height: 44px;
+  color: #575757;
+  height: 44px;
+  display: block;
+  padding-left: 8px;
+  background-color: #fff;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.menu li.highlight {
+  background-color: #f4f4f4;
+}
+
+.confirm {
+  width: 240rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #f86898;
+  color: white;
+  float: left;
+  margin: 15rpx 0rpx 0rpx 50rpx;
+}
+
+.cancel {
+  width: 240rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #f86898;
+  color: white;
+  float: right;
+  margin: 15rpx 50rpx 0rpx 0rpx;
+}
+
+.hover_btn {
+  width: 240rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #ff4081;
+  color: white;
+  float: left;
+  margin: 15rpx 0rpx 0rpx 50rpx;
+}
+
+.hover_btn2 {
+  width: 240rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #ff4081;
+  color: white;
+  float: right;
+  margin: 15rpx 50rpx 0rpx 0rpx;
+}

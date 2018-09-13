@@ -1,0 +1,12 @@
+<!--pages/blacklist/blacklist.wxml-->
+<view class='blacklist_data flex-row flex-center'>
+     <view class='blacklist_headimg flex-1 '>
+      <image  class=' blacklist_img' src='{{uploadpath}}people/{{people.photo}}'></image>
+     </view>
+
+      <view class='blacklist_name fontcolor-1 h5 flex-1'>
+        {{people.name}}
+      </view>
+
+      <view class='flex-2 right'><button class='relieve_btn h5 ' hover-class='hover_btn'>解除</button></view>
+</view>

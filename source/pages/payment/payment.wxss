@@ -1,0 +1,12 @@
+/* pages/payment/payment.wxss */
+.dt{
+  float: right;
+  height:50rpx;
+  width: 200rpx;
+}
+.icon_rig{
+  width: 30rpx;
+  height: 30rpx;
+  margin: 10rpx;
+  line-height: 30rpx;
+}

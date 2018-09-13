@@ -1,0 +1,15 @@
+<!--pages/matchmaker/matchmaker.wxml-->
+
+<view class='Mtm flex-row flex-center '>
+<image class='photo' src='{{uploadpath}}people/{{people.photo}}'></image>
+<view class='m'>
+<view class='h4-5 margin-top-20'>媒人姓名: {{people.matcher_name}}</view>
+<view class='br'></view>
+
+<view class='h4-5 margin-top-20'>电话号码:{{matcher_mobile}}</view>
+<view class='br'></view>
+
+<view class='h4-5 margin-top-20 margin'>微信号:{{matcher_mobile}}</view>
+<view class='br'></view>
+</view>
+</view>

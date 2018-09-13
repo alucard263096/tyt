@@ -1,0 +1,24 @@
+<!--pages/shield/shield.wxml-->
+<view class='editing_head'>
+<text class='editing_txt'>不被搜索选项</text>
+</view>
+<view class='shield_data'> 
+   <view class='data'>
+    <label class='mine_dt h4-5'>年龄</label>
+    <label class='data_1 h4-5'>{{people.name}}<image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image></label>
+   </view>
+</view>
+
+<view class='shield_data'> 
+   <view class='data'>
+    <label class='mine_dt h4-5'>身高</label>
+    <label class='data_1 h4-5'>mmmm<image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image></label>
+   </view>
+</view>
+
+<view class='shield_data2'> 
+   <view class='data'>
+    <label class='mine_dt h4-5'>婚姻状况</label>
+    <label class='data_1 h5'>{{people.birth}}<image src='{{uploadpath}}resource/{{res.reg_right}}' class='dt_imgs icon-15-1'></image></label>
+   </view>
+</view>
