@@ -7,7 +7,7 @@
     欢迎来到我们班！
   </view>
 
-  <view  style='margin-top:80rpx;' class='text-center'  >
+  <view  style='margin-top:80rpx;' class='text-center'>
     <image wx:if="{{photo==''}}" class='icon-75' src='{{uploadpath}}resource/{{res.defaultmember}}' bindtap='choosePhoto'></image>
     <image class='icon-75' src='{{uploadpath}}user/{{photo}}' wx:if="{{photo!=''}}" bindtap='choosePhoto'></image>
     <input name="photo" value='{{photo}}' class='fullimg' hidden='true'></input>

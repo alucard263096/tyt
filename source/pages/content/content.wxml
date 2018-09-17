@@ -1,6 +1,6 @@
 <!--pages/content/content.wxml-->
 <view>
-  <swiper autoplay='true' indicator-dots='true' style='width:750rpx;height:390rpx;' circular>
+  <swiper autoplay='true' indicator-dots='true' circular='true' style='width:750rpx;height:390rpx;' circular>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k">
       <view>
         <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:390rpx;' mode="aspectFill"></image>
@@ -68,7 +68,7 @@
 <navigator url='/pages/details/details?shownext=Y&&id={{item.id}}' class='Head_portrait' wx:for="{{people}}" wx:key="k">
   <image class=' abstract_img' src='{{uploadpath}}people/{{item.photo}}'></image>
   <view class='s1 h5'>
-    {{people.name}}
+    {{item.name}}
   </view>
   <view class='s2 h6'>
     <label class='age'>{{item.birth}}</label>|

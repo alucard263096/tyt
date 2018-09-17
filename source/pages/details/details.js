@@ -17,11 +17,10 @@ class Content extends AppBase {
     super();
   }
   onLoad(options) {
-    options.class_id = 1;
-
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({})
   }
   onMyShow() {
     var that = this;
@@ -38,19 +37,17 @@ class Content extends AppBase {
     });
 
     var peopleapi = new PeopleApi();
-    peopleapi.list({}, (people) => {
-      var people = people[0];
-      var birth = people.birth_timespan;
-      var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
-      people.age = age;
+    peopleapi.info(({ id: this.Base.options.id }), (info) => {
       this.Base.setMyData({
-        people
+        info
       });
     });
-    
-
+    peopleapi.photolist({ id: this.Base.options.id},(photolist)=>{
+      this.Base.setMyData({
+        photolist
+      });
+    })
   }
-
 }
 var content = new Content();
 var body = content.generateBodyJson();

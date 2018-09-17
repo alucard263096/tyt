@@ -14,6 +14,7 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    
   }
   onMyShow() {
     var that = this;
@@ -27,7 +28,8 @@ class Content extends AppBase {
     
     var peopleapi = new PeopleApi();
     
-    peopleapi.list({}, (people) => {
+    peopleapi.list({unicode:"tyt"}, (people) => {
+      
       this.Base.setMyData({ people });
     });
     
@@ -37,7 +39,6 @@ class Content extends AppBase {
 }
 var i = 0;
 var array = [];
-
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;

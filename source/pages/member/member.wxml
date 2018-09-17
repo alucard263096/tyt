@@ -25,12 +25,12 @@
         {{people.name}}
       </view>
 </navigator> -->
-<navigator class='abstract'  wx:for="{{people}}" wx:key="k">
+<navigator class='abstract'  wx:for="{{list}}" wx:key="k">
         <view class="editing_portrait"> 
-        <image  class=' abstract_img' src='{{uploadpath}}people/{{item.photo}}'></image>
+        <image  class=' abstract_img' src='{{uploadpath}}list/{{list.viewpeople_photo}}'></image>
         </view>
             <!-- <image src="{{item.header_url}}" class="author"></image> -->
-         <text class="s1 h5">{{item.name}}</text>
-         <text class='mem_date h5'>8月20日</text>
-         <text class="s2 h6">{{item.gender_name}}</text>
+         <text class="s1 h5">{{list.viewpeople_name}}</text>
+         <text class='mem_date h5'>{{list.r_main.updated_date}}</text>
+         <text class="s2 h6"></text>
 </navigator>

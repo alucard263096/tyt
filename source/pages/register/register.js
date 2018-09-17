@@ -4,6 +4,7 @@ import { ApiConfig } from "../../apis/apiconfig";
 import { ContentApi } from "../../apis/content.api";
 import { MemberApi } from "../../apis/member.api.js";
 import { InstApi } from "../../apis/inst.api.js";
+import {PeopleApi} from "../../apis/people.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -24,7 +25,7 @@ class Content extends AppBase {
    
 
     this.Base.setMyData({ name: "", mobile: "", sex: "", address: "", noticesuccess: false });
-    var api = new MemberApi();
+    var api = new PeopleApi();
     api.register({}, (register) => {
       this.Base.setMyData({ register});
     });
@@ -75,16 +76,22 @@ class Content extends AppBase {
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
     });
+    var peopleapi=new PeopleApi();
+    peopleapi.register({},(register)=>{
+      this.Base.setMyData({
+       register
+      });
+    });
     
   }
   phonenoCallback(mobile) {
-    this.Base.setMyData({ mobile });
+    this.Base.setMyData({ mobile: mobile });
   }
   bind(e) {
     console.log(e);
     var data = e.detail.value;
     if (data.mobile == "") {
-      this.Base.info("请点击绑定手机");
+      this.Base.info("点击绑定手机");
       return;
     }
     var userapi = new UserApi();

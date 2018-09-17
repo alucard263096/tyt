@@ -28,16 +28,17 @@ class Content extends AppBase {
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
     });
+    var peopleapi=new PeopleApi();
+    peopleapi.countrylist({}, (country)=>{
+      that.Base.setMyData({country});
+    });
   }
   bindRegionChange(e) {
     this.Base.setMyData({
       region: e.detail.value
     })
   }
-
 }
-
-
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;

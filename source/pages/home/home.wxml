@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml-->
 <view>
-  <swiper autoplay='true' indicator-dots='true' style='width:750rpx;height:200rpx;' circular>
+  <swiper autoplay='true' indicator-dots='true' circular='true' style='width:750rpx;height:200rpx;'>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k">
       <view>
         <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:200rpx;' mode="aspectFill"></image>
@@ -9,40 +9,38 @@
   </swiper>
 </view>
 
-<navigator url='/pages/?shownext=Y&id={{item.id}}' class='pos flex-row flex-center'    >
-  <view class='padding-L-T-R-40' >
+<view url='/pages/?shownext=Y&id={{item.id}}' class='pos flex-row flex-center'>
+  <view class='mid padding-L-T-R-40'>
     <view class='syn' style='position:absolute;'>
-      <view class='name_1 h4'>{{people.name}}</view>
+      <view class='name_1 h4'>{{people2.name}}</view>
       <view class='ifm h5'>
-        <label class='age'>{{people.age}}岁</label>|
-        <label class='height'>{{people.height}}cm</label>|
-        <label class='education'>{{people.quality_name}}</label>|
-        <label class='income'> {{people.income}}元/月a</label>
+        <label class='margin-right-10'>{{people2.age}}岁</label>|
+        <label class='margin-left-10 margin-right-10'>{{people2.height}}cm</label>|
+        <label class='margin-left-10 margin-right-10'>{{people2.quality_name}}</label>|
+        <label class='margin-left-10 margin-right-10'> {{people2.income}}元/月</label>
       </view>
     </view>
     <view>
-      <image class=' border-radius-5 ' src='{{uploadpath}}people/{{people.photo}}' style='width:654rpx;height:850rpx;'>
+      <image class='ig border-radius-5 ' src='{{uploadpath}}people/{{people2.photo}}'>
       </image>
     </view>
-
   </view>
-</navigator>
+</view>
 
-<navigator  animation="{{animationLsi}}"  url='/pages/?shownext=Y&id={{item.id}}' class='pos  flex-row flex-center '  >
+<navigator url='/pages/details/details?id={{people.id}}' class='pos flex-row flex-center {{inleftswipe==true?"inleftswipe":""}} {{inrightswipe==true?"inrightswipe":""}}'>
   <view class='padding-L-T-R-40' bindtouchstart="handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
     <view class='syn' style='position:absolute;'>
-      <view class='name_1 h4'>{{people.name}}</view>
+      <view class='name_1 h4'>{{people2.name}}</view>
       <view class='ifm h5'>
-        <label class='age'>105岁</label>|
-        <label class='height'>{{people.height}}cm</label>|
-        <label class='education'>{{people.quality_name}}</label>|
-        <label class='income'> {{people.income}}元/月b</label>
+        <label class='margin-right-10'>{{people2.age}}岁</label>|
+        <label class='margin-left-10 margin-right-10'>{{people2.height}}cm</label>|
+        <label class='margin-left-10 margin-right-10'>{{people2.quality_name}}</label>|
+        <label class='margin-left-10 margin-right-10'> {{people2.income}}元/月</label>
       </view>
     </view>
     <view>
-      <image class=' border-radius-5 ' src='{{uploadpath}}people/{{people.photo}}' style='width:674rpx;height:850rpx;'>
+      <image class='ig border-radius-5 ' src='{{uploadpath}}people/{{people2.photo}}'>
       </image>
     </view>
-
   </view>
 </navigator>

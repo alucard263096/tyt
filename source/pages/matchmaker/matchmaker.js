@@ -35,7 +35,7 @@ class Content extends AppBase {
       this.Base.setMyData({ people });
     });
     peopleapi.matcher({},(matcher)=>{
-      this.Base.setMyData(matcher);
+      this.Base.setMyData({matcher});
     });
 
   }

@@ -32,8 +32,6 @@
         </view>
       </scroll-view>
     </view>
-
-
   </view>
 </view>
 
@@ -155,4 +153,6 @@
   </view>
 </view>
 
-<view><button class='h5 details_btn' hover-class='hover_btn'>确定修改</button></view>
+<view>
+  <button class='h5 details_btn' hover-class='hover_btn'>确定修改</button>
+</view>

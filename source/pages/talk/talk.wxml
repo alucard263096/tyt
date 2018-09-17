@@ -11,7 +11,7 @@
       </view>
     </view>
     <view class='right'>
-      <image class=' headimg' src='{{UserInfo.avatarUrl}}'></image>
+      <image class=' headimg' src='{{uploadpath}}people/{{viewpeople_photo}}'></image>
     </view>
   </view>
 
@@ -63,10 +63,14 @@
     </view>
     <view class='mid flex-1'>
       <view class='triangle-up2'></view>
-      <view class='dialogue_left h6' style='white-space:pre-line'>您已成功完成支付,挑一挑红娘将为您提供{{people.name}}的详细信息以及媒人电话。 
-      相亲时间 : 11111111 
-      对方姓名 : 
-      媒人电话 : 123121221
+      <view class='dialogue_left h6' style='white-space:pre-line'>您已成功完成支付,挑一挑红娘将为您提供<label class='h4-1' style='color:black'>{{starter_name}}</label>的详细信息以及媒人电话。 
+      相亲时间: 
+
+       对方姓名: <label class='h4-1' style='color:black'>{{starter_name}}</label>
+
+       对方地址：<label class='h4-1' style='color:black'>{{people.country_id}}</label>
+
+       媒人电话: <label class='h4-1' style='color:black'>{{matcher_mobile}}</label>
       </view>
     </view>
     <view class='right'>
@@ -119,7 +123,7 @@
       </view>
     </view>
     <view class='right'>
-      <image class=' headimg' src='{{UserInfo.avatarUrl}}'></image>
+      <image class=' headimg' src='{{uploadpath}}people/{{viewpeople_photo}}'></image>
     </view>
   </view>
 
@@ -169,7 +173,7 @@
       </view>
     </view>
     <view class='right'>
-      <image class=' headimg' src='{{UserInfo.avatarUrl}}'></image>
+      <image class=' headimg' src='{{uploadpath}}people/{{viewpeople_photo}}'></image>
     </view>
   </view>
 

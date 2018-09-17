@@ -1,26 +1,20 @@
 <!--pages/details/details.wxml-->
 <view class='details_all'>
-  <image class='details_mine'>
-    <view style='text-align:center'>
-      <image class=' details_headimg' src='{{UserInfo.avatarUrl}}'></image>
-    </view>
-    <view></view>
-    <view style='text-align:center'>
-      <label class='details_wxname'>{{UserInfo.nickName}}</label>
-    </view>
 
-    <view class='details_introduce'>
-      <text class='details_wxname h6' space='ensp' selectable='true'>自我介绍</text>
+  <view class='flex-row flex-column margin-top-10' style='position:absolute;padding-left:300rpx;'>
+    <view class='margin-top-10'>
+      <image src='{{uploadpath}}people/{{info.photo}}' style=';width:120rpx;height:120rpx;border-radius:50%'></image>
     </view>
-
-
-  </image>
+    <view class='h5 padding-10'>{{info.name}}</view>
+    <view class=' h5'>222</view>
+  </view>
+  <image src='{{uploadpath}}resource/{{res.details_bg}}' style='width:750rpx;height:310rpx;'></image>
 
   <view class='details_mid'>
     <view class='details_img'>
       <scroll-view class="details-box" scroll-x="true">
         <view class="details-item">
-          <image wx:for="people" wx:key="k" src='{{uploadpath}}people/{{people.photo}}' class='details_img '></image>
+          <image src='{{uploadpath}}people/{{photolist.photo}}' class='details_img '></image>
         </view>
       </scroll-view>
     </view>
@@ -32,35 +26,49 @@
   <view class='fonthead h4'>
     基本资料
   </view>
-  <!-- <label class='ll'>{{people.gender_name}}</label> -->
+
   <view class='details_lath2'>
   </view>
 
-  <view class='details'>
-    <view class='details_content h5'>
-      <label>昵称：</label>
-      <label class='margin-top-10'>性别</label>
-      <label class='margin-top-10'>生日：</label>
-      <label class='margin-top-10'>身高：</label>
-      <label class='margin-top-10'>学历：</label>
-      <label class='margin-top-10'>月收入：</label>
-      <label class='margin-top-10'>居住地：</label>
-      <label class='margin-top-10'>婚姻状况：</label>
-      <label class='margin-top-10'>子女情况：</label>
+  <view class='padding-L-T-20 '>
+    <view class='flex-row flex-center  padding-10'>
+      <view class='flex-1 h5'>昵称：</view>
+      <view class='flex-2 h5'>{{info.name}}</view>
     </view>
-    <view class='details_info'>
-      <label class='h5'>{{UserInfo.nickName}}</label>
-      <label class='margin-top-10 h5'>{{people.gender_name}}</label>
-      <label class='margin-top-10 h5'>{{people.birth}}</label>
-      <label class='margin-top-10 h5'>{{people.height}}</label>
-      <label class='margin-top-10 h5'>{{people.quality_name}}</label>
-      <label class='margin-top-10 h5'>{{people.income}}</label>
-      <label class='margin-top-10 h5'>{{people.country_id}}</label>
-      <label class='margin-top-10 h5'>{{people.status}}</label>
-      <label class='margin-top-10 h5'>{{people.children}}</label>
+    <view class='flex-row flex-center  padding-10'>
+      <view class='flex-1 h5'>性别: </view>
+      <view class='flex-2 h5'>{{info.gender_name}}</view>
     </view>
-
+    <view class='flex-row flex-center  padding-10'>
+      <view class='flex-1 h5'>生日：</view>
+      <view class='flex-2 h5'>{{info.birth}}</view>
+    </view>
+    <view class='flex-row flex-center  padding-10'>
+      <view class='flex-1 h5'>身高：</view>
+      <view class='flex-2 h5'>{{info.height}}cm</view>
+    </view>
+    <view class='flex-row flex-center  padding-10'>
+      <view class='flex-1 h5'>学历：</view>
+      <view class='flex-2 h5'>{{info.quality_name}}</view>
+    </view>
+    <view class='flex-row flex-center  padding-10'>
+      <view class='flex-1 h5'>月收入：</view>
+      <view class='flex-2 h5'>{{info.income}}元/月</view>
+    </view>
+    <view class='flex-row flex-center  padding-10'>
+      <view class='flex-1 h5'>居住地：</view>
+      <view class='flex-2 h5'>{{info.country_id}}</view>
+    </view>
+    <view class='flex-row flex-center  padding-10'>
+      <view class='flex-1 h5'>婚姻状况：</view>
+      <view class='flex-2 h5'>{{info.status}}</view>
+    </view>
+    <view class='flex-row flex-center  padding-10'>
+      <view class='flex-1 h5'>子女情况：</view>
+      <view class='flex-2 h5'>{{info.children}}</view>
+    </view>
   </view>
+
 
   <view class='details_lath2'>
   </view>
