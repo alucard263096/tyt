@@ -8,27 +8,12 @@
 
   <view class='editing_photo'>
     <view class='editing_img'>
-      <navigator url='/pages/photo/photo?shownext=Y&id={{item.id}}'>
+      <navigator url='/pages/photo/photo'>
         <cover-image src='{{uploadpath}}resource/{{res.insert}}' class='editing_insert edt_img'></cover-image>
       </navigator>
-      <scroll-view class="editing-box" scroll-x="true">
+      <scroll-view class="editing-box" scroll-x="true" wx:for="photolist" wx:key="k">
         <view class="editing-item">
-          <image src='{{uploadpath}}resource/{{res.kb}}' class='edt_img '></image>
-        </view>
-        <view class="editing-item">
-          <image src='{{uploadpath}}resource/{{res.mj}}' class='edt_img '></image>
-        </view>
-        <view class="editing-item">
-          <image src='{{uploadpath}}resource/{{res.lbj}}' class='edt_img '></image>
-        </view>
-        <view class="editing-item">
-          <image src='{{uploadpath}}resource/{{res.ai}}' class='edt_img '></image>
-        </view>
-        <view class="editing-item">
-          <image src='{{uploadpath}}resource/{{res.kg}}' class='edt_img '></image>
-        </view>
-        <view class="editing-item">
-          <image src='{{uploadpath}}resource/{{res.tm}}' class='edt_img '></image>
+          <image src='{{uploadpath}}people/{{photolist.photo}}' class='edt_img '></image>
         </view>
       </scroll-view>
     </view>
@@ -38,19 +23,27 @@
 <view class='lath'>
 </view>
 
-<view class='editing_data'>
+<!-- <view class='editing_data'>
   <view class='data'>
     <label class='mine_dt h4-5'>姓名</label>
-    <navigator class='data_1 h4-5'>{{people.name}}
+    <view  class='data_1 h4-5'>{{people.name}}
       <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
-    </navigator>
+    </view>
+  </view>
+</view> -->
+<view class='editing_data'>
+  <view class='data' style='margin-right:70rpx;'>
+    <label class='mine_dt h4-5'>姓名</label>
+    <label class='data_1 h4-5'>{{people.name}}
+    </label>
   </view>
 </view>
+
 
 <view class='editing_data'>
   <view class='data'>
     <label class='mine_dt h4-5'>昵称</label>
-    <navigator class='data_1 h4-5' url='/pages/setname/setname?shownext=Y&id={{item.id}}'>可编辑资料
+    <navigator class='data_1 h4-5' url='/pages/setname/setname'>可编辑资料
       <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
     </navigator>
   </view>
@@ -77,7 +70,7 @@
   </view>
 </view>
 
-<view class='editing_data'>
+<!-- <view class='editing_data'>
   <view class='edt_data'>
     <label class='mine_dt h4-5'>生日</label>
     <picker class='data_1 h4-5' mode="date" bindchange="bindRegionChangedate" value="{{region_date}} range='{{date}}'" custom-item="{{customItem}}">
@@ -87,6 +80,13 @@
         </input>
       </view>
     </picker>
+  </view>
+</view> -->
+<view class='editing_data'>
+  <view class='data' style='margin-right:70rpx;'>
+    <label class='mine_dt h4-5'>生日</label>
+    <label class='data_1 h4-5'>{{people.birth}}
+    </label>
   </view>
 </view>
 
@@ -122,7 +122,7 @@
     <picker mode="selector" bindchange="bindPickerChangeincome" value="{{inc}}" range="{{income}}">
       <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
       <view class="edt_pf fontcolor h5">
-        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.income}}' value='{{income[inc]}}' name="quality" style='text-align:right'>
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.income_name}}' value='{{income[inc]}}' name="quality" style='text-align:right'>
         </input>
       </view>
     </picker>
@@ -132,7 +132,7 @@
 <view class='editing_data'>
   <view class='data'>
     <label class='mine_dt h4-5'>居住地</label>
-    <label class='data_1 h4-5'>{{people.country_id}}
+    <label class='data_1 h4-5'>{{people.address}}{{people.country_id}}
       <navigator class='edt_address' url='/pages/address/address?shownext=Y&id={{item.id}}'>
         <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_img icon-15-1'></image>
       </navigator>
@@ -146,7 +146,7 @@
     <picker mode="selector" bindchange="bindPickerChangemarriage" value="{{mrg}}" range="{{marriage}}">
       <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
       <view class="edt_pf fontcolor h5">
-        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.status}}' value='{{marriage[mrg]}}' name="quality" style='text-align:right'>
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.marriage_name}}' value='{{marriage[mrg]}}' name="quality" style='text-align:right'>
         </input>
       </view>
     </picker>

@@ -2,14 +2,15 @@
 <view class='all'>
 <view class='flex-row flex-wrap margin-top-10'>
     <view class='imgbg' wx:for="{{images}}" wx:key="k" wx:for-index="idx">
-      <image src='{{uploadpath}}post/{{item}}' bindtap='minusImg' id="{{idx}}"></image>
+      <image src='{{uploadpath}}post/{{item}}' mode='aspectFill' bindtap='minusImg' id="{{idx}}"></image>
     </view>
     <view class='imgbg_border' bindtap='uploadimg'>
-      <image class='addimg' src='{{uploadpath}}resource/{{res.insert}}'></image>
+      <image class='addimg' mode='aspectFill' src='{{uploadpath}}resource/{{res.insert}}'></image>
     </view>
   </view>
 </view>
 <view>
 <view><button class='h5 details_btn' hover-class='hover_btn'>保存</button></view>
-</view>  
+<view class='fontcolor margin-20 h5' style='width:700rpx;text-align:left;'>请添加您的真实照片</view>
+</view>
 

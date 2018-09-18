@@ -1,11 +1,18 @@
-scroll-view {
-    width: 80%;
-    white-space: nowrap;
+.imgbg{
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
 }
-
-.item-content {
-    width: 40%;
-    display: inline-block;
-    border: 1rpx solid gray;
-    text-align: center;
+.imgbg_border{
+  width: 116rpx;
+  height: 116rpx;
+  border:2rpx rgba(211, 211, 211, 0.5) solid;
+  margin-top: 10rpx;
+}
+.addimg{
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
 }

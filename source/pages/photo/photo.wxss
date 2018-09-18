@@ -1,6 +1,7 @@
 /* pages/photo/photo.wxss */
 .all{
-  border: 2px dashed   rgb(226, 226, 226);
+  border: 1rpx solid   rgb(226, 226, 226);
+  box-shadow: rgb(255, 158, 218) 2rpx 2rpx 15rpx 0rpx inset;
   padding: 20rpx 0rpx 20rpx 34rpx;
   margin: 10px;
   text-align: center;
@@ -21,7 +22,8 @@
 .imgbg_border{
   width: 150rpx;
   height: 150rpx;
-  border: 2rpx dashed   rgb(226, 226, 226);
+  border: 2rpx dashed  rgb(226, 226, 226);
+  box-shadow: rgb(221, 216, 216) 5rpx 0rpx 6rpx 0rpx;
   margin-top: 10rpx;
 }
 .addimg{

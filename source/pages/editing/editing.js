@@ -49,7 +49,7 @@ class Content extends AppBase {
     this.Base.setMyData({
       quality
     });
-
+    
     var income = ["2000元以下", "2000-3000元", "3000-4000元", "4000-5000元", "5000-7000元", "7000-10000元",
       "10000-15000元", "15000-20000元", "20000-25000元", "25000-30000元", ">50000元"
     ]
@@ -116,6 +116,14 @@ class Content extends AppBase {
       this.Base.setMyData({
         people
       });
+    });
+    peopleapi.photolist({ id:1 }, (photolist) => {
+      this.Base.setMyData({
+        photolist
+      });
+    });
+    peopleapi.update({}, (update)=>{
+      this.Base.setMyData({ update});
     });
   }
 

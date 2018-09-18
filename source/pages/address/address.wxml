@@ -1,7 +1,7 @@
 <!--pages/address/address.wxml-->
 <view class='mine_data'> 
   <view class='data'>
-    <label class='mine_dt h4-5'>请选择地址</label>
+    <label class='mine_dt h4-5'>请选择填写村庄</label>
     <picker class='data_1 h4-5' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
     <view class="mine_picker">
       <image src='{{uploadpath}}resource/{{res.Right_black}}' class='dt_img icon-15-1'></image>

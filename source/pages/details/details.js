@@ -46,7 +46,7 @@ class Content extends AppBase {
       this.Base.setMyData({
         photolist
       });
-    })
+    });
   }
 }
 var content = new Content();

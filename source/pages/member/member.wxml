@@ -25,7 +25,7 @@
         {{people.name}}
       </view>
 </navigator> -->
-<navigator class='abstract'  wx:for="{{list}}" wx:key="k">
+<navigator class='abstract'  wx:for="{{}}" wx:key="k">
         <view class="editing_portrait"> 
         <image  class=' abstract_img' src='{{uploadpath}}list/{{list.viewpeople_photo}}'></image>
         </view>

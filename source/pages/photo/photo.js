@@ -11,6 +11,7 @@ class Content extends AppBase {
   onLoad(options) {
     this.Base.Page = this;
     super.onLoad(options);
+    this.Base.setMyData({ images: [] });
   }
   onMyShow() {
     var that = this;
