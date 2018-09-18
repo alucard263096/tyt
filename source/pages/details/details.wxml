@@ -53,7 +53,7 @@
     </view>
     <view class='flex-row flex-center  padding-10'>
       <view class='flex-1 h5'>月收入：</view>
-      <view class='flex-2 h5'>{{info.income}}元/月</view>
+      <view class='flex-2 h5'>{{info.income_name}}</view>
     </view>
     <view class='flex-row flex-center  padding-10'>
       <view class='flex-1 h5'>居住地：</view>
@@ -61,7 +61,7 @@
     </view>
     <view class='flex-row flex-center  padding-10'>
       <view class='flex-1 h5'>婚姻状况：</view>
-      <view class='flex-2 h5'>{{info.status}}</view>
+      <view class='flex-2 h5'>{{info.marriage_name}}</view>
     </view>
     <view class='flex-row flex-center  padding-10'>
       <view class='flex-1 h5'>子女情况：</view>

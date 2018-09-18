@@ -1,10 +1,10 @@
 <!--pages/mine/mine.wxml-->
 <view class='mine_top'>
      <view class='mine_portrait'>
-      <image  class=' abstract_img' src='{{UserInfo.avatarUrl}}'></image>
+      <image  class=' abstract_img' src='{{uploadpath/member/photo}}'></image>
      </view>
       <view class='mine_img h5'>
-        {{UserInfo.nickName}}
+        {{UserInfo.name}}
       </view>
 </view>
 

@@ -17,7 +17,7 @@
         <label class='margin-right-10'>{{people2.age}}岁</label>|
         <label class='margin-left-10 margin-right-10'>{{people2.height}}cm</label>|
         <label class='margin-left-10 margin-right-10'>{{people2.quality_name}}</label>|
-        <label class='margin-left-10 margin-right-10'> {{people2.income}}元/月</label>
+        <label class='margin-left-10 margin-right-10'> {{people2.income_name}}</label>
       </view>
     </view>
     <view>
@@ -35,7 +35,7 @@
         <label class='margin-right-10'>{{people2.age}}岁</label>|
         <label class='margin-left-10 margin-right-10'>{{people2.height}}cm</label>|
         <label class='margin-left-10 margin-right-10'>{{people2.quality_name}}</label>|
-        <label class='margin-left-10 margin-right-10'> {{people2.income}}元/月</label>
+        <label class='margin-left-10 margin-right-10'> {{people2.income_name}}</label>
       </view>
     </view>
     <view>

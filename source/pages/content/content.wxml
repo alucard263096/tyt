@@ -54,7 +54,6 @@
   </picker> -->
 <scroll-view class='maintab' scroll-y>
 <view class='bg-mu maintab' bindtap='closeoption' wx:if="{{orderselect==true||filterselect==true}}">
-
 </view>
 <navigator url='/pages/details/details?shownext=Y&&id={{item.id}}' class='Head_portrait' wx:for="{{peoplelist}}" wx:key="k">
   <image class=' abstract_img' src='{{uploadpath}}people/{{item.photo}}'></image>

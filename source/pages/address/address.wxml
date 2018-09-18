@@ -1,11 +1,11 @@
 <!--pages/address/address.wxml-->
 <view class='mine_data'> 
   <view class='data'>
-    <label class='mine_dt h4-5'>请选择填写村庄</label>
-    <picker class='data_1 h4-5' mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+    <label class='mine_dt h4-5'>请选择村庄</label>
+    <picker class='data_1 h4-5' mode="selector" bindchange="bindRegionChange" value="{{countrylist}}" custom-item="{{customItem}}">
     <view class="mine_picker">
       <image src='{{uploadpath}}resource/{{res.Right_black}}' class='dt_img icon-15-1'></image>
-      <input disabled='false' class='dt_input h5' style='float:right' value='{{region}}'></input>
+      <input disabled='false' class='dt_input h5' style='float:right' value='{{countrylist}}'></input>
     </view>
     </picker>
   </view>

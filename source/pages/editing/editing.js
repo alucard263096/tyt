@@ -23,9 +23,10 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
 
-    var array = ["男", "女"];
+    var sex = ["男", "女"];
+    var sex_val=["M","F"]
     this.Base.setMyData({
-      array
+      sex_val,sex
     });
 
     var date = [""];
@@ -33,11 +34,10 @@ class Content extends AppBase {
       date
     });
 
-    var height = ["145CM以下",
-      "145CM", "146CM", "147CM", "148CM",
-      "149CM", "150CM", "151CM", "152CM",
-      "153CM", "154CM"
-    ];
+    var height = [];
+    for (var i = 0; i < 70; i++) {
+      height.push(i + 140);
+    }
     this.Base.setMyData({
       height
     });
@@ -46,51 +46,71 @@ class Content extends AppBase {
       "中专/职高/技校", "高中", "大专", "本科",
       "硕士", "博士"
     ];
+    var quality_val=["1","2","3","4","5","6","7"];
     this.Base.setMyData({
-      quality
+      quality_val,quality
     });
     
-    var income = ["2000元以下", "2000-3000元", "3000-4000元", "4000-5000元", "5000-7000元", "7000-10000元",
-      "10000-15000元", "15000-20000元", "20000-25000元", "25000-30000元", ">50000元"
+    var income = ["<2000元/月", "2000-3000元/月", "3000-4000元/月", "4000-5000元/月", "5000-7000元/月", "7000-10000元/月",
+      "10000-15000元/月", "15000-20000元/月", "20000-25000元/月", "25000-30000元/月", ">30000元/月"
+    ];
+    var income_val = ["a", "b", "c", "d", "e", "f",
+      "g", "h", "i", "j", "k"
     ]
     this.Base.setMyData({
-      income
+      income_val,income
     });
 
-    var marriage = ["未婚", "离异", "丧偶"]
+    var marriage = ["未婚", "离异", "丧偶"];
+    var marriage_val=["A","B","C"]
     this.Base.setMyData({
-      marriage
+      marriage_val,marriage
     })
   }
   bindPickerChange(e) {
+    console.log(e.detail.value);
     this.Base.setMyData({
-      index: e.detail.value
-    })
+      sx: e.detail.value
+    });
+    var sex = this.Base.getMyData().sex;
+    sex[e.detail.value];
   }
-  bindRegionChangedate(e) {
-    this.Base.setMyData({
-      region_date: e.detail.value
-    })
-  }
+  
   bindPickerChangehig(e) {
     this.Base.setMyData({
       hig: e.detail.value
     })
   }
   bindPickerChangequa(e) {
+    console.log(e.detail.value);
     this.Base.setMyData({
       qua: e.detail.value
-    })
+    });
+    var quality = this.Base.getMyData().quality;
+    quality[e.detail.value];
   }
+
   bindPickerChangeincome(e) {
-    this.Base.setMyData({
-      inc: e.detail.value
-    })
+    console.log(e.detail.value);
+     this.Base.setMyData({
+       inc: e.detail.value
+     });
+    var income = this.Base.getMyData().income;
+    income[e.detail.value];
   }
+
   bindPickerChangemarriage(e) {
+    console.log(e.detail.value);
     this.Base.setMyData({
       mrg: e.detail.value
     })
+    var marriage = this.Base.getMyData().marriage;
+    marriage[e.detail.value]
+  }
+  headimg(){
+    this.Base.uploadImage("people",(ret)=>{
+      this.Base.setMyData({photo:ret});
+    },1);
   }
 
   onMyShow() {
@@ -136,6 +156,7 @@ body.bindPickerChangehig = content.bindPickerChangehig;
 body.bindPickerChangequa = content.bindPickerChangequa;
 body.bindPickerChangeincome = content.bindPickerChangeincome;
 body.bindPickerChangemarriage = content.bindPickerChangemarriage;
-body.onLoad = content.onLoad;
+body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
+body.headimg = content.headimg;
 Page(body)

@@ -1,9 +1,9 @@
 <!--pages/editing/editing.wxml-->
 <view class='editing_head'>
   <text class='editing_txt'>编辑资料</text>
-  <view class='editing_headimg'>
+  <view bindtap='headimg' class='editing_headimg'>
     头像
-    <image class='edt_head abstract_img ' src='{{uploadpath}}people/{{people.photo}}'></image>
+    <image class='edt_head abstract_img ' src='{{uploadpath}}people/{{photo}}'></image>
   </view>
 
   <view class='editing_photo'>
@@ -52,10 +52,10 @@
 <view class='editing_data'>
   <view class='edt_data'>
     <label class='mine_dt h4-5'>性别</label>
-    <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <picker mode="selector" bindchange="bindPickerChange" value="{{sx}}" range="{{sex}}">
       <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
       <view class="edt_pf fontcolor h5">
-        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.gender_name}}' value='{{array[index]}}' name="sex" style='text-align:right'>
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.gender_name}}' value='{{sex[sx]}}' name="sex" style='text-align:right'>
         </input>
       </view>
     </picker>
@@ -70,18 +70,6 @@
   </view>
 </view>
 
-<!-- <view class='editing_data'>
-  <view class='edt_data'>
-    <label class='mine_dt h4-5'>生日</label>
-    <picker class='data_1 h4-5' mode="date" bindchange="bindRegionChangedate" value="{{region_date}} range='{{date}}'" custom-item="{{customItem}}">
-      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
-      <view class="edt_pf fontcolor h5">
-        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.birth}}' value='{{region_date}}' name="sex" style='text-align:right'>
-        </input>
-      </view>
-    </picker>
-  </view>
-</view> -->
 <view class='editing_data'>
   <view class='data' style='margin-right:70rpx;'>
     <label class='mine_dt h4-5'>生日</label>
@@ -96,7 +84,7 @@
     <picker mode="selector" bindchange="bindPickerChangehig" value="{{hig}}" range="{{height}}">
       <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
       <view class="edt_pf fontcolor h5">
-        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.height}}' value='{{height[hig]}}' name="sex" style='text-align:right'>
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.height}}' value='{{height[hig]}}' name="height" style='text-align:right'>
         </input>
       </view>
     </picker>
@@ -132,7 +120,7 @@
 <view class='editing_data'>
   <view class='data'>
     <label class='mine_dt h4-5'>居住地</label>
-    <label class='data_1 h4-5'>{{people.address}}{{people.country_id}}
+    <label class='data_1 h4-5'>{{people.address}}{{people.country_address}}
       <navigator class='edt_address' url='/pages/address/address?shownext=Y&id={{item.id}}'>
         <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_img icon-15-1'></image>
       </navigator>

@@ -1,4 +1,13 @@
 <!--pages/register/register.wxml-->
+<view class='register_wxtop'>
+<view>
+<image  class=' register_wximg' src='{{uploadpath}}member/photo'></image>
+</view>
+<view></view>
+<view>
+<label class='register_wxname'>{{UserInfo.people.name}}</label>
+</view>
+</view>
 
 <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
 
