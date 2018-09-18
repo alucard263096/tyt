@@ -1,8 +1,7 @@
-<view class='flex-row flex-wrap margin-top-10'>
-    <view class='imgbg' wx:for="{{images}}" wx:key="k" wx:for-index="idx">
-      <image src='{{uploadpath}}post/{{item}}' bindtap='minusImg' id="{{idx}}"></image>
-    </view>
-    <view class='imgbg_border' bindtap='uploadimg'>
-      <image class='addimg' src='{{uploadpath}}resource/add.png'></image>
-    </view>
+
+  <view class="row-wrap">
+    <picker bindchange="bindCasPickerChange" range="{{casArray}}" value='{{casArray[casIndex].income}}' class='regSelect' range-key="{{'income_name'}}">
+      <input class='selectInp' placeholder-class='{{place}}' placeholder='请选择团队' name='casArry' disabled='false' value='{{casArray[casIndex].income_name}}' />
+    </picker>
   </view>
+ 

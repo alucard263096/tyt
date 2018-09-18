@@ -1,11 +1,11 @@
 {
   "pages":[
     "pages/editing/editing",
-    "pages/photo/photo",
+    "pages/address/address",
     "pages/newspage/newspage",
     "pages/home/home",
+    "pages/photo/photo",
     "pages/register/register",
-    "pages/address/address",
     "pages/details/details",
     "pages/content/content",
     "pages/member/member",
@@ -16,7 +16,6 @@
     "pages/talkwoman/talkwoman",
     "pages/dialogue/dialogue",
     "pages/setname/setname",
-    "pages/village/village",
     "pages/payment/payment",
     "pages/userbind/userbind",
     "pages/shield/shield",

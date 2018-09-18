@@ -53,15 +53,6 @@
     </view>
   </picker> -->
 
-
-
-
-
-
-
-
-
-
 <view class='lath'>
 </view>
 
@@ -74,6 +65,6 @@
     <label class='age'>{{item.birth}}</label>|
     <label class='height'>{{item.height}}cm</label>|
     <label class='education'>{{item.quality_name}}</label>|
-    <label class='income'>{{item.income}}元/月</label>
+    <label class='income'>{{item.income_name}}</label>
   </view>
 </navigator>
