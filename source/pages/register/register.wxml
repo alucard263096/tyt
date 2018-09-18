@@ -1,70 +1,95 @@
 <!--pages/register/register.wxml-->
-<view class='register_wxtop'>
-<view>
-<image  class=' register_wximg' src='{{UserInfo.avatarUrl}}'></image>
-</view>
-<view></view>
-<view>
-<label class='register_wxname'>{{UserInfo.nickName}}</label>
-</view>
-</view>
-
-<view class='usermotto'>
-</view>
 
 <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
- 
+
+
+  <view class='register_wxtop'>
+    <view>
+      <image wx:if="{{photo==''}}" class='icon-75' src='{{uploadpath}}resource/{{res.defaultmember}}' bindtap='choosePhoto'></image>
+      <image class='icon-75' src='{{uploadpath}}people/{{photo}}' wx:if="{{photo!=''}}" bindtap='choosePhoto'></image>
+      <input name="photo" value='{{photo}}' class='fullimg' hidden='true'></input>
+    </view>
+    <view></view>
+
+  </view>
+
+  <view class='usermotto'>
+  </view>
+
+
   <view class='first flex-row flex-center'>
-  <view >
-    <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
+    <view>
+      <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
+    </view>
+    <view class='user flex-1'>
+      <input class='fullimg h5' placeholder='请输入您的姓名' maxlength='10' name='name' bindinput=''></input>
+    </view>
   </view>
-  <view class='user flex-1'>
-  <input class='fullimg h5'  placeholder='请输入您的姓名' maxlength='10' name='name' bindinput='' ></input>
+
+  <view class='first flex-row flex-center'>
+    <view class='aaa'>
+      <image src='{{uploadpath}}resource/{{res.reg_phone}}' class='icon'></image>
+    </view>
+    <view class='reg_user padding-10 border-bottom flex-row flex-center'>
+      <view class='flex-1 line-height-0'>
+        <input name='phone'  class='h5' placeholder='点击绑定手机' value='{{mobile}}' name="mobile"></input>
+      </view>
+      <button class='btn_phone h6' size='mini' bindgetphonenumber='getPhoneNo' open-type='getPhoneNumber'>获取手机</button>
+    </view>
   </view>
+
+  <view class='first flex-row flex-center'>
+    <view>
+      <image src='{{uploadpath}}resource/{{res.reg_sex}}' class='icon'></image>
+    </view>
+    <view class='user flex-1'>
+      <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="reg_pf fontcolor h5">
+          <input disabled='disabled' class='h5' placeholder='请选择您的性别' value='{{array[index]}}' name="gender">
+          </input>
+        </view>
+        <image class='icon_btm' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
+      </picker>
+    </view>
   </view>
+
+  <view class='first flex-row flex-center'>
+    <view>
+      <image src='{{uploadpath}}resource/{{res.reg_address}}' class='icon'></image>
+    </view>
+    <view class='user flex-1'>
+      <picker class='data_1 h4-5'  bindchange="birthChange" mode="date" >
+       <view class='txt-gray h6' wx:if="{{birth==''}}">请选择出生年月</view>
+       <view class='txt-gray h6' wx:if="{{birth!=''}}">{{birth}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class='first flex-row flex-center'>
+    <view>
+      <image src='{{uploadpath}}resource/{{res.reg_address}}' class='icon'></image>
+    </view>
+    <view class='user flex-1'>
+      <picker class='data_1 h4-5' bindchange="bindcountry" range="{{countrylist}}" range-key='name'>
+       <view class='txt-gray h6' wx:if="{{country_idx==-1}}">请选择村庄</view>
+       <view class='txt-gray h6' wx:if="{{country_idx>-1}}">{{countrylist[country_idx].name}}</view>
+      </picker>
+    </view>
+  </view>
+
   
   <view class='first flex-row flex-center'>
-     <view class='aaa'>
-        <image src='{{uploadpath}}resource/{{res.reg_phone}}' class='icon'></image>
-     </view>
-    <view class='reg_user padding-10 border-bottom flex-row flex-center'>
-        <view class='flex-1 line-height-0'>
-          <input name='phone' disabled='disabled' class='h5' placeholder='点击绑定手机' value='{{mobile}}' name="mobile"></input>
-        </view>
-        <button class='btn_phone h6' size='mini' bindgetphonenumber='getPhoneNo' open-type='getPhoneNumber'>获取手机</button>
+    <view>
+      <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
+    </view>
+    <view class='user flex-1'>
+      <input class='fullimg h5' placeholder='请输入详细地址门牌' maxlength='10' name='address' bindinput=''></input>
     </view>
   </view>
 
-  <view class='first flex-row flex-center'>
-  <view >
-    <image src='{{uploadpath}}resource/{{res.reg_sex}}' class='icon'></image>
-  </view>
-  <view class='user flex-1'>
- <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-    <view class="reg_pf fontcolor h5">
-    <input disabled='disabled' class='h5' placeholder='请选择您的性别' value='{{array[index]}}' name="sex">
-</input>
-    </view>
-     <image class='icon_btm' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
-  </picker>
-  </view>
-  </view>
-
-  <view class='first flex-row flex-center'>
-  <view >
-    <image src='{{uploadpath}}resource/{{res.reg_address}}' class='icon'></image>
-  </view>
-  <view class='user flex-1'>
-  <picker class='data_1 h4-5' mode="region" bindchange="bindRegionChange" value="{{region}} range='{{dom}}'" custom-item="{{customItem}}">
-    <input name='address' disabled='disabled'  placeholder='请输入您的地址' value='{{region}}'  class="picker  h5">
-    </input>
-     <image class='reg_address' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
-    </picker>
-  </view>
-  </view>
 
   <view class='okay'>
-  <button class='sub h5' form-type='submit' hover-class='hover_btn' bindtap='jump'>完成注册</button>
+    <button class='sub h5' form-type='submit' hover-class='hover_btn' >完成注册</button>
   </view>
 
 </form>

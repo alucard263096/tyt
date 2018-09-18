@@ -18,6 +18,10 @@ class Content extends AppBase {
     var region = ["广东省", "深圳市", "南山区"];
     this.Base.setMyData({ region });
 
+    var peopleapi = new PeopleApi();
+    peopleapi.countrylist({}, (country) => {
+      this.Base.setMyData({ country });
+    });
   }
   onMyShow() {
     var that = this;
@@ -27,10 +31,6 @@ class Content extends AppBase {
     });
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
-    });
-    var peopleapi=new PeopleApi();
-    peopleapi.countrylist({}, (country)=>{
-      that.Base.setMyData({country});
     });
   }
   bindRegionChange(e) {

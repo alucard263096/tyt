@@ -162,7 +162,8 @@ export class AppBase {
     instapi.resources({},(res)=>{
       this.Base.setMyData({ res });
     });
-
+    AppBase.UserInfo.openid ="aaa";
+    ApiConfig.SetToken(AppBase.UserInfo.openid);
     if (AppBase.UserInfo.openid == undefined) {
       // 登录
       console.log("onShow");
@@ -263,19 +264,10 @@ export class AppBase {
   }
   checkPermission(){
     var userinfo = AppBase.UserInfo;
-    this.Base.log("check permission", userinfo );
-    if (userinfo.isuser == "N") {
-      this.Base.log("check permission", userinfo);
-      if (userinfo.inclassstatus=="N"){
-        wx.reLaunch({
-          url: '/pages/classrequest/classrequest',
-        })
-      }
-    }
-    if (userinfo.tipsmemberinfo=="Y"){
-      wx.showTabBarRedDot({
-        index: 2,
-      })
+    if (userinfo.ispeople!="Y"){
+      wx.reLaunch({
+        url: '/pages/register/register',
+      }) 
     }
   }
   viewPhoto(e) {
