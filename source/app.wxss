@@ -84,17 +84,20 @@ view,navigator,input,text,textarea{
 .bg-primary{
   background: #51ABD8;
 }
+.bg-gray{
+  background: #ccc;
+}
 .width-200{
   width: 200rpx;
-}
-.txt-primary{
-  color:#51ABD8;
 }
 .txt-white{
   color:white;
 }
 .txt-gray{
   color:#aaa;
+}
+.txt-primary{
+  color:#51ABD8;
 }
 .txt-blue{
   color:#3c78d8;

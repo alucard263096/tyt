@@ -79,3 +79,19 @@ float: right;
 margin: 15rpx 50rpx 0rpx 0rpx;
 }
 
+.maintab{
+  height: calc( 100vh - 94rpx );
+}
+
+.bg-mu{
+  position: absolute;
+  width: 750rpx;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 80;
+}
+
+.optionfix{
+  position: absolute;
+  width:100%;
+  z-index: 100;
+}

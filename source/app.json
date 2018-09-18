@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/content/content",
     "pages/home/home",
     "pages/register/register",
     "pages/editing/editing",
@@ -7,7 +8,6 @@
     "pages/newspage/newspage",
     "pages/address/address",
     "pages/details/details",
-    "pages/content/content",
     "pages/member/member",
     "pages/mine/mine",
     "pages/matchmaker/matchmaker",
