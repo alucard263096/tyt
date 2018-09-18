@@ -3,7 +3,8 @@
   <text class='editing_txt'>编辑资料</text>
   <view bindtap='headimg' class='editing_headimg'>
     头像
-    <image class='edt_head abstract_img ' src='{{uploadpath}}people/{{photo}}'></image>
+    <image class='edt_head abstract_img ' src='{{uploadpath}}people/{{people.photo}}'>
+    </image>
   </view>
 
   <view class='editing_photo'>
@@ -23,49 +24,29 @@
 <view class='lath'>
 </view>
 
-<!-- <view class='editing_data'>
-  <view class='data'>
-    <label class='mine_dt h4-5'>姓名</label>
-    <view  class='data_1 h4-5'>{{people.name}}
-      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
-    </view>
-  </view>
-</view> -->
 <view class='editing_data'>
   <view class='data' style='margin-right:70rpx;'>
     <label class='mine_dt h4-5'>姓名</label>
-    <label class='data_1 h4-5'>{{people.name}}
+    <label class='data_1 h4-5'>{{info.name}}
     </label>
   </view>
 </view>
 
 
-<view class='editing_data'>
-  <view class='data'>
-    <label class='mine_dt h4-5'>昵称</label>
-    <navigator class='data_1 h4-5' url='/pages/setname/setname'>可编辑资料
-      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
-    </navigator>
-  </view>
-</view>
+
 
 <view class='editing_data'>
-  <view class='edt_data'>
+  <view class='data' style='margin-right:70rpx;'>
     <label class='mine_dt h4-5'>性别</label>
-    <picker mode="selector" bindchange="bindPickerChange" value="{{sx}}" range="{{sex}}">
-      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
-      <view class="edt_pf fontcolor h5">
-        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.gender_name}}' value='{{sex[sx]}}' name="sex" style='text-align:right'>
-        </input>
-      </view>
-    </picker>
+    <label class='data_1 h4-5'>{{info.gender_name}}
+    </label>
   </view>
 </view>
 
 <view class='editing_data'>
   <view class='data' style='margin-right:70rpx;'>
     <label class='mine_dt h4-5'>年龄</label>
-    <label class='data_1 h4-5'>{{people.age}}岁
+    <label class='data_1 h4-5'>{{info.age}}岁
     </label>
   </view>
 </view>
@@ -73,21 +54,16 @@
 <view class='editing_data'>
   <view class='data' style='margin-right:70rpx;'>
     <label class='mine_dt h4-5'>生日</label>
-    <label class='data_1 h4-5'>{{people.birth}}
+    <label class='data_1 h4-5'>{{info.birth}}
     </label>
   </view>
 </view>
 
 <view class='editing_data'>
-  <view class='data'>
+  <view class='data' style='margin-right:70rpx;'>
     <label class='mine_dt h4-5'>身高</label>
-    <picker mode="selector" bindchange="bindPickerChangehig" value="{{hig}}" range="{{height}}">
-      <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
-      <view class="edt_pf fontcolor h5">
-        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.height}}' value='{{height[hig]}}' name="height" style='text-align:right'>
-        </input>
-      </view>
-    </picker>
+    <label class='data_1 h4-5'>{{info.height}}
+    </label>
   </view>
 </view>
 
@@ -97,7 +73,7 @@
     <picker mode="selector" bindchange="bindPickerChangequa" value="{{qua}}" range="{{quality}}">
       <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
       <view class="edt_pf fontcolor h5">
-        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.quality_name}}' value='{{quality[qua]}}' name="quality" style='text-align:right'>
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{info.quality_name}}' value='{{quality[qua]}}' name="quality" style='text-align:right'>
         </input>
       </view>
     </picker>
@@ -110,21 +86,22 @@
     <picker mode="selector" bindchange="bindPickerChangeincome" value="{{inc}}" range="{{income}}">
       <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
       <view class="edt_pf fontcolor h5">
-        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.income_name}}' value='{{income[inc]}}' name="quality" style='text-align:right'>
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{info.income_name}}' value='{{income[inc]}}' name="quality" style='text-align:right'>
         </input>
       </view>
     </picker>
   </view>
 </view>
 
-<view class='editing_data'>
+<view class='mine_data'> 
   <view class='data'>
     <label class='mine_dt h4-5'>居住地</label>
-    <label class='data_1 h4-5'>{{people.address}}{{people.country_address}}
-      <navigator class='edt_address' url='/pages/address/address?shownext=Y&id={{item.id}}'>
-        <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_img icon-15-1'></image>
-      </navigator>
-    </label>
+    <picker class='data_1 h4-5' mode="selector" bindchange="bindRegionChange" value="{{countrylist}}" custom-item="{{customItem}}">
+    <view class="mine_picker">
+      <image src='{{uploadpath}}resource/{{res.Right_black}}' class='dt_img icon-15-1'></image>
+      <input disabled='false' class='dt_input h5' style='float:right' value='{{countrylist}}'></input>
+    </view>
+    </picker>
   </view>
 </view>
 
@@ -134,13 +111,13 @@
     <picker mode="selector" bindchange="bindPickerChangemarriage" value="{{mrg}}" range="{{marriage}}">
       <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
       <view class="edt_pf fontcolor h5">
-        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{people.marriage_name}}' value='{{marriage[mrg]}}' name="quality" style='text-align:right'>
+        <input disabled='disabled' class='margin-top-3 h4-5' placeholder='{{info.marriage_name}}' value='{{marriage[mrg]}}' name="quality" style='text-align:right'>
         </input>
       </view>
     </picker>
   </view>
 </view>
 
-<view>
+<!-- <view>
   <button class='h5 details_btn' hover-class='hover_btn'>确定修改</button>
-</view>
+</view> -->

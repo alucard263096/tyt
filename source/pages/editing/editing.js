@@ -23,24 +23,24 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
 
-    var sex = ["男", "女"];
-    var sex_val=["M","F"]
-    this.Base.setMyData({
-      sex_val,sex
-    });
+    // var sex = ["男", "女"];
+    // var sex_val=["M","F"]
+    // this.Base.setMyData({
+    //   sex_val,sex
+    // });
 
-    var date = [""];
-    this.Base.setMyData({
-      date
-    });
+    // var date = [""];
+    // this.Base.setMyData({
+    //   date
+    // });
 
-    var height = [];
-    for (var i = 0; i < 70; i++) {
-      height.push(i + 140);
-    }
-    this.Base.setMyData({
-      height
-    });
+    // var height = [];
+    // for (var i = 0; i < 70; i++) {
+    //   height.push(i + 140);
+    // }
+    // this.Base.setMyData({
+    //   height
+    // });
 
     var quality = ["初中",
       "中专/职高/技校", "高中", "大专", "本科",
@@ -67,20 +67,20 @@ class Content extends AppBase {
       marriage_val,marriage
     })
   }
-  bindPickerChange(e) {
-    console.log(e.detail.value);
-    this.Base.setMyData({
-      sx: e.detail.value
-    });
-    var sex = this.Base.getMyData().sex;
-    sex[e.detail.value];
-  }
+  // bindPickerChange(e) {
+  //   console.log(e.detail.value);
+  //   this.Base.setMyData({
+  //     sx: e.detail.value
+  //   });
+  //   var sex = this.Base.getMyData().sex;
+  //   sex[e.detail.value];
+  // }
   
-  bindPickerChangehig(e) {
-    this.Base.setMyData({
-      hig: e.detail.value
-    })
-  }
+  // bindPickerChangehig(e) {
+  //   this.Base.setMyData({
+  //     hig: e.detail.value
+  //   })
+  // }
   bindPickerChangequa(e) {
     console.log(e.detail.value);
     this.Base.setMyData({
@@ -128,13 +128,9 @@ class Content extends AppBase {
     });
 
     var peopleapi = new PeopleApi();
-    peopleapi.list({}, (people) => {
-      var people = people[0];
-      var birth = people.birth_timespan;
-      var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
-      people.age = age;
+    peopleapi.info({id:1}, (info) => {
       this.Base.setMyData({
-        people
+        info
       });
     });
     peopleapi.photolist({ id:1 }, (photolist) => {
@@ -142,8 +138,12 @@ class Content extends AppBase {
         photolist
       });
     });
-    peopleapi.update({}, (update)=>{
-      this.Base.setMyData({ update});
+    peopleapi.fieldupdate({}, (fieldupdate)=>{
+      this.Base.setMyData({ fieldupdate});
+    });
+    var peopleapi = new PeopleApi();
+    peopleapi.countrylist({}, (countrylist) => {
+      that.Base.setMyData({ countrylist });
     });
   }
 
