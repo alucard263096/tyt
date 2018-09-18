@@ -11,7 +11,7 @@ class Content extends AppBase {
     super();
   }
   onLoad(options) {
-    options.class_id = 1;
+    //options.class_id = 1;
 
     this.Base.Page = this;
     //options.id=5;
@@ -24,10 +24,11 @@ class Content extends AppBase {
     this.Base.setMyData({ dom });
    
 
-    this.Base.setMyData({ name: "", mobile: "", sex: "", address: "", noticesuccess: false });
-    var api = new PeopleApi();
-    api.register({}, (register) => {
-      this.Base.setMyData({ register});
+    this.Base.setMyData({ name: "", mobile: "", sex: "", address: "", noticesuccess: false, photo: "", country_idx:-1,birth:"" });
+
+    var peopleapi = new PeopleApi();
+    peopleapi.countrylist({}, (countrylist) => {
+      this.Base.setMyData({ countrylist });
     });
 
   }
@@ -44,28 +45,58 @@ class Content extends AppBase {
 
   confirm(e) {
     console.log(e);
-    var name = e.detail.value.name;
-    var mobile = e.detail.value.mobile;
-    var sex = e.detail.value.sex;
-    var address = e.detail.value.address;
-    if (name.trim() == "") {
+    var data=e.detail.value;
+    data.matcher_id=this.Base.options.matcher_id;
+    var country_idx = this.Base.getMyData().country_idx;
+    var birth = this.Base.getMyData().birth;
+    var countrylist = this.Base.getMyData().countrylist;
+    if(data.photo==""){
+      this.Base.info("请选择头像");
+      return;
+    }
+    if (data.name == "") {
       this.Base.info("请输入姓名");
       return;
-    } if (mobile.trim() == "") {
-      this.Base.info("请输入电话号码");
+    }
+    if (data.mobile == "") {
+      this.Base.info("请输入手机号码");
       return;
     }
-    if (sex.trim() == "") {
+    if (data.gender == "") {
       this.Base.info("请选择性别");
       return;
+    }else{
+      data.gender = data.gender=="男"?"M":"F";
     }
-    if (address.trim() == "") {
-      this.Base.info("请选择地址");
+    if (birth == "") {
+      this.Base.info("请输入出生日期");
+      return;
+    }else{
+      data.birth=birth;
+    }
+    if (country_idx==-1){
+      this.Base.info("请选择村庄");
+      return;
+    }else{
+      data.country_id=countrylist[country_idx].id;
+    }
+    if (data.address == "") {
+      this.Base.info("请输入详细门牌地址");
       return;
     }
-    
-    
+    console.log(data);
+    var api=new PeopleApi();
+    api.register(data,(ret)=>{
+      if(ret.code==0){
+        wx.reLaunch({
+          url: '/pages/home/home',
+        })
+      }else{
+        this.Base.info(ret.result);
+      }
+    });
   }
+
   
   onMyShow() {
     var that = this;
@@ -105,6 +136,22 @@ class Content extends AppBase {
       }
     });
   }
+  checkPermission(){
+
+  }
+  choosePhoto(){
+    this.Base.uploadImage("people",(ret)=>{
+      this.Base.setMyData({ photo: ret});
+    },1);
+  }
+  bindcountry(e){
+    var country_idx=parseInt(e.detail.value);
+    this.Base.setMyData({ country_idx: country_idx });
+  }
+  birthChange(e){
+
+    this.Base.setMyData({ birth: e.detail.value });
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -112,8 +159,11 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.confirm=content.confirm;
 body.bindRegionChange = content.bindRegionChange;
-body.bindPickerChange = content.bindPickerChange;
-body.bind = content.bind;
+body.bindPickerChange = content.bindPickerChange; 
+body.bind = content.bind; 
+body.choosePhoto = content.choosePhoto; 
+body.bindcountry = content.bindcountry;
+body.birthChange = content.birthChange;
 Page(body)
 
 

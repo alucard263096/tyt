@@ -18,6 +18,10 @@ class Content extends AppBase {
     var countrylist = [];
     this.Base.setMyData({ countrylist});
 
+    var peopleapi = new PeopleApi();
+    peopleapi.countrylist({}, (country) => {
+      this.Base.setMyData({ country });
+    });
   }
   onMyShow() {
     var that = this;
