@@ -48,9 +48,19 @@ class Content extends AppBase {
       });
     });
   }
+  viewphotos(e){
+    var current=e.currentTarget.id;
+    var photolist = this.Base.getMyData().photolist;
+    var photos=[];
+    for(var i=0;i<photolist.length;i++){
+      photos.push(photolist[i].photo);
+    }
+    this.Base.viewGallary("people", photos, current);
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
-body.onLoad = content.onLoad;
+body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
+body.viewphotos = content.viewphotos;
 Page(body)

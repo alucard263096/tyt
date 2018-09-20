@@ -37,10 +37,27 @@ class Content extends AppBase {
   }
   uploadimg() {
     var that = this;
-    this.Base.uploadImage("post", (ret) => {
+    this.Base.uploadImage("people", (ret) => {
       var images = that.Base.getMyData().images;
       images.push(ret);
       that.Base.setMyData({ images });
+    },9);
+  }
+  uploadsave() {
+    var that = this;
+    var images = that.Base.getMyData().images;
+
+    images=images.join(",");
+    var api=new PeopleApi();
+    api.uploadphoto({images:images},(ret)=>{
+      if(ret.code=="0"){
+        this.Base.toast("更新成功");
+        wx.navigateBack({
+          
+        })
+      }else{
+        this.Base.info(ret.return);
+      }
     });
   }
 }
@@ -48,6 +65,7 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.uploadimg = content.uploadimg;
+body.uploadimg = content.uploadimg; 
 body.minusImg = content.minusImg;
+body.uploadsave = content.uploadsave;
 Page(body)

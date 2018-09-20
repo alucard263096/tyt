@@ -2,7 +2,7 @@
 <view class='all'>
 <view class='flex-row flex-wrap margin-top-10'>
     <view class='imgbg' wx:for="{{images}}" wx:key="k" wx:for-index="idx">
-      <image src='{{uploadpath}}post/{{item}}' mode='aspectFill' bindtap='minusImg' id="{{idx}}"></image>
+      <image src='{{uploadpath}}people/{{item}}' mode='aspectFill' bindtap='minusImg' id="{{idx}}"></image>
     </view>
     <view class='imgbg_border' bindtap='uploadimg'>
       <image class='addimg' mode='aspectFill' src='{{uploadpath}}resource/{{res.insert}}'></image>
@@ -10,7 +10,7 @@
   </view>
 </view>
 <view>
-<view><button class='h5 details_btn' hover-class='hover_btn'>保存</button></view>
+<view><button class='h5 details_btn' hover-class='hover_btn' bindtap='uploadsave'>保存</button></view>
 
 </view>
 

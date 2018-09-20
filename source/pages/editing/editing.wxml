@@ -3,7 +3,7 @@
   <text class='editing_txt'>编辑资料</text>
   <view bindtap='headimg' class='editing_headimg'>
     头像
-    <image class='edt_head abstract_img ' mode='aspectFill' src='{{uploadpath}}people/{{photo}}'>
+    <image class='edt_head abstract_img ' mode='aspectFill' src='{{uploadpath}}people/{{info.photo}}'>
     </image>
   </view>
 
@@ -12,9 +12,9 @@
       <navigator url='/pages/photo/photo'>
         <cover-image src='{{uploadpath}}resource/{{res.insert}}' class='editing_insert edt_img'></cover-image>
       </navigator>
-      <scroll-view class="editing-box" scroll-x="true" wx:for="photolist" wx:key="k">
+      <scroll-view class="editing-box" scroll-x="true" wx:for="{{photolist}}" wx:key="k">
         <view class="editing-item">
-          <image src='{{uploadpath}}people/{{photolist.photo}}' class='edt_img '></image>
+          <image src='{{uploadpath}}people/{{item.photo}}' class='edt_img '  bindtap='viewphotos' id="{{item.photo}}"></image>
         </view>
       </scroll-view>
     </view>

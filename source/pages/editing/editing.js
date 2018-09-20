@@ -53,6 +53,7 @@ class Content extends AppBase {
     this.Base.setMyData({
       marriage_val,marriage
     })
+
   }
  
   bindPickerChangequa(e) {
@@ -60,8 +61,13 @@ class Content extends AppBase {
     this.Base.setMyData({
       qua: e.detail.value
     });
-    var quality = this.Base.getMyData().quality;
-    quality[e.detail.value];
+    var quality_val = this.Base.getMyData().quality_val;
+    var id = quality_val[e.detail.value];
+
+    var peopleapi=new PeopleApi();
+    peopleapi.fieldupdate({ "fname": "quality", fkey: id }, (fieldupdate) => {
+      this.Base.setMyData({ fieldupdate });
+    });
   }
 
   bindPickerChangeincome(e) {
@@ -69,8 +75,14 @@ class Content extends AppBase {
      this.Base.setMyData({
        inc: e.detail.value
      });
-    var income = this.Base.getMyData().income;
-    income[e.detail.value];
+    var income_val = this.Base.getMyData().income_val;
+    var id = income_val[e.detail.value];
+
+
+    var peopleapi = new PeopleApi();
+    peopleapi.fieldupdate({ "fname": "income", fkey: id }, (fieldupdate) => {
+      this.Base.setMyData({ fieldupdate });
+    });
   }
 
   bindPickerChangemarriage(e) {
@@ -78,17 +90,35 @@ class Content extends AppBase {
     this.Base.setMyData({
       mrg: e.detail.value
     })
-    var marriage = this.Base.getMyData().marriage;
-    marriage[e.detail.value]
+    var marriage_val = this.Base.getMyData().marriage_val;
+    var id=marriage_val[e.detail.value];
+
+
+    var peopleapi = new PeopleApi();
+    peopleapi.fieldupdate({ "fname": "marriage", fkey: id }, (fieldupdate) => {
+      this.Base.setMyData({ fieldupdate });
+    });
   }
   headimg(){
     this.Base.uploadImage("people",(ret)=>{
-      this.Base.setMyData({photo:ret});
+      var info=this.Base.getMyData().info;
+      info.photo=ret;
+      this.Base.setMyData({ info});
+      var api=new PeopleApi();
+      api.fieldupdate({fname:"photo",fkey:ret});
     },1);
   }
   bindcountry(e) {
     var countrylist = this.Base.getMyData().countrylist;
     this.Base.setMyData({ country_idx: e.detail.value, country_id: countrylist[e.detail.value].id });
+
+    var id = countrylist[e.detail.value].id;
+
+
+    var peopleapi = new PeopleApi();
+    peopleapi.fieldupdate({ "fname": "country_id", fkey: id }, (fieldupdate) => {
+      this.Base.setMyData({ fieldupdate });
+    });
   }
   onMyShow() {
     var that = this;
@@ -105,21 +135,28 @@ class Content extends AppBase {
     });
 
     var peopleapi = new PeopleApi();
-    peopleapi.info({id:1}, (info) => {
+    peopleapi.info({}, (info) => {
       this.Base.setMyData({
         info
       });
     });
-    peopleapi.photolist({ id:1 }, (photolist) => {
+    peopleapi.photolist({ }, (photolist) => {
       this.Base.setMyData({
         photolist
       });
     });
-    peopleapi.fieldupdate({}, (fieldupdate)=>{
-      this.Base.setMyData({ fieldupdate});
-    });
+
   }
 
+  viewphotos(e) {
+    var current = e.currentTarget.id;
+    var photolist = this.Base.getMyData().photolist;
+    var photos = [];
+    for (var i = 0; i < photolist.length; i++) {
+      photos.push(photolist[i].photo);
+    }
+    this.Base.viewGallary("people", photos, current);
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -128,6 +165,7 @@ body.bindPickerChangeincome = content.bindPickerChangeincome;
 body.bindPickerChangemarriage = content.bindPickerChangemarriage;
 body.bindcountry = content.bindcountry;
 body.onLoad = content.onLoad; 
-body.onMyShow = content.onMyShow;
+body.onMyShow = content.onMyShow; 
 body.headimg = content.headimg;
+body.viewphotos = content.viewphotos;
 Page(body)

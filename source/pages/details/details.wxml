@@ -13,8 +13,8 @@
   <view class='details_mid'>
     <view class='details_img'>
       <scroll-view class="details-box" scroll-x="true">
-        <view class="details-item">
-          <image src='{{uploadpath}}people/{{photolist.photo}}' class='details_img '></image>
+        <view class="details-item" wx:for="{{photolist}}" wx:key="k">
+          <image src='{{uploadpath}}people/{{item.photo}}' class='details_img' bindtap='viewphotos' id="{{item.photo}}" ></image>
         </view>
       </scroll-view>
     </view>
