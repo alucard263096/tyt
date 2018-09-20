@@ -3,7 +3,7 @@
   <text class='editing_txt'>编辑资料</text>
   <view bindtap='headimg' class='editing_headimg'>
     头像
-    <image class='edt_head abstract_img ' src='{{uploadpath}}people/{{people.photo}}'>
+    <image class='edt_head abstract_img ' mode='aspectFill' src='{{uploadpath}}people/{{photo}}'>
     </image>
   </view>
 
@@ -32,9 +32,6 @@
   </view>
 </view>
 
-
-
-
 <view class='editing_data'>
   <view class='data' style='margin-right:70rpx;'>
     <label class='mine_dt h4-5'>性别</label>
@@ -46,7 +43,7 @@
 <view class='editing_data'>
   <view class='data' style='margin-right:70rpx;'>
     <label class='mine_dt h4-5'>年龄</label>
-    <label class='data_1 h4-5'>{{info.age}}岁
+    <label class='data_1 h4-5'>{{info.birth}}岁
     </label>
   </view>
 </view>
@@ -96,12 +93,17 @@
 <view class='mine_data'> 
   <view class='data'>
     <label class='mine_dt h4-5'>居住地</label>
-    <picker class='data_1 h4-5' mode="selector" bindchange="bindRegionChange" value="{{countrylist}}" custom-item="{{customItem}}">
+    <!-- <picker class='data_1 h4-5' mode="selector" bindchange="bindRegionChange" value="{{countrylist}}" custom-item="{{customItem}}">
     <view class="mine_picker">
-      <image src='{{uploadpath}}resource/{{res.Right_black}}' class='dt_img icon-15-1'></image>
+      
       <input disabled='false' class='dt_input h5' style='float:right' value='{{countrylist}}'></input>
     </view>
-    </picker>
+    </picker> -->
+    <picker class='data_1 h4-5' bindchange="bindcountry" range="{{countrylist}}" range-key='name'>
+    <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
+       <view class='fontcolor' style='text-align:right;height:60rpx;width:600rpx;' wx:if="{{country_id==0}}">{{info.country_address}}</view>
+       <view class='' style='text-align:right;height:60rpx;width:600rpx;' wx:if="{{country_id>0}}">{{countrylist[country_idx].address}}</view>
+      </picker>
   </view>
 </view>
 

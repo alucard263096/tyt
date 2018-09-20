@@ -11,7 +11,6 @@
 
 <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
 
-
   <view class='register_wxtop'>
     <view>
       <image wx:if="{{photo==''}}" class='icon-75' src='{{uploadpath}}resource/{{res.defaultmember}}' bindtap='choosePhoto'></image>

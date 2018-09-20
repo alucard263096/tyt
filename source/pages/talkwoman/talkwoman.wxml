@@ -34,21 +34,22 @@
     </view>
   </view>
 
-  <view class="margin-top-80 flex-row hide{{showView2=='sv2'?'':'show'}}" >
+  <view class="margin-top-80 flex-row hide{{showView2=='sv2'?'show':''}}" >
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
     </view>
     <view class='mid flex-1'>
       <view class='triangle-up2'></view>
       <view class='dialogue_woman_left h6' style='white-space:pre-line'>对方已成功完成支付,挑一挑红娘将为您提供 <label class='h4-1' style='color:black'>{{viewpeople_name}}</label> 的详细信息以及媒人电话。
-       
-       相亲时间: 
-
-       对方姓名: <label class='h4-1' style='color:black'>{{viewpeople_name}}</label>
-
-       对方地址：<label class='h4-1' style='color:black'>{{people.country_id}}</label>
-
-       媒人电话: <label class='h4-1' style='color:black'>{{matcher_mobile}}</label>
+       <view style='height:10rpx;'></view>
+       <view class='h6 fontcolor'>相亲时间: <label class='h4-1' style='color:black'>{{created_date}}</label></view>
+       <view style='height:10rpx;'></view>
+       <view class='h6 fontcolor'>对方姓名: <label class='h4-1' style='color:black'>{{viewpeople_name}}</label></view>
+       <view style='height:10rpx;'></view>
+       <view class='h6 fontcolor'>对方地址：<label class='h4-1' style='color:red;' bindtap='openMap' id="{{people.country_address}}">{{people.country_address}}</label></view>
+       <view style='height:10rpx;'></view>
+       <view class='h6 fontcolor'>媒人电话: <label class='h4-1' style='color:red' bindtap='phoneCall' id="{{matcher_mobile}}">{{matcher_mobile}}</label></view> 
+       <view style='height:10rpx;'></view>
       </view>
     </view>
     <view class='right'>

@@ -11,6 +11,6 @@
 </view>
 <view>
 <view><button class='h5 details_btn' hover-class='hover_btn'>保存</button></view>
-<view class='fontcolor margin-20 h5' style='width:700rpx;text-align:left;'>请添加您的真实照片</view>
+
 </view>
 

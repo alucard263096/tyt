@@ -18,19 +18,19 @@
 <view class='margin-20'>
  <view class='mt flex-row flex-center  padding-10' style='height:110rpx'>
       <view class='flex-1 ' style='height:109rpx;line-height:109rpx;'>照片</view>
-      <view class='flex-3 ' style='height:135rpx'><image src='{{uploadpath}}people/{{people.photo}}' style='height:120rpx;width:120rpx;'></image></view>
+      <view class='flex-3 ' style='height:135rpx'><image src='{{uploadpath}}UserInfo/{{matcher.photo}}' style='height:120rpx;width:120rpx;'></image></view>
     </view>
  <view class='mt flex-row flex-center margin-top-10  padding-10'>
       <view class='flex-1 ' style=''>姓名</view>
-      <view class='flex-3 ' style=''>ssssss</view>
+      <view class='flex-3 ' style=''>{{UserInfo.matcher.name}}</view>
     </view>
     <view class='mt flex-row flex-center margin-top-10 padding-10'>
       <view class='flex-1 ' style=''>电话号码: </view>
-      <view class='flex-3 ' style=''>{{people.gender_name}}</view>
+      <view class='flex-3 ' style=''>{{UserInfo.matcher.mobile}}</view>
     </view>
     <view class='mt flex-row flex-center margin-top-10 padding-10'>
       <view class='flex-1 ' style=''>微信号：</view>
-      <view class='flex-3 ' style=''>{{people.birth}}</view>
+      <view class='flex-3 ' style=''>{{UserInfo.matcher.member_id}}</view>
     </view>
 </view>
 

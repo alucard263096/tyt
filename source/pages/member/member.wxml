@@ -26,7 +26,7 @@
       </view>
 </navigator> -->
 <navigator class='abstract'  wx:for="{{}}" wx:key="k">
-        <view class="editing_portrait"> 
+        <view class="editing_portrait">
         <image  class=' abstract_img' src='{{uploadpath}}list/{{list.viewpeople_photo}}'></image>
         </view>
             <!-- <image src="{{item.header_url}}" class="author"></image> -->
@@ -34,3 +34,4 @@
          <text class='mem_date h5'>{{list.r_main.updated_date}}</text>
          <text class="s2 h6"></text>
 </navigator>
+

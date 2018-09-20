@@ -58,6 +58,6 @@
    <view class='data'>
    <image src='{{uploadpath}}resource/{{res.phone}}' class='mine_data_img5'></image>
     <label class='mine_dt h4-5'>联系客服</label>
-    <label class='data_1 h5'>拨打客服热线<image src='{{uploadpath}}resource/{{res.reg_right}}' class='dt_imgs icon-15-1'></image></label>
+    <label class='data_1 h5' bindtap='phoneCall' id="1245678910">拨打客服热线<image src='{{uploadpath}}resource/{{res.reg_right}}' class='dt_imgs icon-15-1'></image></label>
    </view>
 </view>

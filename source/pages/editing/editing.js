@@ -18,29 +18,16 @@ class Content extends AppBase {
   }
   onLoad(options) {
     options.class_id = 1;
-
+    
     this.Base.Page = this;
     //options.id=5;
+    this.Base.setMyData({ order: 0, country_idx: -1, country_id: 0 });
     super.onLoad(options);
-
-    // var sex = ["男", "女"];
-    // var sex_val=["M","F"]
-    // this.Base.setMyData({
-    //   sex_val,sex
-    // });
-
-    // var date = [""];
-    // this.Base.setMyData({
-    //   date
-    // });
-
-    // var height = [];
-    // for (var i = 0; i < 70; i++) {
-    //   height.push(i + 140);
-    // }
-    // this.Base.setMyData({
-    //   height
-    // });
+    
+    var peopleapi = new PeopleApi();
+    peopleapi.countrylist({}, (countrylist) => {
+      this.Base.setMyData({ countrylist });
+    });
 
     var quality = ["初中",
       "中专/职高/技校", "高中", "大专", "本科",
@@ -67,20 +54,7 @@ class Content extends AppBase {
       marriage_val,marriage
     })
   }
-  // bindPickerChange(e) {
-  //   console.log(e.detail.value);
-  //   this.Base.setMyData({
-  //     sx: e.detail.value
-  //   });
-  //   var sex = this.Base.getMyData().sex;
-  //   sex[e.detail.value];
-  // }
-  
-  // bindPickerChangehig(e) {
-  //   this.Base.setMyData({
-  //     hig: e.detail.value
-  //   })
-  // }
+ 
   bindPickerChangequa(e) {
     console.log(e.detail.value);
     this.Base.setMyData({
@@ -112,7 +86,10 @@ class Content extends AppBase {
       this.Base.setMyData({photo:ret});
     },1);
   }
-
+  bindcountry(e) {
+    var countrylist = this.Base.getMyData().countrylist;
+    this.Base.setMyData({ country_idx: e.detail.value, country_id: countrylist[e.detail.value].id });
+  }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
@@ -141,21 +118,15 @@ class Content extends AppBase {
     peopleapi.fieldupdate({}, (fieldupdate)=>{
       this.Base.setMyData({ fieldupdate});
     });
-    var peopleapi = new PeopleApi();
-    peopleapi.countrylist({}, (countrylist) => {
-      that.Base.setMyData({ countrylist });
-    });
   }
 
 }
 var content = new Content();
 var body = content.generateBodyJson();
-body.bindPickerChange = content.bindPickerChange;
-body.bindRegionChangedate = content.bindRegionChangedate;
-body.bindPickerChangehig = content.bindPickerChangehig;
 body.bindPickerChangequa = content.bindPickerChangequa;
 body.bindPickerChangeincome = content.bindPickerChangeincome;
 body.bindPickerChangemarriage = content.bindPickerChangemarriage;
+body.bindcountry = content.bindcountry;
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 body.headimg = content.headimg;

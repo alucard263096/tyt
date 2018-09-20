@@ -9,62 +9,110 @@
   </swiper>
 </view>
 
-<dl class="menu">
-  <dt data-index="0" bindtap="tapMainMenu">智能排序</dt>
-  <dd class="{{subMenuDisplay[0]}} hide">
-    <ul>
-      <li class="{{subMenuHighLight[0][0]}}" data-index="0-0" bindtap="tapSubMenu">智能排序</li>
-      <li class="{{subMenuHighLight[0][1]}}" data-index="0-1" bindtap="tapSubMenu">最新加入</li>
-      <li class="{{subMenuHighLight[0][2]}}" data-index="0-2" bindtap="tapSubMenu">最近登录</li>
-    </ul>
-  </dd>
-  
-  <dt data-index="1" bindtap="tapMainMenu">基本筛选</dt>
-  <dd class="{{subMenuDisplay[1]}} hide">
-    <ul>
-      <li class="">居住地
-        <picker class='data_1 h4-5' mode="region" bindchange="bindRegionChange" value="{{region}} range='{{dom}}'" custom-item="{{customItem}}">
-          <input name='address' disabled='disabled' placeholder='请选择地址' value='{{region}}' class="picker h5">
-          </input>
-        </picker>
-        <image src='{{uploadpath}}resource/{{res.Right_black}}' class='icon-15-1'></image>
-      </li>
-      <li class="">年龄</li>
-      <li class="">身高</li>
-      <li class="">婚姻状况</li>
-      <li class="content_submit">
-        <button class='confirm h5' hover-class='hover_btn'>确定</button>
-        <button class='cancel h5' hover-class='hover_btn2'>取消</button>
-      </li>
-    </ul>
-  </dd>
-</dl>
+<view class="flex-row flex-center ">
 
+  <view class='flex-1 flex-row flex-center padding-left-40'>
+    <view class=' txt-gray padding-20 ' bindtap='showorderselect'>{{order==0?"智能排序":""}}{{order==1?"最近加入":""}}{{order==2?"最近登录":""}}</view>
+    <image class='screen_btm_icon1 ' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
+  </view>
+  <view class='flex-1  flex-center flex-row '>
+    <view class=' txt-gray padding-20' bindtap='showfilterselect'>基本筛选</view>
+    <image class='screen_btm_icon1 ' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
+  </view>
+</view>
+<view class='optionfix' wx:if="{{orderselect==true}}">
+  <view class='padding-20 white-block border-top {{order==0?"txt-primary":""}}' bindtap='orderselect' id="0">
+    智能排序
+  </view>
+  <view class='padding-20 white-block border-top {{order==1?"txt-primary":""}}' bindtap='orderselect' id="1">
+    最近加入
+  </view>
+  <view class='padding-20 white-block border-top {{order==2?"txt-primary":""}}' bindtap='orderselect' id="2">
+    最近登录
+  </view>
+</view>
+<view class='optionfix' wx:if="{{filterselect==true}}">
 
-<!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" class='screen_picker'>
-    <view class="content h5">
-      智能排序
+  <view class='padding-20 white-block border-top flex-row flex-center'>
+    <view>所在村</view>
+    <view class='flex-1'>
+      <picker class='data_1 h4-5' bindchange="bindcountry" range="{{countrylist}}" range-key='name'>
+
+        <view class='fontcolor' wx:if="{{country_id==0}}">不限
+          <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1 flex-1'></image>
+        </view>
+        <view class='fontcolor' style='float:right' wx:if="{{country_id>0}}">{{countrylist[country_idx].name}}
+          <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1 flex-1'></image>
+        </view>
+      </picker>
     </view>
-    <view><image class='screen_btm_icon1' src='{{uploadpath}}resource/{{res.icon_btm}}'></image></view>
-    
-    <view><image class='screen_btm_icon2' src='{{uploadpath}}resource/{{res.icon_btm}}'></image></view>
-    <view class="content2 h5">
-      基本筛选
-    </view>
-  </picker> -->
+  </view>
 
-<view class='lath'>
+<view class='padding-20 white-block border-top flex-row flex-center'>
+    <view>年龄</view>
+    <view class='flex-1'>
+      <picker class='data_1 h4-5 ' bindchange="bindage" range="{{agelist}}" value="{{age}}" >
+         <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style='float:right;margin-top:16rpx;'></image>
+         <input disabled='disabled' class='fontcolor h4-5' placeholder='不限' value='{{agelist[age]}}' style='text-align:right;float:right;margin-right:10rpx;'>
+         </input>
+      </picker>
+    </view>
+  </view>
+
+  <view class='padding-20 white-block border-top flex-row flex-center'>
+    <view>身高</view>
+    <view class='flex-1'>
+      <picker class='data_1 h4-5 ' bindchange="bindheight" range="{{heightlist}}" value="{{height}}" >
+         <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style='float:right;margin-top:16rpx;'></image>
+         <input disabled='disabled' class='fontcolor h4-5' placeholder='不限' value='{{heightlist[height]}}' style='text-align:right;float:right;margin-right:10rpx;'>
+         </input>
+      </picker>
+    </view>
+  </view>
+
+  <view class='padding-20 white-block border-top flex-row flex-center'>
+    <view>婚姻状况</view>
+    <view class='flex-1'>
+      <picker class='data_1 h4-5 ' bindchange="bindmarriage" range="{{marriagelist}}" value="{{mrg}}" >
+         <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style='float:right;margin-top:16rpx;'></image>
+         <input disabled='disabled' class='fontcolor h4-5' placeholder='不限' value='{{marriagelist[mrg]}}' style='text-align:right;float:right;margin-right:10rpx;'>
+         </input>
+      </picker>
+    </view>
+  </view>
+  <!-- <view class='padding-20 white-block border-top flex-row flex-center'>
+    <view>婚姻状况</view>
+    <view class='flex-1'>
+      <picker class='data_1 h4-5' bindchange="bindmarriage" range="{{marriagelist}}" >
+      
+        <view class='txt-gray' wx:if="{{0}}">不限
+          <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1 flex-1'></image>
+        </view>
+        <view class='txt-primary' wx:if="{{marriage>0}}">{{marriagelist[marriage_idx].name}}
+          <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1 flex-1'></image>
+        </view>
+      </picker>
+    </view>
+  </view> -->
+
+</view>
+<view class="bg-gray" style='height:10rpx;'>
 </view>
 
-<navigator url='/pages/details/details?shownext=Y&&id={{item.id}}' class='Head_portrait' wx:for="{{people}}" wx:key="k">
-  <image class=' abstract_img' src='{{uploadpath}}people/{{item.photo}}'></image>
-  <view class='s1 h5'>
-    {{item.name}}
+
+<scroll-view class='maintab' scroll-y>
+  <view class='bg-mu maintab' bindtap='closeoption' wx:if="{{orderselect==true||filterselect==true}}">
   </view>
-  <view class='s2 h6'>
-    <label class='age'>{{item.birth}}</label>|
-    <label class='height'>{{item.height}}cm</label>|
-    <label class='education'>{{item.quality_name}}</label>|
-    <label class='income'>{{item.income_name}}</label>
-  </view>
-</navigator>
+  <navigator url='/pages/details/details?shownext=Y&&id={{item.id}}' class='Head_portrait' wx:for="{{peoplelist}}" wx:key="k">
+    <image class=' abstract_img' src='{{uploadpath}}people/{{item.photo}}'></image>
+    <view class='s1 h5'>
+      {{item.name}}
+    </view>
+    <view class='s2 h6'>
+      <label class='age'>{{item.birth}}</label>|
+      <label class='height'>{{item.height}}cm</label>|
+      <label class='education'>{{item.quality_name}}</label>|
+      <label class='income'>{{item.income_name}}</label>
+    </view>
+  </navigator>
+</scroll-view>

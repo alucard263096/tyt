@@ -71,7 +71,7 @@ export class PeopleApi {
     })
   }
   //获取媒人的信息
-  matcher(json, callback, showLoading = true) {
+  userinfo(json, callback, showLoading = true) {
 
     if (showLoading)
       ApiConfig.ShowLoading();
@@ -79,7 +79,7 @@ export class PeopleApi {
     var header = ApiConfig.GetHeader();
     console.log(header);
     wx.request({
-      url: ApiConfig.GetApiUrl() + 'people/matcher',
+      url: ApiConfig.GetApiUrl() + 'people/userinfo',
       data: json,
       method: 'POST',
       dataType: 'json',

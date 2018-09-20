@@ -15,8 +15,6 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
 
-
-
   }
   onMyShow() {
     var that = this;
@@ -28,14 +26,10 @@ class Content extends AppBase {
       that.Base.setMyData(info);
     });
     
-    
     var peopleapi = new PeopleApi();
     peopleapi.list({}, (people) => {
       var people = people[0];
       this.Base.setMyData({ people });
-    });
-    peopleapi.matcher({},(matcher)=>{
-      this.Base.setMyData({matcher});
     });
 
   }
