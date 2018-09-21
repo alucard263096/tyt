@@ -29,7 +29,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 padding-L-R flex-row hide{{showView1=='sv1'?'hide':''}}">
+  <view class="margin-top-80 padding-L-R flex-row hide{{showView1==''?'hide':''}}">
     <view class='pay_left'>
     </view>
     <view class='pay_mid flex-1'>
@@ -57,7 +57,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 flex-row hide{{showView2=='sv2'?'show':''}}">
+  <view class="margin-top-80 flex-row hide{{showView2==''?'show':''}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
     </view>
@@ -79,7 +79,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 flex-row hide{{showView3=='sv3'?'show':''}}">
+  <view class="margin-top-80 flex-row hide{{showView3==''?'show':''}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
     </view>
@@ -93,7 +93,7 @@
     </view>
   </view>
   
-  <view class="margin-top-80 flex-row hide{{showView4=='sv4'?'show':''}}">
+  <view class="margin-top-80 flex-row hide{{showView4==''?'show':''}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
     </view>
@@ -114,7 +114,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 flex-row hide{{showView5=='sv5'?'show':''}}">
+  <view class="margin-top-80 flex-row hide{{showView5==''?'show':''}}">
     <view class='left'>
     </view>
     <view class='mid flex-1'>
@@ -129,7 +129,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 flex-row hide{{showView6=='sv6'?'show':''}}">
+  <view class="margin-top-80 flex-row hide{{showView6==''?'show':''}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
     </view>
@@ -143,7 +143,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 flex-row hide{{showView7=='sv7'?'show':''}}">
+  <view class="margin-top-80 flex-row hide{{showView7==''?'show':''}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
     </view>
@@ -164,7 +164,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 flex-row hide{{showView8=='sv8'?'show':''}}">
+  <view class="margin-top-80 flex-row hide{{showView8==''?'show':''}}">
     <view class='left'>
     </view>
     <view class='mid flex-1'>
@@ -179,7 +179,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 flex-row hide{{showView9=='sv9'?'show':''}}">
+  <view class="margin-top-80 flex-row hide{{showView9==''?'show':''}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
     </view>
@@ -193,7 +193,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 flex-row hide{{showView10=='sv10'?'show':''}}">
+  <view class="margin-top-80 flex-row hide{{showView10==''?'show':''}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
     </view>
@@ -209,6 +209,6 @@
   
 
 </view>
-<view class="under text-center padding-top-20 hide{{showView11=='sv11'?'show':''}} ">
+<view class="under text-center padding-top-20 hide{{showView11==''?'show':''}} ">
   <p class='h5 fontcolor'>本次相亲结束</p>
 </view>

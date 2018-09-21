@@ -30,7 +30,7 @@ page{
 }
 .btn-primary-line::after {
   border-color: #51ABD8;
-} 
+}
 
 view,navigator,input,text,textarea{
   font-size: 32rpx;

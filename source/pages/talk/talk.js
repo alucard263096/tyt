@@ -28,7 +28,7 @@ class Content extends AppBase {
     var that = this;
     var interviewapi = new InterViewApi();
     interviewapi.info({
-      id: 1
+      id:this.Base.options.id
     }, (info) => {
       that.Base.setMyData(info);
     });

@@ -11,6 +11,9 @@ import {
 import {
   PeopleApi
 } from "../../apis/people.api.js";
+import {
+  InterViewApi
+} from "../../apis/interview.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -22,7 +25,6 @@ class Content extends AppBase {
     super.onLoad(options);
     showView: (options.showView == "true" ? true : false);
     this.Base.setMyData({})
-
   }
   onMyShow() {
     var that = this;
@@ -49,6 +51,7 @@ class Content extends AppBase {
         photolist
       });
     });
+    
   }
   viewphotos(e){
     var current=e.currentTarget.id;
@@ -65,6 +68,15 @@ class Content extends AppBase {
         showView: (!that.data.showView)
       })
   }
+  // launch(){
+  //   var that=this;
+  //   var interviewapi = new InterViewApi();
+  //   interviewapi.create({}, (create) => {
+  //     this.Base.setMyData({
+  //       create
+  //     })
+  //   })
+  // }
   
 }
 var content = new Content();
@@ -75,4 +87,5 @@ body.viewphotos = content.viewphotos;
 body.showfilterselect = content.showfilterselect;
 body.orderselect = content.orderselect; 
 body.show = content.show;
+body.launch = body.launch;
 Page(body)

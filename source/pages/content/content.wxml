@@ -10,7 +10,6 @@
 </view>
 
 <view class="flex-row flex-center ">
-
   <view class='flex-1 flex-row flex-center padding-left-40'>
     <view class=' txt-gray padding-20  {{orderselect==true?"txt-primary":""}}' bindtap='showorderselect'>{{order==0?"智能排序":""}}{{order==1?"最近加入":""}}{{order==2?"最近登录":""}}</view>
     <image class='screen_btm_icon1 ' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
@@ -97,7 +96,6 @@
 </view>
 <view class="bg-gray" style='height:10rpx;'>
 </view>
-
 
 <scroll-view class='maintab' scroll-y>
   <view class='bg-mu maintab' bindtap='closeoption' wx:if="{{orderselect==true||filterselect==true}}">

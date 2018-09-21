@@ -77,7 +77,6 @@ class Content extends AppBase {
     if(country_id>0){
       data.country_id=country_id;
     }
-    
     if (height==0){
     data.height_to = 150;
     data.height_from = 140;

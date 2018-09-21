@@ -1,9 +1,10 @@
 {
   "pages":[
-    "pages/register/register",
     "pages/auth/auth",
-    "pages/talkwoman/talkwoman",
     "pages/details/details",
+    "pages/talk/talk",
+    "pages/talkwoman/talkwoman",
+    "pages/register/register",
     "pages/editing/editing",
     "pages/address/address",
     "pages/home/home",
@@ -11,7 +12,6 @@
     "pages/member/member",
     "pages/mine/mine",
     "pages/matchmaker/matchmaker",
-    "pages/talk/talk",
     "pages/newspage/newspage",
     "pages/photo/photo",
     "pages/blacklist/blacklist",

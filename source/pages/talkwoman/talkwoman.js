@@ -22,7 +22,7 @@ class Content extends AppBase {
     super.onLoad(options);
     this.Base.setMyData({
     });
-    showView: (options.showView == "true" ? true : false);
+    show: (options.show == "true" ? true : false);
   }
   onMyShow() {
       var that = this;
@@ -40,77 +40,20 @@ class Content extends AppBase {
     });
   }
 
-   Agree(){
+  Agree(){
      var that=this;
-
-     var interviewapi=new InterViewApi();
-
-     interviewapi.updateview1({show:"true"},(updateview1)=>{
-
-       that.Base.setMyData(updateview1);
-     })
+     var interviewapi = new InterViewApi();
+     interviewapi.fieldupdate({id:1, "fname": "showView1", "fkey":"sv1"}, (fieldupdate) => {
+       this.Base.setMyData({ fieldupdate });
+       });
    }
-  // Agree() {
-  //   var that = this;
-  //   that.setData({
-  //     showView: (!that.data.showView)
-  //   })
-  // }
-
-  //  yes() {
-  //    var that = this;
-  //    that.setData({
-  //      showView_5: (!that.data.showView_5)
-  //    })
-  //  }
-
-  //  Agree2() {
-  //    var that = this;
-  //    that.setData({
-  //      showView_8: (!that.data.showView_8)
-  //    })
-  //  }
-  // RF() {
-  //   var that = this;
-  //   that.setData({
-  //     showView4: (!that.data.showView4)
-  //   })
-
-    // }
-    // touchStart(e) {
-    //   this.touchStartTime = e.timeStamp;
-    // }
-    // touchEnd(e) {
-    //   this.touchEndTime = e.timeStamp;
-    // }
-    // doubleTap(item, e) {
-    //   var vm = this;
-
-    //   if (vm.touchEndTime - vm.touchStartTime < 350) {
-    //     var currentTime = e.timeStamp;
-    //     var lastTapTime = vm.lastTapTime;
-    //     vm.lastTapTime = currentTime;
-    //     if (currentTime - lastTapTime > 300) {}
-    //   }
-    // }
-    //   pageScrollToBottom() {
-    //   wx.createSelectorQuery().select('#pg').boundingClientRect(function (rect) {
-    //     wx.pageScrollTo({
-    //       scrollTop: rect.bottom
-    //     })
-    //   }).exec()
-    // }
-  }
-
+}
   var content = new Content();
   var body = content.generateBodyJson();
   body.Agree = content.Agree;
   body.yes = content.yes;
-  body.Agree2 = content.Agree2;
+  
   body.RF = content.RF;
-  body.touchStart = content.touchStart;
-  body.touchEnd = content.touchEnd;
-  body.doubleTap = content.touchEnd;
   body.pageScrollToBottom = content.pageScrollToBottom;
   body.onLoad = content.onLoad;
   body.onMyShow = content.onMyShow;

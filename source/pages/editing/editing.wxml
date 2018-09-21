@@ -12,20 +12,12 @@
       <navigator url='/pages/photo/photo'>
         <cover-image src='{{uploadpath}}resource/{{res.insert}}' class='editing_insert edt_img'></cover-image>
       </navigator>
-      <!-- <scroll-view class="editing-box" scroll-x="true" wx:for="{{photolist}}" wx:key="k">
-      <view scroll-x="true" >
-      <view></view>
-          <image src='{{uploadpath}}people/{{item.photo}}' class='edt_img '  bindtap='viewphotos' id="{{item.photo}}"></image>
-      </view>
-      </scroll-view> -->
+      
       <scroll-view class="editing-box" scroll-x="true">
         <view class="editing-item" wx:for="{{photolist}}" wx:key="k">
           <image src='{{uploadpath}}people/{{item.photo}}' class='edt_img' bindtap='viewphotos' id="{{item.photo}}" ></image>
         </view>
       </scroll-view>
-  
-
-
     </view>
   </view>
 </view>

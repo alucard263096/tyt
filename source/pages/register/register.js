@@ -158,7 +158,6 @@ class Content extends AppBase {
     this.Base.setMyData({ country_idx: country_idx });
   }
   birthChange(e){
-
     this.Base.setMyData({ birth: e.detail.value });
   }
 }

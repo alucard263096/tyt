@@ -162,8 +162,8 @@ export class AppBase {
     instapi.resources({},(res)=>{
       this.Base.setMyData({ res });
     });
-    AppBase.UserInfo.openid ="aaa";
-    ApiConfig.SetToken(AppBase.UserInfo.openid);
+    // AppBase.UserInfo.openid ="aaa";
+    // ApiConfig.SetToken(AppBase.UserInfo.openid);
     if (AppBase.UserInfo.openid == undefined) {
       // 登录
       console.log("onShow");

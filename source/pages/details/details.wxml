@@ -81,6 +81,6 @@
   </view>
 
   <view class='details_bottom'>
-    <navigator class='details_btn h5' url='/pages/talk/talk?shownext=Y&&id={{item.id}}'>发起相亲</navigator>
+    <navigator class='details_btn h5' bindtap='launch' url='/pages/talk/talk?id={{id}}'>发起相亲</navigator>
   </view>
 </view>
