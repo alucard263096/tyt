@@ -1,18 +1,19 @@
 {
   "pages":[
-    "pages/content/content",
-    "pages/editing/editing",
-    "pages/matchmaker/matchmaker",
-    "pages/mine/mine",
+    "pages/register/register",
+    "pages/auth/auth",
     "pages/talkwoman/talkwoman",
-    "pages/talk/talk",
-    "pages/home/home",
+    "pages/details/details",
+    "pages/editing/editing",
     "pages/address/address",
+    "pages/home/home",
+    "pages/content/content",
+    "pages/member/member",
+    "pages/mine/mine",
+    "pages/matchmaker/matchmaker",
+    "pages/talk/talk",
     "pages/newspage/newspage",
     "pages/photo/photo",
-    "pages/register/register",
-    "pages/details/details",
-    "pages/member/member",
     "pages/blacklist/blacklist",
     "pages/dialogue/dialogue",
     "pages/setname/setname",
@@ -20,13 +21,12 @@
     "pages/userbind/userbind",
     "pages/shield/shield",
     "pages/success/success",
-    "pages/auth/auth",
     "pages/index/index",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#51ABD8",
+    "navigationBarBackgroundColor": "#d15482",
     "enablePullDownRefresh": true
   },
   "tabBar": {

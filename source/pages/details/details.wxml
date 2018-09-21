@@ -1,13 +1,20 @@
 <!--pages/details/details.wxml-->
 <view class='details_all'>
-
   <view class='flex-row flex-column margin-top-10' style='position:absolute;padding-left:300rpx;'>
     <view class='margin-top-10'>
       <image src='{{uploadpath}}people/{{info.photo}}' style=';width:120rpx;height:120rpx;border-radius:50%'></image>
+      
     </view>
-    <view class='h5 padding-10'>{{info.name}}</view>
-    <view class=' h5'>222</view>
+    <view class='h4 padding-10'>{{info.nkname}}</view>
+    <!-- <view class=' h5'></view> -->
   </view>
+  <button class='btn' bindtap='show'><image style='height:35rpx;width:65rpx;' src='{{uploadpath}}resource/{{res.slh}}'></image></button>
+  <view class="ll flex-row flex-column hide{{showView?'show':''}}">
+  <view class='nice'></view>
+  <view class='h5 text-center' style='width:126rpx;background:white;border-bottom:1rpx solid gray'>举报</view>
+  <navigator class='h5 text-center' url='/pages/blacklist/blacklist' style='width:126rpx;background:white'>黑名单</navigator>
+  </view>
+
   <image src='{{uploadpath}}resource/{{res.details_bg}}' style='width:750rpx;height:310rpx;'></image>
 
   <view class='details_mid'>
@@ -33,7 +40,7 @@
   <view class='padding-L-T-20 '>
     <view class='flex-row flex-center  padding-10'>
       <view class='flex-1 h5'>昵称：</view>
-      <view class='flex-2 h5'>{{info.name}}</view>
+      <view class='flex-2 h5'>{{info.nkname}}</view>
     </view>
     <view class='flex-row flex-center  padding-10'>
       <view class='flex-1 h5'>性别: </view>
@@ -57,7 +64,7 @@
     </view>
     <view class='flex-row flex-center  padding-10'>
       <view class='flex-1 h5'>居住地：</view>
-      <view class='flex-2 h5'>{{info.country_id}}</view>
+      <view class='flex-2 h5'>{{info.country_address}}</view>
     </view>
     <view class='flex-row flex-center  padding-10'>
       <view class='flex-1 h5'>婚姻状况：</view>

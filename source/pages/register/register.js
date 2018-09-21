@@ -16,21 +16,23 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+
     
     var array=["男","女"];
     this.Base.setMyData({array});
     
     var dom = ["请输入您的地址"];
     this.Base.setMyData({ dom });
+
+    var region=[""];
+    this.Base.setMyData({region})
    
 
-    this.Base.setMyData({ name: "", mobile: "", sex: "", address: "", noticesuccess: false, photo: "", country_idx:-1,birth:"" });
-
+    this.Base.setMyData({ nkname:"", name: "", mobile: "", sex: "", address: "", noticesuccess: false, photo: "", country_idx:-1,birth:"" });
     var peopleapi = new PeopleApi();
     peopleapi.countrylist({}, (countrylist) => {
       this.Base.setMyData({ countrylist });
     });
-
   }
   bindRegionChange(e) {
     this.Base.setMyData({
@@ -42,6 +44,11 @@ class Content extends AppBase {
       index: e.detail.value
     })
   }
+  bindRegion(e) {
+  this.setData({
+    region: e.detail.value
+  })
+}
 
   confirm(e) {
     console.log(e);
@@ -54,8 +61,12 @@ class Content extends AppBase {
       this.Base.info("请选择头像");
       return;
     }
+    if(data.nkname==""){
+      this.Base.info("请输入昵称");
+      return;
+    }
     if (data.name == "") {
-      this.Base.info("请输入姓名");
+      this.Base.info("请输入真实姓名");
       return;
     }
     if (data.mobile == "") {
@@ -97,7 +108,6 @@ class Content extends AppBase {
     });
   }
 
-  
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
@@ -113,7 +123,6 @@ class Content extends AppBase {
        register
       });
     });
-    
   }
   phonenoCallback(mobile) {
     this.Base.setMyData({ mobile: mobile });

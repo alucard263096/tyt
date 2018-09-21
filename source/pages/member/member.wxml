@@ -3,7 +3,7 @@
 
 </view>
 
-<navigator class='abstract'>
+<!-- <navigator class='abstract'>
      <view class='editing_portrait'>
       <image  class=' abstract_img' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
      </view>
@@ -13,7 +13,7 @@
       <view class='s2 h6'>
         别再苦苦等待，红娘
       </view>
-</navigator>
+</navigator> -->
 <!-- <navigator class='abstract'>
      <view class='editing_portrait'>
       <image  class=' abstract_img' src='{{uploadpath}}people/{{people.photo}}'></image>
@@ -25,7 +25,7 @@
         {{people.name}}
       </view>
 </navigator> -->
-<navigator class='abstract'  wx:for="{{}}" wx:key="k">
+<navigator class='abstract'  wx:for="{{list}}" wx:key="k">
         <view class="editing_portrait">
         <image  class=' abstract_img' src='{{uploadpath}}list/{{list.viewpeople_photo}}'></image>
         </view>

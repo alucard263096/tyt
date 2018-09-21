@@ -7,3 +7,27 @@
   color: white;
   background-color:#a80a44;
 }
+.register_wximg{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-bottom: 15rpx;
+}
+.top{
+  margin-top: 100rpx;
+}
+.register_wxtop{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100rpx;
+}
+.data_m{
+  color: rgb(133, 133, 133);
+  padding-left: 10rpx;
+}
+.oky{
+  position: absolute;
+  bottom: 60rpx;
+  left: 26rpx;
+}

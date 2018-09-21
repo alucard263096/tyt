@@ -1,3 +1,4 @@
+
 /**index.wxss**/
 .container {
   height: 100%;
@@ -27,5 +28,26 @@
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 20px;
+}
+.mid{
+  height: 2rpx;
+  width: 90%;
+  background: #aaa;
+}
+.details_btn{
+  border: 0;
+  line-height: 60rpx;
+  color: white;
+  width: 650rpx;
+  height: 60rpx;
+  background-color:#ff4081;
+}
+.hover_btn{
+  border: 0;
+  line-height: 60rpx;
+  color: white;
+  width: 650rpx;
+  height: 60rpx;
+  background-color:#ce2463;
 }

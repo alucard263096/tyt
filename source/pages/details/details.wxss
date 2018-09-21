@@ -17,7 +17,7 @@
   height: 130rpx;
 }
 .details_img{
-    width: 168rpx;
+    width: 138rpx;
     height:116rpx;
     margin-right: 10rpx;
     border-radius: 7rpx;
@@ -25,4 +25,33 @@
 .details_lath{
   width: 100%;
   border: 5rpx solid #ebe9e9;
+}
+.show {
+    display: block;
+}
+.hide {
+    display: none;
+}
+.btn{
+  position:absolute;
+  margin-left:580rpx;
+  margin-top:20rpx;
+  height:50rpx;
+  line-height: 50rpx;
+  background-color: transparent;
+  width:105rpx;
+  border: 0px;
+}
+.ll{
+  position:absolute;
+  margin-left:570rpx;
+  margin-top:90rpx;
+  border-radius: 5rpx;
+  height:140rpx;
+  width:130rpx;
+}
+.nice {
+    border-left: 12rpx solid transparent;
+    border-right: 12rpx solid transparent;
+    border-bottom: 12rpx solid white;
 }

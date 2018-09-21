@@ -191,6 +191,3 @@
 <view class="under text-center padding-top-20 hide{{showView11=='sv11'?'show':''}}">
   <view class='h5 fontcolor'>本次相亲结束</view>
 </view>
-<!-- <view class="under text-center padding-top-20 hide{{showView_12?'show':''}}">
-  <view class='h5 fontcolor'>本次相亲结束</view>
-</view> -->

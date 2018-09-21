@@ -109,7 +109,7 @@ export class AppBase {
     console.log(options);
     console.log("onload");
     this.Base.setBasicInfo();
-
+    
 
     if (options.class_id == undefined) {
       var class_id = wx.getStorageSync("class_id");

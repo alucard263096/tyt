@@ -92,7 +92,7 @@
     <view class='right'>
     </view>
   </view>
-
+  
   <view class="margin-top-80 flex-row hide{{showView4=='sv4'?'show':''}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>

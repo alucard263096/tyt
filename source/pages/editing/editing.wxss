@@ -49,3 +49,34 @@
   height: 80rpx;
   background-color: #e72c71;
 }
+.editing_insert{
+  border-radius: 8rpx;
+  margin-left: 10rpx;
+ margin-right: 10rpx;
+}
+.edt_img{
+    width: 134rpx;
+    height:106rpx;
+    border-radius: 7rpx;
+}
+.editing_img{
+    height:126rpx;
+    border-radius: 7rpx;
+}
+
+.editing_photo{
+  height: 150rpx;
+}
+.editing-box {
+    width: 530rpx;
+    height: 114rpx;
+    white-space: nowrap;
+    box-sizing: border-box;
+    margin-top: 5rpx;
+}
+.editing-item {
+    width: 134rpx;
+    height:112rpx;
+    box-sizing: border-box;
+    display: inline-block;
+}

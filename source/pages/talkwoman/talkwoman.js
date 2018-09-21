@@ -17,7 +17,6 @@ class Content extends AppBase {
   }
   onLoad(options) {
     options.id = 1;
-    
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
@@ -26,8 +25,7 @@ class Content extends AppBase {
     showView: (options.showView == "true" ? true : false);
   }
   onMyShow() {
-    var that = this;
-
+      var that = this;
       var interviewapi = new InterViewApi();
      interviewapi.info("id=1", (info) => {
         that.Base.setMyData(info);

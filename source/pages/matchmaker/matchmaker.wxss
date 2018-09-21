@@ -1,3 +1,6 @@
 .mt{
   border-bottom:2rpx dashed #ebe9e9;height:50rpx;
 }
+.data_1{
+  color: red;
+}

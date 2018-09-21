@@ -1,5 +1,7 @@
 //index.js
 //获取应用实例
+import { ApiConfig } from '../../apis/apiconfig';
+import { InstApi } from '../../apis/inst.api';
 const app = getApp()
 
 Page({

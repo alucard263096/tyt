@@ -20,7 +20,9 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    showView: (options.showView == "true" ? true : false);
     this.Base.setMyData({})
+
   }
   onMyShow() {
     var that = this;
@@ -57,10 +59,20 @@ class Content extends AppBase {
     }
     this.Base.viewGallary("people", photos, current);
   }
+  show() {
+      var that = this;
+      that.setData({
+        showView: (!that.data.showView)
+      })
+  }
+  
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
 body.viewphotos = content.viewphotos;
+body.showfilterselect = content.showfilterselect;
+body.orderselect = content.orderselect; 
+body.show = content.show;
 Page(body)
