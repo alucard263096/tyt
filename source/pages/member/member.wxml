@@ -1,37 +1,19 @@
 <!--pages/member/member.wxml-->
-<view class='news_top'>
 
-</view>
-
-<!-- <navigator class='abstract'>
-     <view class='editing_portrait'>
-      <image  class=' abstract_img' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
-     </view>
-      <view class='s1 h5'>
-        挑一挑红娘帮你找到合适的人
-      </view>
-      <view class='s2 h6'>
-        别再苦苦等待，红娘
-      </view>
-</navigator> -->
-<!-- <navigator class='abstract'>
-     <view class='editing_portrait'>
-      <image  class=' abstract_img' src='{{uploadpath}}people/{{people.photo}}'></image>
-     </view>
-      <view class='s1 h5'>
-        {{people.name}}
-      </view>
-      <view class='s2 h6'>
-        {{people.name}}
-      </view>
-</navigator> -->
-<navigator class='abstract'  wx:for="{{list}}" wx:key="k">
-        <view class="editing_portrait">
-        <image  class=' abstract_img' src='{{uploadpath}}list/{{list.viewpeople_photo}}'></image>
+<view  wx:for="{{list}}" wx:key="k">
+<navigator class='abstract flex-row flex-center' url='/pages/talk/talk?id={{item.id}}'  wx:if="{{item.startpeople_id==UserInfo.people.id}}" >
+        <view class="flex-1">
+        <image  class='img margin-left-30' src='{{uploadpath}}people/{{item.viewpeople_photo}}'></image>
         </view>
-            <!-- <image src="{{item.header_url}}" class="author"></image> -->
-         <text class="s1 h5">{{list.viewpeople_name}}</text>
-         <text class='mem_date h5'>{{list.r_main.updated_date}}</text>
-         <text class="s2 h6"></text>
+         <view class="flex-2 h5">{{item.viewpeople_id_name}}</view>
+         <view class='flex-1 text-right margin-right-30 h5'>{{item.created_date}}</view>
 </navigator>
-
+<navigator class='abstract flex-row flex-center' url='/pages/talkwoman/talkwoman?id={{item.id}}' wx:if="{{item.viewpeople_id==UserInfo.people.id}}" >
+        <view class="flex-1">
+        <image  class='img margin-left-30' src='{{uploadpath}}people/{{item.starter_photo}}'></image>
+        </view>
+         <view class="flex-2 h5">{{item.viewpeople_id_name}}</view>
+         <view class='flex-1 text-right margin-right-30 h5'>{{item.created_date}}</view>
+         
+</navigator>
+</view>

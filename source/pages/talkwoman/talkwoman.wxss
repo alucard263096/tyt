@@ -29,7 +29,7 @@ display: block;
   height: auto;
   color: rgb(99, 99, 99);
   min-height: 62rpx;
-  padding: 20rpx 20rpx 20rpx 20rpx;
+  padding: 23rpx 23rpx 23rpx 23rpx;
   white-space: pre-line;
 }
 .cancel_woman_btn1{
@@ -79,4 +79,49 @@ display: block;
 .and{
   float: right;
   margin: 30rpx 30rpx 0rpx 15rpx;
+}
+.agree {
+  width: 170rpx;
+  height: 50rpx;
+  background: #ff4081;
+  color: white;
+  border-radius: 5rpx;
+  line-height: 50rpx;
+  box-shadow: rgb(199, 199, 199) 0rpx 15rpx 13rpx 0rpx;
+}
+
+.refuse {
+  width: 170rpx;
+  height: 50rpx;
+  background: #5677fc;
+  color: white;
+  border-radius: 5rpx;
+  line-height: 50rpx;
+  box-shadow: rgb(199, 199, 199) 0rpx 15rpx 13rpx 0rpx;
+}
+
+.agree_t {
+  width: 170rpx;
+  height: 50rpx;
+  background: #f72369;
+  color: white;
+  border-radius: 5rpx;
+  line-height: 50rpx;
+  box-shadow: rgb(199, 199, 199) 0rpx 15rpx 13rpx 0rpx;
+}
+.wid {
+  border: 1px solid #ccc9c9;
+  margin-top: 20rpx;
+  width: 470rpx;
+  height: 3rpx;
+  box-shadow: rgb(199, 199, 199) 1rpx 0rpx 3rpx 0rpx;
+}
+.refuse_t {
+  width: 170rpx;
+  height: 50rpx;
+  background: #4165f5;
+  color: white;
+  border-radius: 5rpx;
+  line-height: 50rpx;
+  box-shadow: rgb(199, 199, 199) 0rpx 15rpx 13rpx 0rpx;
 }

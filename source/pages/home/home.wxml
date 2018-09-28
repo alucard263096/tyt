@@ -9,9 +9,10 @@
   </swiper>
 </view>
 
-<view url='/pages/?shownext=Y&id={{item.id}}' class='pos flex-row flex-center'>
-  <view class='mid padding-L-T-R-40'>
-    <view class='syn' style='position:absolute;'>
+
+<view  class='pos flex-row flex-center'>
+  <view class='padding-L-T-R-40'>
+    <view class='syn'>
       <view class='name_1 h4'>{{people2.nkname}}</view>
       <view class='ifm h5'>
         <label class='margin-right-10'>{{people2.age}}岁</label>|
@@ -27,9 +28,9 @@
   </view>
 </view>
 
-<navigator url='/pages/details/details?id={{people.id}}' class='pos flex-row flex-center {{inleftswipe==true?"inleftswipe":""}} {{inrightswipe==true?"inrightswipe":""}}'>
-  <view class='padding-L-T-R-40' bindtouchstart="handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
-    <view class='syn' style='position:absolute;'>
+<navigator url='/pages/details/details?id={{people.id}}' class='pos flex-row flex-center {{inleftswipe==true?"inleftswipe":""}} {{inrightswipe==true?"inrightswipe":""}}' bindtouchstart="handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
+  <view class='padding-L-T-R-40' >
+    <view class='syn'>
       <view class='name_1 h4'>{{people2.nkname}}</view>
       <view class='ifm h5'>
         <label class='margin-right-10'>{{people2.age}}岁</label>|

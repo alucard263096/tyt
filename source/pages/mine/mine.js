@@ -14,9 +14,10 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-
+    this.Base.setMyData({ order: 0, country_idx: -1, country_id: 0 });
     var region = ["广东省", "深圳市","南山区"];
     this.Base.setMyData({ region });
+
 
   }
   onMyShow() {
@@ -28,29 +29,31 @@ class Content extends AppBase {
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
     });
-
-    var peopleapi = new PeopleApi();
-    peopleapi.list({ }, (people) => {
-      var people = people[0];
-      var birth = people.birth_timespan;
-      var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
-      people.age = age;
-      this.Base.setMyData({ people });
-    });
     
+    var peopleapi = new PeopleApi();
+    peopleapi.info({}, (info) => {
+      this.Base.setMyData({
+        info
+      });
+    });
+    peopleapi.countrylist({}, (countrylist) => {
+      this.Base.setMyData({ countrylist });
+    });
   }
-  bindRegionChange(e){
-    this.Base.setMyData({
-      region: e.detail.value
-    })
+  bindcountry(e) {
+    var countrylist = this.Base.getMyData().countrylist;
+    this.Base.setMyData({ country_idx: e.detail.value, country_id: countrylist[e.detail.value].id });
+    var id = countrylist[e.detail.value].id;
+    var peopleapi = new PeopleApi();
+    peopleapi.fieldupdate({ "fname": "country_id", fkey: id }, (fieldupdate) => {
+      this.Base.setMyData({ fieldupdate });
+    });
   }
-
 }
-
 
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
-body.bindRegionChange = content.bindRegionChange;
+body.bindcountry = content.bindcountry;
 Page(body)

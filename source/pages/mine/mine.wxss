@@ -1,9 +1,15 @@
 /* pages/mine/mine.wxss */
-.dt_img{
+.dt_imgs{
   float: right;
-  margin-top: 11rpx;
 }
 .dt_input{
   width: 450rpx;
   text-align: right;
+}
+.abstract_img{
+  width: 114rpx;
+  height: 114rpx;
+  border-radius: 50%;
+  margin-left: 20rpx;
+  margin-top: 15rpx;
 }

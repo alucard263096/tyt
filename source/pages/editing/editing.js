@@ -17,8 +17,6 @@ class Content extends AppBase {
     super();
   }
   onLoad(options) {
-    options.class_id = 1;
-    
     this.Base.Page = this;
     //options.id=5;
     this.Base.setMyData({ order: 0, country_idx: -1, country_id: 0 });
@@ -111,9 +109,7 @@ class Content extends AppBase {
   bindcountry(e) {
     var countrylist = this.Base.getMyData().countrylist;
     this.Base.setMyData({ country_idx: e.detail.value, country_id: countrylist[e.detail.value].id });
-
     var id = countrylist[e.detail.value].id;
-
 
     var peopleapi = new PeopleApi();
     peopleapi.fieldupdate({ "fname": "country_id", fkey: id }, (fieldupdate) => {
@@ -140,12 +136,12 @@ class Content extends AppBase {
         info
       });
     });
-    peopleapi.photolist({ }, (photolist) => {
+    peopleapi.photolist({
+     }, (photolist) => {
       this.Base.setMyData({
         photolist
       });
     });
-
   }
 
   viewphotos(e) {

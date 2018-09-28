@@ -1,1 +1,11 @@
 /* pages/shield/shield.wxss */
+.section{
+  margin: 25rpx;
+}
+.ck{
+  margin-top: 20rpx;
+  
+}
+.editing_head{
+  padding: 20rpx 20rpx 0rpx 20rpx;
+}

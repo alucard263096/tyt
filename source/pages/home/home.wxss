@@ -3,25 +3,7 @@
 page {
   width: 750rpx;
   overflow-x: hidden;
-  border-bottom: 1px solid rgb(231, 228, 228);
 }
-
-.mid {
-  border-bottom: 1px solid rgb(231, 228, 228);
-}
-
-.hide {
-  display: none;
-}
-
-.title {
-  height: 86rpx;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
 .syn {
   width: 600rpx;
   height: 160rpx;
@@ -29,14 +11,15 @@ page {
   border-radius: 25rpx;
   margin-top: 660rpx;
   margin-left: 25rpx;
+  position:absolute;
 }
 
 .ifm {
-  margin: 20rpx;
+  margin: 10rpx;
 }
 
 .name_1 {
-  margin: 20rpx;
+  margin: 10rpx;
 }
 
 .ig {
@@ -46,7 +29,6 @@ page {
   box-shadow: rgb(238, 215, 215) 2rpx 2rpx 6rpx 2rpx;
   margin-bottom: 20rpx;
 }
-
 .pos {
   position: absolute;
 }

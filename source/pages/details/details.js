@@ -40,52 +40,61 @@ class Content extends AppBase {
       that.Base.setMyData(info);
     });
 
-    var peopleapi = new PeopleApi();
-    peopleapi.info(({ id: this.Base.options.id }), (info) => {
+    var interviewapi = new InterViewApi();
+    interviewapi.create({}, (create) => {
       this.Base.setMyData({
+        create
+      })
+    })
+    var peopleapi = new PeopleApi();
+    peopleapi.info(({
+      id: this.Base.options.id
+    }), (info) => {
+      this.Base.setMyData({ 
         info
       });
     });
-    peopleapi.photolist({ id: this.Base.options.id},(photolist)=>{
+    peopleapi.photolist({
+      id: this.Base.options.id
+    }, (photolist) => {
       this.Base.setMyData({
         photolist
       });
     });
-    
   }
-  viewphotos(e){
-    var current=e.currentTarget.id;
+  viewphotos(e) {
+    var current = e.currentTarget.id;
     var photolist = this.Base.getMyData().photolist;
-    var photos=[];
-    for(var i=0;i<photolist.length;i++){
+    var photos = [];
+    for (var i = 0; i < photolist.length; i++) {
       photos.push(photolist[i].photo);
     }
     this.Base.viewGallary("people", photos, current);
   }
   show() {
-      var that = this;
-      that.setData({
-        showView: (!that.data.showView)
-      })
+    var that = this;
+    that.setData({
+      showView: (!that.data.showView)
+    })
   }
-  // launch(){
-  //   var that=this;
-  //   var interviewapi = new InterViewApi();
-  //   interviewapi.create({}, (create) => {
-  //     this.Base.setMyData({
-  //       create
-  //     })
-  //   })
-  // }
-  
+  launch() {
+    var that = this;
+    var interviewapi = new InterViewApi();
+    interviewapi.create({"viewpeople_id": this.Base.options.id}, (ret) => {
+      console.log(ret);
+       wx: wx.navigateTo({
+         url: '/pages/talk/talk?id=' + ret.return
+       })
+    });
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
-body.onLoad = content.onLoad; 
+body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.viewphotos = content.viewphotos;
 body.showfilterselect = content.showfilterselect;
-body.orderselect = content.orderselect; 
+body.orderselect = content.orderselect;
 body.show = content.show;
-body.launch = body.launch;
+body.launch = content.launch;
 Page(body)

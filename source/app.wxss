@@ -277,6 +277,11 @@ button[disabled][type=primary] {
   width: 100rpx;
   height: 100rpx;
 }
+.icon-60{
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+}
 .icon-75{
   border-radius: 50%;
   width: 150rpx;
@@ -299,8 +304,20 @@ button[disabled][type=primary] {
 .margin-right-10{
   margin-right: 10rpx;
 }
+.margin-right-20{
+  margin-right: 20rpx;
+}
+.margin-right-30{
+  margin-right: 30rpx;
+}
 .margin-left-10{
   margin-left: 10rpx;
+}
+.margin-left-20{
+  margin-left: 20rpx;
+}
+.margin-left-30{
+  margin-left: 30rpx;
 }
 
 
@@ -631,7 +648,6 @@ font-family: 黑体;
 }
 .padding-L-T-R-40{
   padding-left: 50rpx;
-  padding-right: 40rpx;
   padding-top: 20rpx;
 }
 
@@ -691,7 +707,7 @@ font-size: 28rpx;
 }
 
 .usermotto {
-  margin-top: 60rpx;
+  margin-top: 30rpx;
   padding-bottom: 50rpx;
 }
 .first{
@@ -810,10 +826,7 @@ font-size: 28rpx;
   border-bottom: 1.5px solid #ddd;
   background: rgb(231, 231, 231);
 }
-.abstract{
-  border-bottom:2px solid #ddd; 
-  height: 162rpx;
-}
+
 .abstract_img{
   width: 114rpx;
   height: 114rpx;
@@ -990,6 +1003,7 @@ font-size: 28rpx;
     height: 114rpx;
     white-space: nowrap;
     box-sizing: border-box;
+    border-radius: 10rpx;
     margin-top: 5rpx;
     background-color: rgb(238, 239, 240);
 }
@@ -1048,18 +1062,7 @@ font-size: 28rpx;
   height: 700rpx;
   padding-top:230rpx; 
 }
-.pay_btn{
-  margin-top: 20rpx;
-  height: 68rpx;
-  width: 600rpx;
-  color: white;
-  background-color:#ee055c;
-  border-radius: 35rpx;
-  line-height: 60rpx;
-}
-.editing_head{
-  padding: 20rpx 20rpx 0rpx 30rpx;
-}
+
 .editing_txt{
   font-weight: 700;
 }

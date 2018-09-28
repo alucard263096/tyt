@@ -78,20 +78,6 @@
       </picker>
     </view>
   </view>
-  <!-- <view class='padding-20 white-block border-top flex-row flex-center'>
-    <view>婚姻状况</view>
-    <view class='flex-1'>
-      <picker class='data_1 h4-5' bindchange="bindmarriage" range="{{marriagelist}}" >
-      
-        <view class='txt-gray' wx:if="{{0}}">不限
-          <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1 flex-1'></image>
-        </view>
-        <view class='txt-primary' wx:if="{{marriage>0}}">{{marriagelist[marriage_idx].name}}
-          <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1 flex-1'></image>
-        </view>
-      </picker>
-    </view>
-  </view> -->
 
 </view>
 <view class="bg-gray" style='height:10rpx;'>
@@ -100,7 +86,7 @@
 <scroll-view class='maintab' scroll-y>
   <view class='bg-mu maintab' bindtap='closeoption' wx:if="{{orderselect==true||filterselect==true}}">
   </view>
-  <navigator url='/pages/details/details?shownext=Y&&id={{item.id}}' class='Head_portrait' wx:for="{{peoplelist}}" wx:key="k">
+  <navigator url='/pages/details/details?id={{item.id}}' class='Head_portrait' wx:for="{{peoplelist}}" wx:key="k">
     <image class=' abstract_img' src='{{uploadpath}}people/{{item.photo}}'></image>
     <view class='s1 h5'>
       {{item.name}}

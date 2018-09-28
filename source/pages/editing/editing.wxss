@@ -80,3 +80,14 @@
     box-sizing: border-box;
     display: inline-block;
 }
+.editing_txt{
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+  font-weight: 700;
+}
+.editing_headimg{
+  display: flex;
+  align-items: center;
+  height: 160rpx;
+  margin: 20rpx;
+}

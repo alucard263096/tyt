@@ -10,3 +10,21 @@
   margin: 10rpx;
   line-height: 30rpx;
 }
+.pay_btn{
+  margin-top: 20rpx;
+  height: 68rpx;
+  width: 600rpx;
+  color: white;
+  background-color:#d15482;
+  border-radius: 35rpx;
+  line-height: 60rpx;
+}
+.hover_btn{
+  margin-top: 20rpx;
+  height: 68rpx;
+  width: 600rpx;
+  color: white;
+  background-color:#da2869;
+  border-radius: 35rpx;
+  line-height: 60rpx;
+}

@@ -31,6 +31,6 @@
 
 <view class='payment_mid'>
 <text class='fontcolor h6'>温馨提示：支付成功后，不支持退款，敬请谅解</text>
-<button class='pay_btn h4-1'>确认支付</button>
+<button class='pay_btn h5' hover-class='hover_btn '>确认支付</button>
 </view>
 

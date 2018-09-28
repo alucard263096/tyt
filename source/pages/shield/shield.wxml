@@ -1,24 +1,82 @@
 <!--pages/shield/shield.wxml-->
 <view class='editing_head'>
-<text class='editing_txt'>不被搜索选项</text>
+  <text class='editing_txt'>不被搜索选项</text>
 </view>
-<view class='shield_data'> 
-   <view class='data'>
-    <label class='mine_dt h4-5'>年龄</label>
-    <label class='data_1 h4-5'>{{people.name}}<image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image></label>
-   </view>
+<view class='shield_data'>
+  <view class='data'>
+    <view class='mine_dt h4-5'>最低年龄</view>
+    <picker class='data_1 h4-5 ' bindchange="bindminage" range="{{minagelist}}" value="{{minage}}">
+      <view class='flex-row flex-center'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{minagelist[minage]}}' style='text-align:right;margin-right:10rpx;'>
+        </input>
+        <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1'></image>
+      </view>
+    </picker>
+  </view>
 </view>
 
-<view class='shield_data'> 
-   <view class='data'>
-    <label class='mine_dt h4-5'>身高</label>
-    <label class='data_1 h4-5'>mmmm<image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image></label>
-   </view>
+<view class='shield_data'>
+  <view class='data'>
+    <view class='mine_dt h4-5'>最高年龄</view>
+    <picker class='data_1 h4-5 ' bindchange="bindmaxage" range="{{maxagelist}}" value="{{maxage}}">
+      <view class='flex-row flex-center'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{maxagelist[maxage]}}' style='text-align:right;margin-right:10rpx;'>
+        </input>
+        <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1'></image>
+      </view>
+    </picker>
+  </view>
 </view>
 
-<view class='shield_data2'> 
-   <view class='data'>
-    <label class='mine_dt h4-5'>婚姻状况</label>
-    <label class='data_1 h5'>{{people.birth}}<image src='{{uploadpath}}resource/{{res.reg_right}}' class='dt_imgs icon-15-1'></image></label>
-   </view>
+<view class='shield_data'>
+  <view class='data'>
+    <view class='mine_dt h4-5'>最低身高</view>
+    <picker class='data_1 h4-5 ' bindchange="bindminheight" range="{{minheightlist}}" value="{{minheight}}">
+      <view class='flex-row flex-center'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{minheightlist[minheight]}}' style='text-align:right;margin-right:10rpx;'>
+        </input>
+        <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style=''></image>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='shield_data'>
+  <view class='data'>
+    <view class='mine_dt h4-5'>最高身高</view>
+    <picker class='data_1 h4-5 ' bindchange="bindmaxheight" range="{{maxheightlist}}" value="{{maxheight}}">
+      <view class='flex-row flex-center'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{maxheightlist[maxheight]}}' style='text-align:right;margin-right:10rpx;'>
+        </input>
+        <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style=''></image>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='shield_data'>
+  <view class='data'>
+    <view class='mine_dt h4-5'>年收入</view>
+    <picker class='data_1 h4-5 ' bindchange="bindincome" range="{{incomelist}}" value="{{income}}">
+      <view class='flex-row flex-center'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{incomelist[income]}}' style='text-align:right;margin-right:10rpx;'>
+        </input>
+        <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style=''></image>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='section'>
+  <view class='section-title'>婚姻状况</view>
+  <checkbox-group name='checkbox'>
+    <view class='ck flex-row flex-center'>
+      <label class='h5 flex-1'>
+        <checkbox value='checkbox2'></checkbox> 未婚</label>
+      <label class='h5 flex-1'>
+        <checkbox value='checkbox2'></checkbox> 离异</label>
+      <label class='h5 flex-1'>
+        <checkbox value='checkbox2'></checkbox> 丧偶</label>
+    </view>
+  </checkbox-group>
 </view>

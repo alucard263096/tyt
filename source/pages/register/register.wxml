@@ -7,8 +7,8 @@
 
   <view class='register_wxtop'>
     <view>
-      <image wx:if="{{photo==''}}" class='icon-75' src='{{uploadpath}}resource/{{res.defaultmember}}' bindtap='choosePhoto'></image>
-      <image class='icon-75' src='{{uploadpath}}people/{{photo}}' wx:if="{{photo!=''}}" bindtap='choosePhoto'></image>
+      <image wx:if="{{photo==''}}" class='icon-60' src='{{uploadpath}}resource/{{res.head}}' bindtap='choosePhoto'></image>
+      <image class='icon-60' src='{{uploadpath}}people/{{photo}}' wx:if="{{photo!=''}}" bindtap='choosePhoto'></image>
       <input name="photo" value='{{photo}}' class='fullimg' hidden='true'></input>
     </view>
     <view></view>
@@ -65,6 +65,15 @@
 
   <view class='first flex-row flex-center'>
     <view>
+      <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
+    </view>
+    <view class='user flex-1'>
+      <input class='fullimg h5' placeholder='请填写您的身高' type='number' maxlength='3' name='height' bindinput=''></input>
+    </view>
+  </view>
+
+  <view class='first flex-row flex-center'>
+    <view>
       <image src='{{uploadpath}}resource/{{res.reg_address}}' class='icon'></image>
     </view>
     <view class='user flex-1'>
@@ -76,22 +85,18 @@
     </view>
   </view>
   
-  <view class='first flex-row flex-center'>
+<view class='first flex-row flex-center'>
     <view>
       <image src='{{uploadpath}}resource/{{res.reg_address}}' class='icon'></image>
     </view>
     <view class='user flex-1'>
-      <!-- <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
-         <input></input>
-      </picker> -->
-      <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+      <picker mode="region" disabled='true' bindchange="bindRegionChange" value="{{region}}">
         <view class="reg_pf fontcolor h5">
-          <input disabled='disabled' class='h5' placeholder='请选择地区' value='{{region}}' name="city">
+          <input disabled='disabled' class='h5' placeholder='山东省菏泽市巨野县' value='{{region}}' name="city">
           </input>
         </view>
         <image class='icon_btm' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
       </picker>
-      
     </view>
   </view>
 
@@ -100,15 +105,23 @@
       <image src='{{uploadpath}}resource/{{res.reg_address}}' class='icon'></image>
     </view>
     <view class='user flex-1'>
-      <picker class='data_m h4-5' bindchange="bindcountry" range="{{countrylist}}" range-key='name'>
+      <picker class='data_m h4-5'  bindchange="bindcountry" range="{{countrylist}}" range-key='name'>
       <image class='icon_btm' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
-       <view class='fontcolor h5' wx:if="{{country_idx==-1}}">请选择村庄</view>
+       <view class='fontcolor h5' wx:if="{{country_idx==-1}}">请选择城镇</view>
        <view class=' h5' wx:if="{{country_idx>-1}}">{{countrylist[country_idx].name}}</view>
       </picker>
     </view>
   </view>
 
-  
+  <view class='first flex-row flex-center'>
+    <view>
+      <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
+    </view>
+    <view class='user flex-1'>
+      <input class='fullimg h5' placeholder='请输入村庄名' maxlength='10' name='country' bindinput=''></input>
+    </view>
+  </view>
+
   <view class='first flex-row flex-center'>
     <view>
       <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
@@ -118,9 +131,10 @@
     </view>
   </view>
 
-
   <view class='oky'>
-    <button class='sub h5' form-type='submit' hover-class='hover_btn' >完成注册</button>
+    <button class='reg_sub h5' form-type='submit' hover-class='hover_btn'>完成注册</button>
   </view>
 
 </form>
+  
+  

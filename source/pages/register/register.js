@@ -86,10 +86,14 @@ class Content extends AppBase {
       data.birth=birth;
     }
     if (country_idx==-1){
-      this.Base.info("请选择村庄");
+      this.Base.info("请选择城镇");
       return;
     }else{
       data.country_id=countrylist[country_idx].id;
+    }
+    if(data.country==""){
+      this.Base.info("请输入村庄名");
+      return;
     }
     if (data.address == "") {
       this.Base.info("请输入详细门牌地址");

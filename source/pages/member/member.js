@@ -10,7 +10,6 @@ class Content extends AppBase {
     super();
   }
   onLoad(options) {
-    options.class_id = 1;
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
@@ -18,13 +17,9 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
-    var peopleapi = new PeopleApi();
     var interviewApi = new InterViewApi();
-
-    peopleapi.list({ }, (people) => {
-      this.Base.setMyData({ people });
-    });
     interviewApi.list({},(list)=>{
+      var m=list[0];
       this.Base.setMyData({list});
     })
   }

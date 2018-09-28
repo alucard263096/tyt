@@ -20,7 +20,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100rpx;
+  height: 50rpx;
 }
 .data_m{
   color: rgb(133, 133, 133);
@@ -28,6 +28,13 @@
 }
 .oky{
   position: absolute;
-  bottom: 60rpx;
+  bottom: 20rpx;
   left: 26rpx;
+}
+.reg_sub{
+  height: 80rpx;
+  width: 700rpx;
+  line-height: 80rpx;
+  color: white;
+  background-color:#ee055c;
 }
