@@ -44,9 +44,9 @@ class Content extends AppBase {
     var that = this;
     var interviewapi = new InterViewApi();
     interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "showView11", "fkey": "sv11" }, (fieldupdate) => {
-      this.Base.setMyData({ showView11: "sv11"});
+      this.Base.setMyData({ showView11: "sv11" });
     });
-    
+
     interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "close7", "fkey": "cl7" }, (fieldupdate) => {
       this.Base.setMyData({ close7: "cl7" });
     });
@@ -102,7 +102,7 @@ class Content extends AppBase {
       this.Base.setMyData({ close4: "cl4" });
     });
   }
-  QX5(){
+  QX5() {
     var that = this;
     var interviewapi = new InterViewApi();
     interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "close8", "fkey": "cl8" }, (fieldupdate) => {
@@ -116,23 +116,21 @@ class Content extends AppBase {
       this.Base.setMyData({ close9: "cl9" });
     });
   }
-  Agrpay(){
-  var that = this;
-  var interviewapi = new InterViewApi();
+  Agrpay() {
+    var that = this;
+    var interviewapi = new InterViewApi();
     interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "showView2", "fkey": "sv2" }, (fieldupdate) => {
-    this.Base.setMyData({ showView2: "sv2" });
-  });
+      this.Base.setMyData({ showView2: "sv2" });
+    });
     interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "showView1", "fkey": "sv2" }, (fieldupdate) => {
       this.Base.setMyData({ showView1: "sv2" });
     });
     interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "close7", "fkey": "cl7" }, (fieldupdate) => {
       this.Base.setMyData({ close7: "cl7" });
     });
-    wx: wx.navigateTo({
-      url: '/pages/payment/payment'
-    });
-    
-}
+   
+
+  }
   Agrpay2() {
     var that = this;
     var interviewapi = new InterViewApi();

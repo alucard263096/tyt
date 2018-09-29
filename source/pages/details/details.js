@@ -48,14 +48,14 @@ class Content extends AppBase {
     })
     var peopleapi = new PeopleApi();
     peopleapi.info(({
-      id: this.Base.options.id
+      id:this.Base.options.id
     }), (info) => {
       this.Base.setMyData({ 
         info
       });
     });
     peopleapi.photolist({
-      id: this.Base.options.id
+      people_id: this.Base.options.id
     }, (photolist) => {
       this.Base.setMyData({
         photolist
@@ -87,6 +87,14 @@ class Content extends AppBase {
        })
     });
   }
+
+  addtoblack(){
+    var peopleapi = new PeopleApi();
+    peopleapi.addtoblack({ people_id: this.Base.options.id}, (addtoblack) => {
+      this.Base.setMyData({ addtoblack });
+    });
+    
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -97,4 +105,6 @@ body.showfilterselect = content.showfilterselect;
 body.orderselect = content.orderselect;
 body.show = content.show;
 body.launch = content.launch;
+body.report = content.report;
+body.addtoblack = content.addtoblack;
 Page(body)

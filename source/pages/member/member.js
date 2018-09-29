@@ -18,7 +18,9 @@ class Content extends AppBase {
     var that = this;
     var instapi = new InstApi();
     var interviewApi = new InterViewApi();
-    interviewApi.list({},(list)=>{
+    //var UserInfo=this.Base.getMyData().id;
+    //showView11:"sv11",startpe_id:UserInfo.people.id
+    interviewApi.list({ showing: "Y", orderby:" r_main.updated_date desc"},(list)=>{
       var m=list[0];
       this.Base.setMyData({list});
     })

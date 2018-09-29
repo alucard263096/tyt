@@ -1,27 +1,17 @@
 <!--index.wxml-->
-<!-- <view class="container">
-  
-  
-  <view class='mid'></view>
-  
-  <view class="userinfo">
-    
-    <navigator   style='text-align:center'   > 获取头像昵称 </navigator>
-  </view>
-
-</view> -->
-<!--index.wxml-->
 <view class="container">
-<view ><image class='icon-75' src=''></image></view>
-<view class='h4 padding-bottom-10'>挑一挑相亲</view>
+  <view class='margin-bottom-10'>
+    <image class='icon-150' src='{{uploadpath}}inst/{{instinfo.logo}}'></image>
+  </view>
+  <view class='h4 padding-bottom-60 font-weight-bold'>挑一挑相亲</view>
+  <view class='mid'></view>
+</view>
 <view class="usermotto">
-    <view class="user-motto h5">登录后该应用将获得以下权限：</view>
-    <view style='height:20rpx'></view>
-    <view class='fontcolor h5'>· 获得你的公开信息(昵称、头像等)</view>
-  </view>
-  <view class="userinfo">
-    <button class='h5 details_btn' hover-class='hover_btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-  </view>
-  
+  <view class=" h5">登录后该应用将获得以下权限：</view>
+  <view style='height:20rpx'></view>
+  <view class='fontcolor h5'>· 获得你的公开信息(昵称、头像等)</view>
 </view>
 
+<view class="userinfo">
+  <button class='h5 details_btn' hover-class='hover_btn' open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权并登录 </button>
+</view>

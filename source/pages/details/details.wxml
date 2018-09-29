@@ -3,25 +3,25 @@
   <view class='flex-row flex-column margin-top-10' style='position:absolute;padding-left:300rpx;'>
     <view class='margin-top-10'>
       <image src='{{uploadpath}}people/{{info.photo}}' style=';width:120rpx;height:120rpx;border-radius:50%'></image>
-      
+
     </view>
     <view class='h4 padding-10'>{{info.nkname}}</view>
     <!-- <view class=' h5'></view> -->
   </view>
-  <button class='btn' bindtap='show'><image style='height:35rpx;width:65rpx;' src='{{uploadpath}}resource/{{res.slh}}'></image></button>
+  <button class='btn' bindtap='show'>
+    <image style='height:35rpx;width:65rpx;' src='{{uploadpath}}resource/{{res.slh}}'></image>
+  </button>
   <view class="ll flex-row flex-column hide{{showView?'show':''}}">
-  <view class='nice'></view>
-  <view class='h5 text-center' style='width:126rpx;background:white;border-bottom:1rpx solid gray'>举报</view>
-  <navigator class='h5 text-center' url='/pages/blacklist/blacklist' style='width:126rpx;background:white'>黑名单</navigator>
+    <view class='nice'></view>
+    <navigator class='flex-1 h6 text-center padding-top-20' url='/pages/report/report' style='width:126rpx;background:white;border-bottom:1px solid gray'>举报</navigator>
+    <navigator class='flex-1 h6 text-center padding-top-20' url='/pages/blacklist/blacklist?people_id={{item.id}}' bindtap='addtoblack' style='width:126rpx;background:white;'>黑名单</navigator>
   </view>
-
   <image src='{{uploadpath}}resource/{{res.details_bg}}' style='width:750rpx;height:310rpx;'></image>
-
   <view class='details_mid'>
     <view class='details_img'>
       <scroll-view class="details-box" scroll-x="true">
         <view class="details-item" wx:for="{{photolist}}" wx:key="k">
-          <image src='{{uploadpath}}photolist/{{item.photo}}' class='details_img' bindtap='viewphotos' id="{{item.photo}}" ></image>
+          <image src='{{uploadpath}}people/{{item.photo}}' class='details_img' bindtap='viewphotos' id="{{item.photo}}"></image>
         </view>
       </scroll-view>
     </view>
@@ -64,14 +64,14 @@
     </view>
     <view class='flex-row flex-center  padding-10'>
       <view class='flex-1 h5'>居住地：</view>
-      <view class='flex-2 h5'>{{info.country_address}}</view>
+      <view class='flex-2 h5'>{{info.country_address}}{{info.country_name}}</view>
     </view>
     <view class='flex-row flex-center  padding-10'>
       <view class='flex-1 h5'>婚姻状况：</view>
       <view class='flex-2 h5'>{{info.marriage_name}}</view>
     </view>
     <view class='flex-row flex-center  padding-10'>
-      <view class='flex-1 h5'>子女情况：</view>
+      <view class='flex-1 h5'></view>
       <view class='flex-2 h5'>{{info.children}}</view>
     </view>
   </view>
@@ -80,7 +80,7 @@
   </view>
 
   <view class='details_bottom'>
-    <navigator class='details_btn h5' bindtap='launch' >发起相亲</navigator>
+    <navigator class='details_btn h5' bindtap='launch'>发起相亲</navigator>
   </view>
 </view>
 <!-- url='/pages/talk/talk?id={{id}}' -->

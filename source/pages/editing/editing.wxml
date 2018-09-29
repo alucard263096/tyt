@@ -12,7 +12,6 @@
       <navigator url='/pages/photo/photo'>
         <cover-image src='{{uploadpath}}resource/{{res.insert}}' class='editing_insert edt_img'></cover-image>
       </navigator>
-
       <scroll-view class="editing-box" scroll-x="true">
         <view class="editing-item" wx:for="{{photolist}}" wx:key="k">
           <image src='{{uploadpath}}people/{{item.photo}}' class='edt_img' bindtap='viewphotos' id="{{item.photo}}"></image>
@@ -44,7 +43,7 @@
 <view class='editing_data'>
   <view class='data' style='margin-right:70rpx;'>
     <label class='mine_dt h4-5'>年龄</label>
-    <label class='data_1 h4-5'>{{info.birth}}岁
+    <label class='data_1 h4-5'>{{info.age}}岁
     </label>
   </view>
 </view>
@@ -96,9 +95,16 @@
     <label class='mine_dt h4-5'>居住地</label>
     <picker class='data_1 h4-5' bindchange="bindcountry" range="{{countrylist}}" range-key='name'>
       <image src='{{uploadpath}}resource/{{res.right_s}}' class='dt_imgs icon-15-1'></image>
-      <view class='fontcolor' style='text-align:right;height:60rpx;width:600rpx;' wx:if="{{country_id==0}}">{{info.country_address}}</view>
-      <view class='' style='text-align:right;height:60rpx;width:600rpx;' wx:if="{{country_id>0}}">{{countrylist[country_idx].address}}</view>
+      <view class='fontcolor' style='text-align:right;height:60rpx;width:600rpx;' wx:if="{{country_id==0}}">{{info.country_address}}{{info.country_name}}</view>
+      <view class='' style='text-align:right;height:60rpx;width:600rpx;' wx:if="{{country_id>0}}">{{info.country_address}}{{countrylist[country_idx].name}}</view>
     </picker>
+  </view>
+</view>
+
+<view class='mine_data '>
+  <view class='data flex-row flex-center'>
+    <label class='flex-1 mine_dt h4-5'>详细地址</label>
+    <input class='flex-3 text-right padding-right-40 fontcolor'  maxlength='20' name='address' bindinput='' value='{{info.country}}{{info.address}}'></input>
   </view>
 </view>
 

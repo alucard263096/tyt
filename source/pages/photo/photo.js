@@ -22,6 +22,17 @@ class Content extends AppBase {
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
     });
+    var peopleapi = new PeopleApi();
+    peopleapi.photolist({
+    }, (photolist) => {
+      var images=[];
+      for(var i=0;i<photolist.length;i++){
+        images.push(photolist[i].photo);
+      }
+      this.Base.setMyData({
+        images
+      });
+    });
   }
   minusImg(e) {
     var that = this;
@@ -33,6 +44,7 @@ class Content extends AppBase {
         imgs.push(images[i]);
       }
     }
+    
     that.Base.setMyData({ images: imgs });
   }
   uploadimg() {

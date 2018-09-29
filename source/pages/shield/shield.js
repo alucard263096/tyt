@@ -28,22 +28,28 @@ class Content extends AppBase {
       maxagelist
     });
     var minheightlist = ["140cm", "150cm",
-      "160cm", "170cm", "180cm", "190cm", "不限"
+      "160cm", "170cm", "180cm", "190cm", "200cm","不限"
     ];
     this.Base.setMyData({
       minheightlist
     });
-    var maxheightlist = ["150cm", "160cm",
+    var maxheightlist = ["140cm","150cm", "160cm",
       "170cm", "180cm", "190cm", "200cm", "不限"
     ];
     this.Base.setMyData({
       maxheightlist
     });
-    var incomelist = ["<2000元/月", "<3000元/月", "<4000元/月", "<5000元/月", "<7000元/月", "<10000元/月",
-      "<15000元/月", "<20000元/月", "<25000元/月", "<30000元/月","不限"
+    var minincomelist = ["2000元/月","3000元/月", "4000元/月", "5000元/月", "7000元/月", "10000元/月",
+      "15000元/月", "20000元/月", "25000元/月", "30000元/月","不限"
     ];
     this.Base.setMyData({
-       incomelist
+       minincomelist
+    });
+    var maxincomelist = ["2000元/月", "3000元/月", "4000元/月", "5000元/月", "7000元/月", "10000元/月",
+      "15000元/月", "20000元/月", "25000元/月", "30000元/月", "不限"
+    ];
+    this.Base.setMyData({
+      maxincomelist
     });
   }
   onMyShow() {
@@ -57,9 +63,23 @@ class Content extends AppBase {
     });
   }
   bindmaxage(e) {
-    console.log(maxagelist);
-    this.Base.setMyData({ maxage: e.detail.value })
-    var maxagelist = this.Base.getMyData().maxagelist;
+    // console.log(maxagelist);
+    // this.Base.setMyData({ maxage: e.detail.value })
+    // var maxagelist = this.Base.getMyData().maxagelist;
+    var that = this;
+    this.Base.setMyData({
+      minage: e.detail.value
+    });
+    this.Base.setMyData({ minage: e.detail.value })
+    var minagelist = this.Base.getMyData().minagelist;
+    console.log(minagelist)
+
+
+    var peopleapi = new PeopleApi();
+    var minage= e.detail.value;
+    peopleapi.fieldupdate({   }, (fieldupdate) => {
+      this.Base.setMyData({ fieldupdate });
+    });
   }
   bindminage(e) {
     console.log(minagelist);
@@ -76,10 +96,15 @@ class Content extends AppBase {
     this.Base.setMyData({ maxheight: e.detail.value })
     var maxheightlist = this.Base.getMyData().maxheightlist;
   }
-  bindincome(e) {
-    console.log(incomelist);
-    this.Base.setMyData({ income: e.detail.value })
-    var incomelist = this.Base.getMyData().incomelist;
+  bindminincome(e) {
+    console.log(minincomelist);
+    this.Base.setMyData({ minincome: e.detail.value })
+    var minincomelist = this.Base.getMyData().minincomelist;
+  }
+  bindmaxincome(e) {
+    console.log(maxincomelist);
+    this.Base.setMyData({ maxincome: e.detail.value })
+    var maxincomelist = this.Base.getMyData().maxincomelist;
   }
 
 }
@@ -91,5 +116,6 @@ body.bindminage = content.bindminage;
 body.bindmaxage = content.bindmaxage;
 body.bindminheight = content.bindminheight;
 body.bindmaxheight = content.bindmaxheight;
-body.bindincome=content.bindincome;
+body.bindminincome=content.bindminincome;
+body.bindmaxincome = content.bindmaxincome;
 Page(body)

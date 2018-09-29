@@ -5,7 +5,7 @@
 <view class='shield_data'>
   <view class='data'>
     <view class='mine_dt h4-5'>最低年龄</view>
-    <picker class='data_1 h4-5 ' bindchange="bindminage" range="{{minagelist}}" value="{{minage}}">
+    <picker class='data_1 h4-5 ' bindchange="bindminage" value="{{minage}}" range="{{minagelist}}">
       <view class='flex-row flex-center'>
         <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{minagelist[minage]}}' style='text-align:right;margin-right:10rpx;'>
         </input>
@@ -56,10 +56,23 @@
 
 <view class='shield_data'>
   <view class='data'>
-    <view class='mine_dt h4-5'>年收入</view>
-    <picker class='data_1 h4-5 ' bindchange="bindincome" range="{{incomelist}}" value="{{income}}">
+    <view class='mine_dt h4-5'>最低月收入</view>
+    <picker class='data_1 h4-5 ' bindchange="bindminincome" range="{{minincomelist}}" value="{{minincome}}">
       <view class='flex-row flex-center'>
-        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{incomelist[income]}}' style='text-align:right;margin-right:10rpx;'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{minincomelist[minincome]}}' style='text-align:right;margin-right:10rpx;'>
+        </input>
+        <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style=''></image>
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='shield_data'>
+  <view class='data'>
+    <view class='mine_dt h4-5'>最高月收入</view>
+    <picker class='data_1 h4-5 ' bindchange="bindmaxincome" range="{{maxincomelist}}" value="{{maxincome}}">
+      <view class='flex-row flex-center'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{maxincomelist[maxincome]}}' style='text-align:right;margin-right:10rpx;'>
         </input>
         <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style=''></image>
       </view>

@@ -76,7 +76,6 @@ class Content extends AppBase {
     var income_val = this.Base.getMyData().income_val;
     var id = income_val[e.detail.value];
 
-
     var peopleapi = new PeopleApi();
     peopleapi.fieldupdate({ "fname": "income", fkey: id }, (fieldupdate) => {
       this.Base.setMyData({ fieldupdate });
@@ -90,7 +89,6 @@ class Content extends AppBase {
     })
     var marriage_val = this.Base.getMyData().marriage_val;
     var id=marriage_val[e.detail.value];
-
 
     var peopleapi = new PeopleApi();
     peopleapi.fieldupdate({ "fname": "marriage", fkey: id }, (fieldupdate) => {
@@ -130,12 +128,19 @@ class Content extends AppBase {
       that.Base.setMyData(info);
     });
 
+
+
     var peopleapi = new PeopleApi();
+    
     peopleapi.info({}, (info) => {
-      this.Base.setMyData({
-        info
-      });
+      var nowtime = ((new Date()).getTime()) / 1000;
+      console.log(nowtime);
+      
+        info.age = parseInt((nowtime - info.birth_timespan) / 60 / 60 / 24 / 365.2);
+      
+      this.Base.setMyData({ info });
     });
+    
     peopleapi.photolist({
      }, (photolist) => {
       this.Base.setMyData({

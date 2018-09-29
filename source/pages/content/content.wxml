@@ -32,7 +32,7 @@
 </view>
 <view class='optionfix' wx:if="{{filterselect==true}}">
   <view class='padding-20 white-block border-top flex-row flex-center'>
-    <view>所在村</view>
+    <view>所在镇</view>
     <view class='flex-1'>
       <picker class='data_1 h4-5' bindchange="bindcountry" range="{{countrylist}}" range-key='name'>
 
@@ -89,10 +89,10 @@
   <navigator url='/pages/details/details?id={{item.id}}' class='Head_portrait' wx:for="{{peoplelist}}" wx:key="k">
     <image class=' abstract_img' src='{{uploadpath}}people/{{item.photo}}'></image>
     <view class='s1 h5'>
-      {{item.name}}
+      {{item.nkname}}
     </view>
     <view class='s2 h6'>
-      <label class='age'>{{item.birth}}</label>|
+      <label class='age'>{{item.age}}岁</label>|
       <label class='height'>{{item.height}}cm</label>|
       <label class='education'>{{item.quality_name}}</label>|
       <label class='income'>{{item.income_name}}</label>

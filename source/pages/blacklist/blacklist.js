@@ -26,19 +26,24 @@ class Content extends AppBase {
     });
     
     var peopleapi = new PeopleApi();
-    peopleapi.list({}, (people) => {
-      var people = people[0];
-      var birth = people.birth_timespan;
-      var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
-      people.age = age;
-      this.Base.setMyData({ people });
+    peopleapi.blackpeoplelist({}, (blackpeoplelist) => {
+      this.Base.setMyData({ blackpeoplelist });
     });
-
   }
+  remove(e){
+    console.log(e);
+    var id=e.currentTarget.id;
 
+    var peopleapi = new PeopleApi();
+    peopleapi.removeblack({ people_id: id }, (removeblack) => {
+      this.Base.setMyData({ removeblack });
+      this.onMyShow();
+    });
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.remove = content.remove;
 Page(body)

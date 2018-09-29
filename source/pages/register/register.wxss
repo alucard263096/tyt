@@ -27,9 +27,10 @@
   padding-left: 10rpx;
 }
 .oky{
-  position: absolute;
+  /* position: absolute;
   bottom: 20rpx;
-  left: 26rpx;
+  left: 26rpx; */
+  margin-top:50rpx;
 }
 .reg_sub{
   height: 80rpx;

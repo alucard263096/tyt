@@ -85,7 +85,7 @@
     </view>
   </view>
   
-<view class='first flex-row flex-center'>
+<!-- <view class='first flex-row flex-center'>
     <view>
       <image src='{{uploadpath}}resource/{{res.reg_address}}' class='icon'></image>
     </view>
@@ -98,7 +98,7 @@
         <image class='icon_btm' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
       </picker>
     </view>
-  </view>
+  </view> -->
 
   <view class='first flex-row flex-center'>
     <view>
@@ -107,27 +107,27 @@
     <view class='user flex-1'>
       <picker class='data_m h4-5'  bindchange="bindcountry" range="{{countrylist}}" range-key='name'>
       <image class='icon_btm' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
-       <view class='fontcolor h5' wx:if="{{country_idx==-1}}">请选择城镇</view>
-       <view class=' h5' wx:if="{{country_idx>-1}}">{{countrylist[country_idx].name}}</view>
+       <view class='fontcolor h5' wx:if="{{country_idx==-1}}">山东省菏泽市巨野县</view>
+       <view class=' h5' wx:if="{{country_idx>-1}}">山东省菏泽市巨野县  {{countrylist[country_idx].name}}</view>
       </picker>
     </view>
   </view>
 
-  <view class='first flex-row flex-center'>
+  <!-- <view class='first flex-row flex-center'>
     <view>
       <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
     </view>
     <view class='user flex-1'>
       <input class='fullimg h5' placeholder='请输入村庄名' maxlength='10' name='country' bindinput=''></input>
     </view>
-  </view>
+  </view> -->
 
   <view class='first flex-row flex-center'>
     <view>
       <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
     </view>
     <view class='user flex-1'>
-      <input class='fullimg h5' placeholder='请输入详细地址门牌' maxlength='10' name='address' bindinput=''></input>
+      <input class='fullimg h5' placeholder='请输入详细地址' maxlength='10' name='address' bindinput=''></input>
     </view>
   </view>
 

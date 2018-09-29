@@ -85,6 +85,8 @@ class Content extends AppBase {
         text = "向下滑动"
     }
 
+    console.log(text);
+
     //将当前坐标进行保存以进行下一次计算
     this.data.lastX = currentX;
     this.data.lastY = currentY;
@@ -92,6 +94,20 @@ class Content extends AppBase {
       this.Base.setMyData({
         "inleftswipe": true
       })
+
+      var peopleapi = new PeopleApi();
+      peopleapi.list({
+        random: "Y"
+      }, (people) => {
+        var people2 = people[0];
+        var birth = people2.birth_timespan;
+        var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
+        people2.age = age;
+        this.Base.setMyData({
+          people2
+        });
+      });
+      
       setTimeout(function() {
 
         that.Base.setMyData({
@@ -102,7 +118,20 @@ class Content extends AppBase {
     if (text == "向右滑动") {
       this.Base.setMyData({
         "inrightswipe": true
-      })
+      });
+
+      var peopleapi = new PeopleApi();
+      peopleapi.list({
+        random: "Y"
+      }, (people) => {
+        var people2 = people[0];
+        var birth = people2.birth_timespan;
+        var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
+        people2.age = age;
+        this.Base.setMyData({
+          people2
+        });
+      });
       setTimeout(function() {
 
         that.Base.setMyData({
@@ -124,18 +153,6 @@ class Content extends AppBase {
     this.data.currentGesture = 0;
     this.setData({
       text: "没有滑动"
-    });
-    var peopleapi = new PeopleApi();
-    peopleapi.list({
-      random: "Y"
-    }, (people) => {
-      var people2 = people[0];
-      var birth = people2.birth_timespan;
-      var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
-      people2.age = age;
-      this.Base.setMyData({
-        people2
-      });
     });
   }
 

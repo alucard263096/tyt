@@ -68,11 +68,23 @@ view,navigator,input,text,textarea{
 .flex-3{
   flex:3;
 }
+.flex-4{
+  flex:4;
+}
+.flex-5{
+  flex:5;
+}
+.flex-6{
+  flex:6;
+}
 .text-center{
   text-align: center;
 }
 .text-right{
   text-align: right;
+}
+.text-left{
+  text-align: left;
 }
 .white-block{
   background: white;
@@ -146,6 +158,10 @@ button[type=primary]{
   
   background-color: #51ABD8;
 }
+button[type=matpink]{
+  
+  background-color: #d15482;
+}
 button.button-hover[type=primary]{
   
   background-color: #5dAdDd;
@@ -202,7 +218,21 @@ button[disabled][type=primary] {
 .padding-bottom-40{
   padding-bottom: 40rpx;
 }
-
+.padding-bottom-60{
+  padding-bottom: 60rpx;
+}
+.padding-right-10{
+  padding-right: 10rpx;
+}
+.padding-right-20{
+  padding-right: 20rpx;
+}
+.padding-right-40{
+  padding-right: 40rpx;
+}
+.padding-top-10{
+  padding-top: 10rpx;
+}
 .padding-top-20{
   padding-top: 20rpx;
 }
@@ -890,17 +920,17 @@ font-size: 28rpx;
 }
 .mine_data_img{
   float: left;
-  height: 42rpx;
-  width: 60rpx;
+  height: 43rpx;
+  width: 50rpx;
   margin-left: 10rpx;
   margin-right: 25rpx;
 }
 .mine_data_img2{
   float: left;
-  height: 56rpx;
-  width: 60rpx;
-  margin-left: 6rpx;
-  margin-right: 28rpx;
+  height: 43rpx;
+  width: 50rpx;
+  margin-left: 10rpx;
+  margin-right: 25rpx;
 }
 .data{
   margin: 20rpx;
@@ -922,28 +952,28 @@ font-size: 28rpx;
   border-bottom: 1px solid #bebcbc;
 }
 .mine_data_img3{
-  height: 50rpx;
-  width: 56rpx;
+  height: 43rpx;
+  width: 50rpx;
   float: left;
   margin-left: 10rpx;
-  margin-right: 28rpx;
+  margin-right: 25rpx;
 }
 .mine_data_img4{
-  height: 50rpx;
-  width: 60rpx;
+  height: 43rpx;
+  width: 50rpx;
   float: left;
-  margin-left: 6rpx;
-  margin-right: 29rpx;
+  margin-left: 10rpx;
+  margin-right: 25rpx;
 }
 .mine_picker{
   color: rgb(133, 133, 133);
 }
 .mine_data_img5{
   height: 43rpx;
-  width: 60rpx;
+  width: 50rpx;
   float: left;
-  margin-left: 2rpx;
-  margin-right: 30rpx;
+  margin-left: 10rpx;
+  margin-right: 25rpx;
 }
 
 .fonthead{
@@ -1033,16 +1063,11 @@ font-size: 28rpx;
   float: right;
 }
 .payment_data{
-  height: 65rpx;
+  height: 80rpx;
   border-bottom: 2px solid #ddd;
 }
 .payment_data2{
   height: 65rpx;
-}
-.payment_dt{
-  height: 50rpx;
-  margin: 32rpx;
-  line-height: 50rpx;
 }
 .paydate{
   float: left;

@@ -10,7 +10,6 @@ class Content extends AppBase {
   }
   onLoad(options) {
     options.class_id = 1;
-
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
@@ -25,14 +24,14 @@ class Content extends AppBase {
     // peopleapi.list({}, (marriage) => {
     //   this.Base.setMyData({ marriage });
     // });
-    var heightlist = ["140-150cm","151-160cm",
-      "161-170cm", "171-180cm", "181-190cm", "191-200cm", "不限"
+    var heightlist = ["<140cm","140-150cm","151-160cm",
+      "161-170cm", "171-180cm", "181-190cm", "191-200cm",">200cm", "不限"
     ];
     this.Base.setMyData({
        heightlist
     });
-    var agelist = ["20-25岁", "25-30岁",
-      "30-35岁", "35-40岁", "40-45岁", "45-50岁", "50-55岁","不限"
+    var agelist = ["<20岁","20-25岁", "25-30岁",
+      "30-35岁", "35-40岁", "40-45岁", "45-50岁", "50-55岁", ">55岁","不限"
     ];
     this.Base.setMyData({
       agelist
@@ -63,6 +62,7 @@ class Content extends AppBase {
     var age=this.Base.getMyData().age;
     var mrg = this.Base.getMyData().mrg;
     var orderby="";
+    
     if(order==0){
       orderby="birth desc";
     }
@@ -77,63 +77,79 @@ class Content extends AppBase {
     if(country_id>0){
       data.country_id=country_id;
     }
-    if (height==0){
+    if (height == 0) {
+      data.height_to = 140;
+      data.height_from = 0;
+    }
+    if (height==1){
     data.height_to = 150;
     data.height_from = 140;
     }
-    if (height == 1) {
+    if (height == 2) {
       data.height_to = 160;
       data.height_from = 151;
     }
-    if (height == 2) {
+    if (height == 3) {
       data.height_to = 170;
       data.height_from = 161;
     }
-    if (height == 3) {
+    if (height == 4) {
       data.height_to = 180;
       data.height_from = 171;
     }
-    if (height == 4) {
+    if (height == 5) {
       data.height_to = 190;
       data.height_from = 181;
     }
-    if (height == 5) {
+    if (height == 6) {
       data.height_to = 200;
       data.height_from = 191;
     }
-    if (height == 6) {
+    if (height == 7) {
+      data.height_to = 300;
+      data.height_from = 201;
+    }
+    if (height == 8) {
       data.height_to = 300;
       data.height_from = 0;
     }
     if (age == 0) {
+      data.age_to = 20;
+      data.age_from = 0;
+    }
+    if (age == 1) {
       data.age_to = 25;
       data.age_from = 20;
     }
-    if (age == 1) {
+    if (age == 2) {
       data.age_to = 30;
       data.age_from = 25;
     }
-    if (age == 2) {
+    if (age == 3) {
       data.age_to = 35;
       data.age_from = 30;
     }
-    if (age == 3) {
+    if (age == 4) {
       data.age_to = 40;
       data.age_from = 35;
     }
-    if (age == 4) {
+    if (age == 5) {
       data.age_to = 45;
       data.age_from = 40;
     }
-    if (age == 5) {
+    if (age == 6) {
       data.age_to = 50;
       data.age_from = 45;
     }
-    if (age == 6) {
+    if (age == 7) {
       data.age_to = 55;
       data.age_from = 50;
     }
-    if (age == 7) {
+    if (age == 8) {
+      data.age_to = 200;
+      data.age_from = 55;
+    }
+    if (age == 9) {
       data.age_to = 200;
       data.age_from = 0;
     }
@@ -152,9 +168,13 @@ class Content extends AppBase {
     }
     console.log(data);
     peopleapi.list(data, (peoplelist) => {
+      var nowtime = ((new Date()).getTime()) / 1000;
+      console.log(nowtime);
+      for(var i=0;i<peoplelist.length;i++){
+        peoplelist[i].age =parseInt( (nowtime -peoplelist[i].birth_timespan)/60/60/24/365.2);
+      }
       this.Base.setMyData({ peoplelist });
     });
-    
   }
 
   showorderselect(){

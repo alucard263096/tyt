@@ -7,8 +7,6 @@
 .icon_rig{
   width: 30rpx;
   height: 30rpx;
-  margin: 10rpx;
-  line-height: 30rpx;
 }
 .pay_btn{
   margin-top: 20rpx;

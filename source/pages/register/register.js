@@ -28,7 +28,7 @@ class Content extends AppBase {
     this.Base.setMyData({region})
    
 
-    this.Base.setMyData({ nkname:"", name: "", mobile: "", sex: "", address: "", noticesuccess: false, photo: "", country_idx:-1,birth:"" });
+    this.Base.setMyData({ nkname:"", name: "", mobile: "", sex: "",  noticesuccess: false, photo: "", country_idx:-1,birth:"" });
     var peopleapi = new PeopleApi();
     peopleapi.countrylist({}, (countrylist) => {
       this.Base.setMyData({ countrylist });
@@ -49,7 +49,6 @@ class Content extends AppBase {
     region: e.detail.value
   })
 }
-
   confirm(e) {
     console.log(e);
     var data=e.detail.value;
@@ -91,10 +90,10 @@ class Content extends AppBase {
     }else{
       data.country_id=countrylist[country_idx].id;
     }
-    if(data.country==""){
-      this.Base.info("请输入村庄名");
-      return;
-    }
+    // if(data.country==""){
+    //   this.Base.info("请输入村庄名");
+    //   return;
+    // }
     if (data.address == "") {
       this.Base.info("请输入详细门牌地址");
       return;

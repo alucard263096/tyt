@@ -25,20 +25,18 @@ class Content extends AppBase {
       that.Base.setMyData(info);
     });
   }
-  
   checkPermission() {
-
   }
-
   getUserInfo(e) {
     wx.switchTab({
       url: '/pages/home/home',
     });
-    //open-type="getUserInfo" bindgetuserinfo="getUserInfo"
+    //
   }
 }
 var content = new Content();
 var body = content.generateBodyJson();
-body.onLoad = content.onLoad;
+body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
+body.getUserInfo = content.getUserInfo;
 Page(body)

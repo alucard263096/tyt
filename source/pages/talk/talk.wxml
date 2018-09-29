@@ -1,13 +1,13 @@
 <!--pages/talk/talk.wxml-->
 <view class="padding-bottom-40 ">
-  <view class="margin-top-80 flex-row" >
+  <view class="margin-top-80 flex-row">
     <view class='left'>
     </view>
     <view class='mid flex-1'>
       <view class='triangle-up'></view>
       <view class='dialogue_right h6'>
         你已对 {{viewpeople_name}} 发起相亲,请耐心等待对方回应......
-        <button class="cancel_btn h6 " disabled="{{showView=='sv'?'disabled':''}}" hover-class='cancel_hover_btn' bindtap='QX4' >取消</button>
+        <button class="cancel_btn h6 " disabled="{{showView=='sv'?'disabled':''}}" hover-class='cancel_hover_btn' bindtap='QX4'>取消</button>
       </view>
     </view>
     <view class='right'>
@@ -29,7 +29,7 @@
     </view>
   </view>
 
-<view class="margin-top-80 flex-row  {{close13=='cl13'||starter_gender=='M'?'':'hide'}}">
+  <view class="margin-top-80 flex-row  {{close14=='cl14'&&starter_gender=='F'?'':'hide'}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
     </view>
@@ -42,7 +42,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 padding-L-R flex-row {{viewpeople_gender=='F'?'':'hide'}}">
+  <view class="margin-top-80 padding-L-R flex-row {{close14=='cl14'&&starter_gender=='M'?'':'hide'}}">
     <view class='pay_left'>
     </view>
     <view class='pay_mid flex-1'>
@@ -59,10 +59,10 @@
     </text>
         <view class='wid'></view>
         <view class='btn flex-row flex-center'>
-          <navigator url='/pages/payment/payment?'>
-            <button class='agree h5' hover-class='agree_t' disabled="{{close7=='cl7'?'disabled':''}}"  bindtap='Agrpay' hidden='{{false}}'>同意支付</button>
+          <navigator url='/pages/payment/payment?id={{id}}'>
+            <button class='agree h5' hover-class='agree_t' disabled="{{close7=='cl7'?'disabled':''}}" bindtap='Agrpay'>同意支付</button>
           </navigator>
-          <button class='refuse h5' hover-class='refuse_t' disabled="{{close7=='cl7'?'disabled':''}}" bindtap='QX' hidden='{{false}}'>拒绝支付</button>
+          <button class='refuse h5' hover-class='refuse_t' disabled="{{close7=='cl7'?'disabled':''}}" bindtap='QX' >拒绝支付</button>
         </view>
       </view>
     </view>
@@ -76,17 +76,25 @@
     </view>
     <view class='mid flex-1'>
       <view class='triangle-up2'></view>
-      <view class='dialogue_left h6' style=''>已成功完成支付,挑一挑红娘将为您提供 <label class='h4-1' style='color:black'> {{viewpeople_name}} </label> 的详细信息以及媒人电话。
-      
-      <view style='height:10rpx;'></view>
-       <view class='h6 fontcolor'>相亲时间: <label class='h4-1' style='color:black'>{{created_date}}</label></view>
-       <view style='height:10rpx;'></view>
-       <view class='h6 fontcolor'>对方姓名: <label class='h4-1' style='color:black'>{{viewpeople_name}}</label></view>
-       <view style='height:10rpx;'></view>
-       <view class='h6 fontcolor'>对方地址：<label class='h4-1' style='color:red;' bindtap='openMap' id="{{people.country_address}}">{{people.country_address}}</label></view>
-       <view style='height:10rpx;'></view>
-       <view class='h6 fontcolor'>媒人电话: <label class='h4-1' style='color:red' bindtap='phoneCall' id="{{matcher_mobile}}">{{matcher_mobile}}</label></view>
-       <view style='height:10rpx;'></view>
+      <view class='dialogue_left h6' style=''>已成功完成支付,挑一挑红娘将为您提供
+        <label class='h4-1' style='color:black'> {{viewpeople_name}} </label> 的详细信息以及媒人电话。
+        <view style='height:10rpx;'></view>
+        <view class='h6 fontcolor'>相亲时间:
+          <label class='h4-1' style='color:black'>{{mdate}}{{mtime}}</label>
+        </view>
+        <view style='height:10rpx;'></view>
+        <view class='h6 fontcolor'>对方姓名:
+          <label class='h4-1' style='color:black'>{{viewpeople_name}}</label>
+        </view>
+        <view style='height:10rpx;'></view>
+        <view class='h6 fontcolor'>对方地址：
+          <label class='h4-1' style='color:red;' bindtap='openMap' id="{{people.country_address}}">{{people.country_address}}</label>
+        </view>
+        <view style='height:10rpx;'></view>
+        <view class='h6 fontcolor'>媒人电话:
+          <label class='h4-1' style='color:red' bindtap='phoneCall' id="{{matcher_mobile}}">{{matcher_mobile}}</label>
+        </view>
+        <view style='height:10rpx;'></view>
       </view>
     </view>
     <view class='right'>
@@ -106,7 +114,7 @@
     <view class='right'>
     </view>
   </view>
-  
+
   <view class="margin-top-80 flex-row {{showView2=='sv2'?'':'hide'}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
@@ -120,8 +128,7 @@
           <button class='cancel_btn1 h6' hover-class='cancel_hover_btn1' disabled="{{close=='cl'?'disabled':''}}" bindtap='Agrpay2'>满意</button>
         </view>
         <view class='fontcolor h6' style='white-space:pre-line'>
-          满意，将进行第二次相亲。
-          拒绝，将结束本次相亲。
+          满意，将进行第二次相亲。 拒绝，将结束本次相亲。
         </view>
       </view>
     </view>
@@ -136,7 +143,7 @@
       <view class='triangle-up'></view>
       <view class='dialogue_right h6'>
         您已同意进行第二次相亲,请耐心等待 对方回应......
-        <button class='cancel_btn h6' hover-class='cancel_hover_btn' disabled="{{close8=='cl8'||(showView6=='sv6'&&showView7=='sv7')?'disabled':''}}" bindtap='QX5' >取消</button>
+        <button class='cancel_btn h6' hover-class='cancel_hover_btn' disabled="{{close8=='cl8'||(showView6=='sv6'&&showView7=='sv7')?'disabled':''}}" bindtap='QX5'>取消</button>
       </view>
     </view>
     <view class='right'>
@@ -171,8 +178,7 @@
           <button class='cancel_btn1 h6' hover-class='cancel_hover_btn1' disabled="{{close2=='cl2'?'disabled':''}}" bindtap='Agrpay3'>满意</button>
         </view>
         <view class='fontcolor h6' style='white-space:pre-line'>
-          满意，将进行订婚。 
-          拒绝，将结束本次相亲。
+          满意，将进行订婚。 拒绝，将结束本次相亲。
         </view>
       </view>
     </view>
@@ -222,9 +228,9 @@
     <view class='right'>
     </view>
   </view>
-  
 
 </view>
+
 <view class="under text-center padding-top-20 {{showView11=='sv11'?'':'hide'}} ">
   <p class='h5 fontcolor'>本次相亲结束</p>
 </view>
