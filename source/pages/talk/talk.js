@@ -119,9 +119,9 @@ class Content extends AppBase {
   Agrpay() {
     var that = this;
     var interviewapi = new InterViewApi();
-    interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "showView2", "fkey": "sv2" }, (fieldupdate) => {
-      this.Base.setMyData({ showView2: "sv2" });
-    });
+    // interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "showView2", "fkey": "sv2" }, (fieldupdate) => {
+    //   this.Base.setMyData({ showView2: "sv2" });
+    // });
     interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "showView1", "fkey": "sv2" }, (fieldupdate) => {
       this.Base.setMyData({ showView1: "sv2" });
     });
@@ -162,10 +162,17 @@ class Content extends AppBase {
     // interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "close3", "fkey": "cl3" }, (fieldupdate) => {
     //   this.Base.setMyData({ close3: "cl3" });
     // });
-    // interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "close10", "fkey": "cl10" }, (fieldupdate) => {
-    //   this.Base.setMyData({ close10: "cl10" });
-    // });
+     interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "close10", "fkey": "cl10" }, (fieldupdate) => {
+       this.Base.setMyData({ close10: "cl10" });
+     });
   }
+  // pageScrollToBottom() {
+  //   wx.createSelectorQuery().select('#ZZ').boundingClientRect(function (rect) {
+  //     wx.pageScrollTo({
+  //       scrollTop: rect.bottom
+  //     })
+  //   }).exec()
+  // }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -179,5 +186,9 @@ body.QX3 = content.QX3;
 body.QX4 = content.QX4;
 body.QX5 = content.QX5;
 body.QX6 = content.QX6;
+// body.pageScrollToBottom = content.pageScrollToBottom;
 body.onMyShow = content.onMyShow;
 Page(body)
+
+
+

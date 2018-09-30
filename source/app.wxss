@@ -1,6 +1,7 @@
 /**app.wxss**/
 page{
   background:white;
+ 
   width:100%;
 }
 .clear-contact{
@@ -738,7 +739,7 @@ font-size: 28rpx;
 
 .usermotto {
   margin-top: 30rpx;
-  padding-bottom: 50rpx;
+  padding-bottom: 100rpx;
 }
 .first{
   width: 600rpx;
@@ -778,7 +779,7 @@ font-size: 28rpx;
 }
 .reg_user{
   height: 15px;
-  margin-left: 20rpx;
+  margin-left: 40rpx;
   border-bottom: 4rpx solid rgba(173, 173, 173, 0.726);
   color: rgb(136, 133, 133);
 }

@@ -264,10 +264,28 @@ export class AppBase {
   }
   checkPermission(){
     var userinfo = AppBase.UserInfo;
+    
     if (userinfo.ispeople!="Y"){
+      
       wx.reLaunch({
         url: '/pages/register/register',
       }) 
+    } else {
+      if (userinfo.msgcount > 0) {
+        wx.setTabBarBadge({
+          index: 2,
+          text: userinfo.msgcount,
+        })
+      } else {
+        wx.removeTabBarBadge({
+          index: 2,
+        })
+      }
+      if(userinfo.people.status!='A'){
+        wx.reLaunch({
+          url: '/pages/inactive/inactive',
+        }) 
+      }
     }
   }
   viewPhoto(e) {

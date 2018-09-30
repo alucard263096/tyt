@@ -68,7 +68,7 @@
   height: 150rpx;
 }
 .editing-box {
-    width: 530rpx;
+    width: 580rpx;
     height: 114rpx;
     white-space: nowrap;
     box-sizing: border-box;
@@ -77,6 +77,8 @@
 .editing-item {
     width: 134rpx;
     height:112rpx;
+    margin-right: 8rpx;
+    margin-left: 8rpx;
     box-sizing: border-box;
     display: inline-block;
 }

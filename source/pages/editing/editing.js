@@ -27,11 +27,11 @@ class Content extends AppBase {
       this.Base.setMyData({ countrylist });
     });
 
-    var quality = ["初中",
+    var quality = ["小学","初中",
       "中专/职高/技校", "高中", "大专", "本科",
       "硕士", "博士"
     ];
-    var quality_val=["1","2","3","4","5","6","7"];
+    var quality_val=["1","2","3","4","5","6","7","8"];
     this.Base.setMyData({
       quality_val,quality
     });
@@ -61,7 +61,6 @@ class Content extends AppBase {
     });
     var quality_val = this.Base.getMyData().quality_val;
     var id = quality_val[e.detail.value];
-
     var peopleapi=new PeopleApi();
     peopleapi.fieldupdate({ "fname": "quality", fkey: id }, (fieldupdate) => {
       this.Base.setMyData({ fieldupdate });
@@ -114,6 +113,32 @@ class Content extends AppBase {
       this.Base.setMyData({ fieldupdate });
     });
   }
+  Nkname(e){
+    console.log(e.detail.value);
+    this.Base.setMyData({
+      ip_nkname: e.detail.value
+    });
+    
+
+    var peopleapi = new PeopleApi();
+    var ip_nkname=e.detail.value;
+    peopleapi.fieldupdate({ "fname": "nkname", "fkey": ip_nkname }, (fieldupdate) => {
+      this.Base.setMyData({ fieldupdate });
+    });
+  }
+  Xaddress(e) {
+    console.log(e.detail.value);
+    this.Base.setMyData({
+      address: e.detail.value
+    });
+
+
+    var peopleapi = new PeopleApi();
+    var address = e.detail.value;
+    peopleapi.fieldupdate({ "fname": "address", "fkey": address }, (fieldupdate) => {
+      this.Base.setMyData({ fieldupdate });
+    });
+  }
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
@@ -131,7 +156,6 @@ class Content extends AppBase {
 
 
     var peopleapi = new PeopleApi();
-    
     peopleapi.info({}, (info) => {
       var nowtime = ((new Date()).getTime()) / 1000;
       console.log(nowtime);
@@ -168,5 +192,7 @@ body.bindcountry = content.bindcountry;
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow; 
 body.headimg = content.headimg;
+body.Nkname = content.Nkname;
+body.Xaddress = content.Xaddress;
 body.viewphotos = content.viewphotos;
 Page(body)

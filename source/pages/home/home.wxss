@@ -15,18 +15,20 @@ page {
 }
 
 .ifm {
-  margin: 10rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
 }
 
 .name_1 {
-  margin: 10rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
 }
 
 .ig {
   width: 644rpx;
   height: 850rpx;
   border-radius: 30rpx;
-  box-shadow: rgb(238, 215, 215) 2rpx 2rpx 6rpx 2rpx;
+  /* box-shadow: rgb(238, 215, 215) 2rpx 2rpx 6rpx 2rpx; */
   margin-bottom: 20rpx;
 }
 .pos {

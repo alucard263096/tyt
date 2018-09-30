@@ -14,7 +14,6 @@ class Content extends AppBase {
   onLoad(options) {
     options.class_id = 1;
     this.Base.Page = this;
-    options.id=30;
     super.onLoad(options);
 
     var date = [""];
@@ -25,12 +24,10 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
-    var instapi = new InstApi();
-    instapi.indexbanner({ position: "home" }, (indexbanner) => {
-      that.Base.setMyData({ indexbanner: indexbanner });
-    });
-    instapi.info({}, (info) => {
-      that.Base.setMyData(info);
+
+    var interviewapi = new InterViewApi();
+    interviewapi.info({id:this.Base.options.id},(info)=>{
+      this.Base.setMyData(info);
     });
   }
   // bindRegionChangedate(e) {
@@ -64,7 +61,7 @@ class Content extends AppBase {
 
     var interviewapi = new InterViewApi();
     var region_time = e.detail.value;
-    interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "mdate", "fkey": region_time }, (fieldupdate) => {
+    interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "mtime", "fkey": region_time }, (fieldupdate) => {
       this.Base.setMyData({ mdate: region_time });
     });
   }

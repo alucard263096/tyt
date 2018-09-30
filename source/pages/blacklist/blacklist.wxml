@@ -5,7 +5,7 @@
       <image  class=' blacklist_img' src='{{uploadpath}}people/{{item.people_photo}}'></image>
      </view>
       <view class='blacklist_name fontcolor-1 h5 flex-1'>
-        {{item.people_name}}
+        {{item.people_nkname}}
       </view>
       <view class='flex-2 right'><button class='relieve_btn h5 ' id="{{item.people_id}}" hover-class='hover_btn' bindtap='remove'>解除</button></view>
 </view>

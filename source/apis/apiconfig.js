@@ -36,6 +36,7 @@ export class ApiConfig {
 
   static showLoadingCounter = 0;
   static ShowLoading = function () {
+    return;
     if (ApiConfig.showLoadingCounter == 0) {
       wx.showLoading({
         title: '加载中',
@@ -45,6 +46,7 @@ export class ApiConfig {
   }
 
   static CloseLoading = function () {
+    return;
     ApiConfig.showLoadingCounter = ApiConfig.showLoadingCounter - 1;
     if (ApiConfig.showLoadingCounter == 0) {
       console.log(ApiConfig.showLoadingCounter);

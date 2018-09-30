@@ -13,7 +13,7 @@
   </button>
   <view class="ll flex-row flex-column hide{{showView?'show':''}}">
     <view class='nice'></view>
-    <navigator class='flex-1 h6 text-center padding-top-20' url='/pages/report/report' style='width:126rpx;background:white;border-bottom:1px solid gray'>举报</navigator>
+    <navigator class='flex-1 h6 text-center padding-top-20' url='/pages/report/report?people_id={{info.id}}' style='width:126rpx;background:white;border-bottom:1px solid gray'>举报</navigator>
     <navigator class='flex-1 h6 text-center padding-top-20' url='/pages/blacklist/blacklist?people_id={{item.id}}' bindtap='addtoblack' style='width:126rpx;background:white;'>黑名单</navigator>
   </view>
   <image src='{{uploadpath}}resource/{{res.details_bg}}' style='width:750rpx;height:310rpx;'></image>

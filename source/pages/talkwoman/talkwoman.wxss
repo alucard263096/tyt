@@ -89,7 +89,10 @@ display: block;
   line-height: 50rpx;
   box-shadow: rgb(199, 199, 199) 0rpx 15rpx 13rpx 0rpx;
 }
-
+.btn{
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+}
 .refuse {
   width: 170rpx;
   height: 50rpx;

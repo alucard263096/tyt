@@ -1,12 +1,12 @@
 <!--pages/talk/talk.wxml-->
-<view class="padding-bottom-40 ">
+<view class=" padding-bottom-40 ">
   <view class="margin-top-80 flex-row">
     <view class='left'>
     </view>
     <view class='mid flex-1'>
       <view class='triangle-up'></view>
       <view class='dialogue_right h6'>
-        你已对 {{viewpeople_name}} 发起相亲,请耐心等待对方回应......
+        你已对 {{viewpeople_nkname}} 发起相亲,请耐心等待对方回应......
         <button class="cancel_btn h6 " disabled="{{showView=='sv'?'disabled':''}}" hover-class='cancel_hover_btn' bindtap='QX4'>取消</button>
       </view>
     </view>
@@ -42,7 +42,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 padding-L-R flex-row {{close14=='cl14'&&starter_gender=='M'?'':'hide'}}">
+  <view class="margin-top-80 padding-L-R flex-row {{showView2==''?'':'hide'}} {{close14=='cl14'&&starter_gender=='M'?'':'hide'}}">
     <view class='pay_left'>
     </view>
     <view class='pay_mid flex-1'>
@@ -60,7 +60,7 @@
         <view class='wid'></view>
         <view class='btn flex-row flex-center'>
           <navigator url='/pages/payment/payment?id={{id}}'>
-            <button class='agree h5' hover-class='agree_t' disabled="{{close7=='cl7'?'disabled':''}}" bindtap='Agrpay'>同意支付</button>
+            <button class='agree h5' hover-class='agree_t' disabled="{{close7=='cl7'?'disabled':''}}" >同意支付</button>
           </navigator>
           <button class='refuse h5' hover-class='refuse_t' disabled="{{close7=='cl7'?'disabled':''}}" bindtap='QX' >拒绝支付</button>
         </view>
@@ -76,23 +76,17 @@
     </view>
     <view class='mid flex-1'>
       <view class='triangle-up2'></view>
-      <view class='dialogue_left h6' style=''>已成功完成支付,挑一挑红娘将为您提供
-        <label class='h4-1' style='color:black'> {{viewpeople_name}} </label> 的详细信息以及媒人电话。
+      <view class='dialogue_left h6' style=''>已成功完成支付,挑一挑红娘将为您提供 <label class='h4-1' style='color:black'>{{viewpeople_name}} </label> 的详细信息以及媒人电话。
         <view style='height:10rpx;'></view>
-        <view class='h6 fontcolor'>相亲时间:
-          <label class='h4-1' style='color:black'>{{mdate}}{{mtime}}</label>
+        <view class='h6 fontcolor'>相亲时间: <label class='h4-1' style='color:black'>{{mdate}}  {{mtime}}</label>
         </view>
-        <view style='height:10rpx;'></view>
-        <view class='h6 fontcolor'>对方姓名:
-          <label class='h4-1' style='color:black'>{{viewpeople_name}}</label>
+        <view style='height:10rpx;'></view><view class='h6 fontcolor'>对方姓名: <label class='h4-1' style='color:black'>{{viewpeople_name}}</label>
         </view>
-        <view style='height:10rpx;'></view>
-        <view class='h6 fontcolor'>对方地址：
-          <label class='h4-1' style='color:red;' bindtap='openMap' id="{{people.country_address}}">{{people.country_address}}</label>
+        <view class='h6 fontcolor' wx:if="{{starter_gender=='M'}}">对方地址：<label class='h4-1 ' style='color:red;'  bindtap='openMap'  id="{{viewpeople_countryinfo.address}}{{viewpeople_countryinfo.name}}{{viewpeople_address}}">{{viewpeople_countryinfo.address}}{{viewpeople_countryinfo.name}}{{viewpeople_address}}</label>
         </view>
-        <view style='height:10rpx;'></view>
-        <view class='h6 fontcolor'>媒人电话:
-          <label class='h4-1' style='color:red' bindtap='phoneCall' id="{{matcher_mobile}}">{{matcher_mobile}}</label>
+        <view class='h6 fontcolor' wx:if="{{starter_gender=='F'}}" >对方地址：<label class='h4-1 ' style='color:black;'  >{{viewpeople_countryinfo.address}}{{viewpeople_countryinfo.name}}{{viewpeople_address}}</label>
+        </view>
+        <view style='height:10rpx;'></view> <view class='h6 fontcolor'>媒人电话: <label class='h4-1' style='color:red' bindtap='phoneCall' id="{{viewpeople_matcher.mobile}}">{{viewpeople_matcher.mobile}}</label>
         </view>
         <view style='height:10rpx;'></view>
       </view>
@@ -165,7 +159,7 @@
     </view>
   </view>
 
-  <view class="margin-top-80 flex-row {{showView6=='sv6'?'':'hide'}} {{showView7=='sv7'?'':'hide'}}">
+  <view class="margin-top-80 flex-row {{showView6=='sv6'&&showView7=='sv7'?'':'hide'}}">
     <view class='left'>
       <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
     </view>
@@ -228,9 +222,8 @@
     <view class='right'>
     </view>
   </view>
-
 </view>
 
-<view class="under text-center padding-top-20 {{showView11=='sv11'?'':'hide'}} ">
+<view class="under text-center padding-top-20 {{showView11=='sv11'||showView4=='sv4'?'':'hide'}} ">
   <p class='h5 fontcolor'>本次相亲结束</p>
 </view>

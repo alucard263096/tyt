@@ -3,7 +3,7 @@
      <view class='mine_portrait'>
       <image  class=' abstract_img' src='{{uploadpath+"people/"+UserInfo.people.photo}}'></image>
      </view>
-      <view class='mine_img h5'>
+      <view class='mine_nkname h5'>
         {{UserInfo.people.nkname}}
       </view>
 </view>

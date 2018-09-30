@@ -13,7 +13,7 @@
         <cover-image src='{{uploadpath}}resource/{{res.insert}}' class='editing_insert edt_img'></cover-image>
       </navigator>
       <scroll-view class="editing-box" scroll-x="true">
-        <view class="editing-item" wx:for="{{photolist}}" wx:key="k">
+        <view class="editing-item"  wx:for="{{photolist}}" wx:key="k">
           <image src='{{uploadpath}}people/{{item.photo}}' class='edt_img' bindtap='viewphotos' id="{{item.photo}}"></image>
         </view>
       </scroll-view>
@@ -22,6 +22,14 @@
 </view>
 
 <view class='lath'>
+</view>
+
+<view class='editing_data'>
+  <view class='data'>
+  <label class='mine_dt h4-5'>昵称</label>
+        <input class='margin-top-3 h4-5 padding-right-40' bindinput='Nkname' placeholder='{{info.nkname}}' value='{{ip_nkname}}' name="quality" style='text-align:right'>
+        </input>
+  </view>
 </view>
 
 <view class='editing_data'>
@@ -101,10 +109,17 @@
   </view>
 </view>
 
-<view class='mine_data '>
+<!-- <view class='mine_data '>
   <view class='data flex-row flex-center'>
     <label class='flex-1 mine_dt h4-5'>详细地址</label>
     <input class='flex-3 text-right padding-right-40 fontcolor'  maxlength='20' name='address' bindinput='' value='{{info.country}}{{info.address}}'></input>
+  </view>
+</view> -->
+<view class='editing_data'>
+  <view class='data'>
+  <label class='mine_dt h4-5'>详细地址</label>
+        <input class='margin-top-3 h4-5 padding-right-40' bindinput='Xaddress' placeholder='{{info.address}}' value='{{address}}' style='text-align:right'>
+        </input>
   </view>
 </view>
 

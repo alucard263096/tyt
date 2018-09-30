@@ -17,7 +17,6 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
 
-    
     var array=["男","女"];
     this.Base.setMyData({array});
     
@@ -28,7 +27,7 @@ class Content extends AppBase {
     this.Base.setMyData({region})
    
 
-    this.Base.setMyData({ nkname:"", name: "", mobile: "", sex: "",  noticesuccess: false, photo: "", country_idx:-1,birth:"" });
+    this.Base.setMyData({  name: "", mobile: "", sex: "",  noticesuccess: false, photo: "", country_idx:-1,birth:"" });
     var peopleapi = new PeopleApi();
     peopleapi.countrylist({}, (countrylist) => {
       this.Base.setMyData({ countrylist });
@@ -60,12 +59,20 @@ class Content extends AppBase {
       this.Base.info("请选择头像");
       return;
     }
-    if(data.nkname==""){
-      this.Base.info("请输入昵称");
-      return;
-    }
+    // if(data.nkname==""){
+    //   this.Base.info("请输入昵称");
+    //   return;
+    // }
     if (data.name == "") {
       this.Base.info("请输入真实姓名");
+      return;
+    }
+    if (data.height == "") {
+      this.Base.info("请填写身高");
+      return;
+    }
+    if (data.height < 50||data.height>260) {
+      this.Base.info("请填写您的正确身高(50-260之间)");
       return;
     }
     if (data.mobile == "") {

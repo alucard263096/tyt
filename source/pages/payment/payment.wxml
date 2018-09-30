@@ -1,10 +1,5 @@
 <!--pages/payment/payment.wxml-->
 
-<!-- <picker class='data_1 h4-5' mode="date" bindchange="bindRegionChangedate" value="{{region_date}} range='{{date}}'" custom-item="{{customItem}}">
-    <image src='{{uploadpath}}resource/{{res.reg_right}}' class='icon_rig' style='float:right'></image>
-    <input name='dt' disabled='disabled'  placeholder='可选日期' value='{{region_date}}'  class="dt h5" style='text-align:right'>
-    </input>
-    </picker> -->
 <view class='payment_data flex-row flex-center'>
   <view class='flex-1 h4-1 padding-left-20'>相亲日期</view>
   <view class='flex-1'>
@@ -17,17 +12,6 @@
     </picker>
   </view>
 </view>
-
-<!-- <view class='payment_data2'>
-  <view class='payment_dt'>
-    <text class='paydate h4-1'>时间段</text>
-    <picker class='data_1 h4-5' mode="time" bindchange="bindRegionChangetime" value="{{region_time}} range='{{time}}'" custom-item="{{customItem}}">
-      <image src='{{uploadpath}}resource/{{res.reg_right}}' class='icon_rig' style='float:right'></image>
-      <input name='tm' disabled='disabled' placeholder='请选择时间段' value='{{region_time}}' class="dt h5" style='text-align:right'>
-      </input>
-    </picker>
-  </view>
-</view> -->
 
 <view class='payment_data flex-row flex-center'>
   <view class='flex-1 h4-1 padding-left-20'>相亲时间</view>
@@ -47,7 +31,7 @@
 
 <view class='payment_foot'>
   <text class='payment_title'>支付费用：</text>
-  <label class='payment_money'>￥ 0 元</label>
+  <label class='payment_money'>￥ {{starter_gender=="M"?viewpeople_price:starter_price}} 元</label>
 </view>
 
 <view class='payment_mid'>

@@ -5,27 +5,26 @@
 
 <form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
 
-  <view class='register_wxtop'>
-    <view>
+  <view class='register_wxtop' >
+    <view >
       <image wx:if="{{photo==''}}" class='icon-60' src='{{uploadpath}}resource/{{res.head}}' bindtap='choosePhoto'></image>
       <image class='icon-60' src='{{uploadpath}}people/{{photo}}' wx:if="{{photo!=''}}" bindtap='choosePhoto'></image>
       <input name="photo" value='{{photo}}' class='fullimg' hidden='true'></input>
     </view>
     <view></view>
-
   </view>
 
   <view class='usermotto'>
   </view>
   
-  <view class='first flex-row flex-center'>
+  <!-- <view class='first flex-row flex-center'>
     <view>
       <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
     </view>
     <view class='user flex-1'>
       <input class='fullimg h5' placeholder='请输入您的昵称' maxlength='6' name='nkname' bindinput=''></input>
     </view>
-  </view>
+  </view> -->
 
   <view class='first flex-row flex-center'>
     <view>
@@ -37,12 +36,12 @@
   </view>
 
   <view class='first flex-row flex-center'>
-    <view class='aaa'>
+    <view>
       <image src='{{uploadpath}}resource/{{res.reg_phone}}' class='icon'></image>
     </view>
     <view class='reg_user padding-10 border-bottom flex-row flex-center'>
       <view class='flex-1 line-height-0'>
-        <input  class='h5' placeholder='点击绑定手机' value='{{mobile}}' name="mobile"></input>
+        <input  class='h5' placeholder='点击绑定手机' disabled='false' value='{{mobile}}' name="mobile"></input>
       </view>
       <button class='btn_phone h6' size='mini' bindgetphonenumber='getPhoneNo' open-type='getPhoneNumber'>获取手机</button>
     </view>
@@ -65,7 +64,7 @@
 
   <view class='first flex-row flex-center'>
     <view>
-      <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
+      <image src='{{uploadpath}}resource/{{res.shengao}}' class='icon'></image>
     </view>
     <view class='user flex-1'>
       <input class='fullimg h5' placeholder='请填写您的身高' type='number' maxlength='3' name='height' bindinput=''></input>
@@ -74,7 +73,7 @@
 
   <view class='first flex-row flex-center'>
     <view>
-      <image src='{{uploadpath}}resource/{{res.reg_address}}' class='icon'></image>
+      <image src='{{uploadpath}}resource/{{res.brt}}' class='icon'></image>
     </view>
     <view class='user flex-1'>
       <picker class='data_m h4-5' start="1960-01-01" end="2000-9-21"  bindchange="birthChange" mode="date" >
@@ -102,7 +101,7 @@
 
   <view class='first flex-row flex-center'>
     <view>
-      <image src='{{uploadpath}}resource/{{res.reg_address}}' class='icon'></image>
+      <image src='{{uploadpath}}resource/{{res.tallhouse}}' class='icon'></image>
     </view>
     <view class='user flex-1'>
       <picker class='data_m h4-5'  bindchange="bindcountry" range="{{countrylist}}" range-key='name'>
@@ -124,7 +123,7 @@
 
   <view class='first flex-row flex-center'>
     <view>
-      <image src='{{uploadpath}}resource/{{res.reg_name}}' class='icon'></image>
+      <image src='{{uploadpath}}resource/{{res.reg_address}}' class='icon'></image>
     </view>
     <view class='user flex-1'>
       <input class='fullimg h5' placeholder='请输入详细地址' maxlength='10' name='address' bindinput=''></input>

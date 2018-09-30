@@ -6,7 +6,7 @@
     <view class='mid flex-1'>
       <view class='triangle-up'></view>
       <view class='dialogue_woman_right h6'>
-        <label class='h4-1' style='color:black'>{{starter_name}}</label>向你发起相亲。
+        <label class='h4-1' style='color:black'>{{starter_nkname}}</label>向你发起相亲。
         <view></view>
         同意后，挑一挑红娘组织上门相亲。
         <view>
@@ -35,13 +35,13 @@
     </view>
   </view>
 
-  <view class="margin-top-80 padding-L-R flex-row {{close13=='cl13'&&viewpeople_gender=='M'?'':'hide'}}">
+  <view class="margin-top-80 padding-L-R flex-row {{showView2==''?'':'hide'}} {{close13=='cl13'&&viewpeople_gender=='M'?'':'hide'}}">
     <view class='pay_left'>
     </view>
     <view class='pay_mid flex-1'>
       <view class='prompted'>
-        <view class='title'>
-          <p class='font-weight-bold h4'>系统提示</p>
+        <view class='title text-center margin-top-10' >
+          <p class='font-weight-bold h4 '>系统提示</p>
         </view>
         <view></view>
         <text class='fontcolor h5'>同意支付: 完成支付后。将获得对方的详细信息以及媒人联系电话。
@@ -52,7 +52,10 @@
     </text>
         <view class='wid'></view>
         <view class='btn flex-row flex-center'>
-          <button class='agree h5' hover-class='agree_t' bindtap='Agree6' hidden='{{false}}'>同意支付</button>
+          <navigator url='/pages/payment/payment?id={{id}}'>
+            <button  class='agree h5' hover-class='agree_t' disabled="{{close12=='cl12'?'disabled':''}}" bindtap='Agree6' hidden='{{false}}'>   同意支付</button>
+          </navigator>
+          
           <button class='refuse h5' hover-class='refuse_t' disabled="{{close12=='cl12'?'disabled':''}}" bindtap='QX6' hidden='{{false}}'>拒绝支付</button>
         </view>
       </view>
@@ -67,23 +70,21 @@
     </view>
     <view class='mid flex-1'>
       <view class='triangle-up2'></view>
-      <view class='dialogue_woman_left h6' style='white-space:pre-line'>已成功完成支付,挑一挑红娘将为您 提供
-        <label class='h4-1' style='color:black'>{{starter_name}}</label> 的详细信息以及媒人电话。
+      <view class='dialogue_woman_left h6' style='white-space:pre-line'>已成功完成支付,挑一挑红娘将为您
+      提供 <label class='h4-1' style='color:black'>{{starter_name}}</label> 的详细信息以及媒人电话。
         <view style='height:10rpx;'></view>
-        <view class='h6 fontcolor'>相亲时间:
-          <label class='h4-1' style='color:black'>{{mdate}}{{mtime}}</label>
+        <view class='h6 fontcolor'>相亲时间: <label class='h4-1' style='color:black'>{{mdate}}  {{mtime}}</label>
         </view>
         <view style='height:10rpx;'></view>
-        <view class='h6 fontcolor'>对方姓名:
-          <label class='h4-1' style='color:black'>{{starter_name}}</label>
+        <view class='h6 fontcolor'>对方姓名: <label class='h4-1' style='color:black'>{{starter_name}}</label>
         </view>
         <view style='height:10rpx;'></view>
-        <view class='h6 fontcolor'>对方地址:
-          <label class='h4-1' style='color:red;' bindtap='openMap' id="{{people.country_address}}">{{people.country_address}}</label>
+        <view class='h6 fontcolor'  wx:if="{{viewpeople_gender=='M'}}">对方地址: <label class='h4-1' style='color:red;' bindtap='openMap' id="{{startpeople_countryinfo.address}}{{startpeople_countryinfo.name}}{{starter_address}}">{{startpeople_countryinfo.address}}{{startpeople_countryinfo.name}}{{starter_address}}</label>
+        </view>
+        <view class='h6 fontcolor' wx:if="{{viewpeople_gender=='F'}}">{{viewpeople_gender}}对方地址：<label class='h4-1 ' style='color:black;'   >{{startpeople_countryinfo.address}}{{startpeople_countryinfo.name}}{{starter_address}}</label>
         </view>
         <view style='height:10rpx;'></view>
-        <view class='h6 fontcolor'>媒人电话:
-          <label class='h4-1' style='color:red' bindtap='phoneCall' id="{{matcher_mobile}}">{{matcher_mobile}}</label>
+        <view class='h6 fontcolor'>媒人电话: <label class='h4-1' style='color:red' bindtap='phoneCall' id="{{startpeople_matcher.mobile}}">{{startpeople_matcher.mobile}}</label>
         </view>
         <view style='height:10rpx;'></view>
       </view>
@@ -223,6 +224,6 @@
   </view>
 </view>
 
-<view class="under text-center padding-top-20 {{showView11=='sv11'?'':'hide'}}">
+<view class="under text-center padding-top-20 {{showView11=='sv11'||showView4=='sv4'?'':'hide'}}">
   <view class='h5 fontcolor'>本次相亲结束</view>
 </view>

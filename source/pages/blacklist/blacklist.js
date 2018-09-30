@@ -33,7 +33,6 @@ class Content extends AppBase {
   remove(e){
     console.log(e);
     var id=e.currentTarget.id;
-
     var peopleapi = new PeopleApi();
     peopleapi.removeblack({ people_id: id }, (removeblack) => {
       this.Base.setMyData({ removeblack });

@@ -70,12 +70,10 @@ class Content extends AppBase {
     // interviewapi.fieldupdate({ id:this.Base.options.id, "fname": "close12", "fkey": "cl12" }, (fieldupdate) => {
     //   this.Base.setMyData({ close12: "cl12" });
     // });
-    interviewapi.fieldupdate({ id:this.Base.options.id, "fname": "close13", "fkey": "cl12" }, (fieldupdate) => {
-      this.Base.setMyData({ close13: "cl12" });
-    });
-    wx: wx.navigateTo({
-      url: '/pages/payment/payment'
-    }); 
+    // interviewapi.fieldupdate({ id:this.Base.options.id, "fname": "close13", "fkey": "cl12" }, (fieldupdate) => {
+    //   this.Base.setMyData({ close13: "cl12" });
+    // });
+    
   }
    QX(){
      var that = this;
@@ -186,6 +184,9 @@ class Content extends AppBase {
     interviewapi.fieldupdate({ id:this.Base.options.id, "fname": "showView4", "fkey": "sv4" }, (fieldupdate) => {
       this.Base.setMyData({ showView4: "sv4" });
     });
+      interviewapi.fieldupdate({ id: this.Base.options.id, "fname": "showView11", "fkey": "sv11" }, (fieldupdate) => {
+        this.Base.setMyData({ showView11: "sv11" });
+      });
     interviewapi.fieldupdate({ id:this.Base.options.id, "fname": "showView10", "fkey": "sv10" }, (fieldupdate) => {
       this.Base.setMyData({ showView10: "sv10" });
     });
@@ -199,6 +200,13 @@ class Content extends AppBase {
     //   this.Base.setMyData({ close9: "cl9" });
     // });
   }
+  // pageScrollToBottom() {
+  //   wx.createSelectorQuery().select('#Z').boundingClientRect(function (rect) {
+  //     wx.pageScrollTo({
+  //       scrollTop: rect.bottom
+  //     })
+  //   }).exec()
+  // }
 }
   var content = new Content();
   var body = content.generateBodyJson();
@@ -214,5 +222,6 @@ class Content extends AppBase {
   body.QX4 = content.QX4;
   body.QX5 = content.QX5;
   body.QX6 = content.QX6;
+  // body.pageScrollToBottom = content.pageScrollToBottom;
   body.onMyShow = content.onMyShow;
   Page(body)

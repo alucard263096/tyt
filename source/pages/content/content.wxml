@@ -1,9 +1,9 @@
 <!--pages/content/content.wxml-->
 <view>
-  <swiper autoplay='true' indicator-dots='true' circular='true' style='width:750rpx;height:390rpx;' circular>
+  <swiper autoplay='true' indicator-dots='true' circular='true' style='width:750rpx;height:250rpx;' circular>
     <swiper-item wx:for="{{indexbanner}}" wx:key="k">
       <view>
-        <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:390rpx;' mode="aspectFill"></image>
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:250rpx;' mode="aspectFill"></image>
       </view>
     </swiper-item>
   </swiper>
@@ -80,7 +80,7 @@
   </view>
 
 </view>
-<view class="bg-gray" style='height:10rpx;'>
+<view class="bg-gray" style='height:3rpx;'>
 </view>
 
 <scroll-view class='maintab' scroll-y>

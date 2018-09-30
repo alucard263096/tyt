@@ -1,21 +1,23 @@
 {
   "pages":[
-    "pages/mine/mine",
-    "pages/editing/editing",
+    "pages/home/home",
+    "pages/payment/payment",
+    "pages/mtf/mtf",
+    "pages/register/register",
+    "pages/report/report",
+    "pages/member/member",
+    "pages/inactive/inactive",
     "pages/shield/shield",
     "pages/auth/auth",
+    "pages/editing/editing",
+    "pages/mine/mine",
     "pages/talk/talk",
-    "pages/payment/payment",
     "pages/mtt/mtt",
     "pages/mtm/mtm",
-    "pages/register/register",
     "pages/details/details",
     "pages/talkwoman/talkwoman",
     "pages/content/content",
     "pages/blacklist/blacklist",
-    "pages/member/member",
-    "pages/home/home",
-    "pages/report/report",
     "pages/matchmaking/matchmaking",
     "pages/address/address",
     "pages/matchmaker/matchmaker",
@@ -30,13 +32,12 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#d15482",
-    "enablePullDownRefresh": true
+    "navigationBarBackgroundColor": "#d15482"
   },
   "tabBar": {
     "color": "#cdcdcd",
     "selectedColor": "#51ABD8",
-    "borderStyle": "white",
+    "borderStyle": "gray",
     "backgroundColor": "#ffffff",
     "list": [
       {

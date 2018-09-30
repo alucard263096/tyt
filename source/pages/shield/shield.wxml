@@ -5,9 +5,9 @@
 <view class='shield_data'>
   <view class='data'>
     <view class='mine_dt h4-5'>最低年龄</view>
-    <picker class='data_1 h4-5 ' bindchange="bindminage" value="{{minage}}" range="{{minagelist}}">
+    <picker class='data_1 h4-5 ' bindchange="bindminage" range="{{minagelist}}">
       <view class='flex-row flex-center'>
-        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{minagelist[minage]}}' style='text-align:right;margin-right:10rpx;'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='请选择最低年龄' value='{{info.minage}}' style='text-align:right;margin-right:10rpx;'>
         </input>
         <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1'></image>
       </view>
@@ -18,9 +18,9 @@
 <view class='shield_data'>
   <view class='data'>
     <view class='mine_dt h4-5'>最高年龄</view>
-    <picker class='data_1 h4-5 ' bindchange="bindmaxage" range="{{maxagelist}}" value="{{maxage}}">
+    <picker class='data_1 h4-5 ' bindchange="bindmaxage" range="{{maxagelist}}" >
       <view class='flex-row flex-center'>
-        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{maxagelist[maxage]}}' style='text-align:right;margin-right:10rpx;'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='请选择最高年龄' value='{{info.maxage}}' style='text-align:right;margin-right:10rpx;'>
         </input>
         <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1'></image>
       </view>
@@ -31,9 +31,9 @@
 <view class='shield_data'>
   <view class='data'>
     <view class='mine_dt h4-5'>最低身高</view>
-    <picker class='data_1 h4-5 ' bindchange="bindminheight" range="{{minheightlist}}" value="{{minheight}}">
+    <picker class='data_1 h4-5 ' bindchange="bindminheight" range="{{minheightlist}}" >
       <view class='flex-row flex-center'>
-        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{minheightlist[minheight]}}' style='text-align:right;margin-right:10rpx;'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='请选择最低身高' value='{{info.minheight}}' style='text-align:right;margin-right:10rpx;'>
         </input>
         <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style=''></image>
       </view>
@@ -44,9 +44,9 @@
 <view class='shield_data'>
   <view class='data'>
     <view class='mine_dt h4-5'>最高身高</view>
-    <picker class='data_1 h4-5 ' bindchange="bindmaxheight" range="{{maxheightlist}}" value="{{maxheight}}">
+    <picker class='data_1 h4-5 ' bindchange="bindmaxheight" range="{{maxheightlist}}" >
       <view class='flex-row flex-center'>
-        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{maxheightlist[maxheight]}}' style='text-align:right;margin-right:10rpx;'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='请选择最高身高' value='{{info.maxheight}}' style='text-align:right;margin-right:10rpx;'>
         </input>
         <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style=''></image>
       </view>
@@ -57,9 +57,9 @@
 <view class='shield_data'>
   <view class='data'>
     <view class='mine_dt h4-5'>最低月收入</view>
-    <picker class='data_1 h4-5 ' bindchange="bindminincome" range="{{minincomelist}}" value="{{minincome}}">
+    <picker class='data_1 h4-5 ' bindchange="bindminincome" range="{{minincomelist}}">
       <view class='flex-row flex-center'>
-        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{minincomelist[minincome]}}' style='text-align:right;margin-right:10rpx;'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='请选择最低月收入' value='{{info.minincome}}' style='text-align:right;margin-right:10rpx;'>
         </input>
         <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style=''></image>
       </view>
@@ -70,9 +70,9 @@
 <view class='shield_data'>
   <view class='data'>
     <view class='mine_dt h4-5'>最高月收入</view>
-    <picker class='data_1 h4-5 ' bindchange="bindmaxincome" range="{{maxincomelist}}" value="{{maxincome}}">
+    <picker class='data_1 h4-5 ' bindchange="bindmaxincome" range="{{maxincomelist}}" >
       <view class='flex-row flex-center'>
-        <input disabled='disabled' class='txt-primary h4-5' placeholder='不限' value='{{maxincomelist[maxincome]}}' style='text-align:right;margin-right:10rpx;'>
+        <input disabled='disabled' class='txt-primary h4-5' placeholder='请选择最高月收入' value='{{info.maxincome}}' style='text-align:right;margin-right:10rpx;'>
         </input>
         <image src='{{uploadpath}}resource/{{res.right_s}}' class='icon-15-1' style=''></image>
       </view>
@@ -82,14 +82,21 @@
 
 <view class='section'>
   <view class='section-title'>婚姻状况</view>
-  <checkbox-group name='checkbox'>
-    <view class='ck flex-row flex-center'>
-      <label class='h5 flex-1'>
-        <checkbox value='checkbox2'></checkbox> 未婚</label>
-      <label class='h5 flex-1'>
-        <checkbox value='checkbox2'></checkbox> 离异</label>
-      <label class='h5 flex-1'>
-        <checkbox value='checkbox2'></checkbox> 丧偶</label>
-    </view>
-  </checkbox-group>
+  <view class='ck flex-row flex-center'>
+    <label class='h5 flex-1'>
+      <checkbox-group name='checkbox' bindchange='Check'>
+        <checkbox value='checkbox2' checked='{{info.shield_wh=="Y"}}'></checkbox> 未婚
+    </checkbox-group>
+    </label>
+    <label class='h5 flex-1'>
+      <checkbox-group name='checkbox2' bindchange='Check2'>
+        <checkbox value='checkbox2' checked='{{info.shieldly=="Y"}}'></checkbox> 离异
+    </checkbox-group>
+    </label>
+    <label class='h5 flex-1'>
+      <checkbox-group name='checkbox3' bindchange='Check3'>
+        <checkbox value='checkbox2' checked='{{info.shieldso=="Y"}}'></checkbox> 丧偶
+    </checkbox-group>
+    </label>
+  </view>
 </view>
