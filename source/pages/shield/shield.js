@@ -74,12 +74,15 @@ class Content extends AppBase {
     var minagelist = this.Base.getMyData().minagelist;
     var peopleapi = new PeopleApi();
 
-    var minage = parseInt( minagelist[e.detail.value]);
-    var maxage = parseInt(this.Base.getMyData().info.maxage);
+    var minage =  minagelist[e.detail.value];
+    var maxage =this.Base.getMyData().info.maxage;
      if(minage>maxage){
        minage=maxage;
      }
-    
+     if(minage=="")
+     {
+       minage = minagelist[e.detail.value];
+     }
      
     peopleapi.fieldupdate({ "fname": "minage", "fkey": minage }, (fieldupdate) => {
       var info = this.Base.getMyData().info;
@@ -93,8 +96,8 @@ class Content extends AppBase {
     var maxagelist = this.Base.getMyData().maxagelist;
     var peopleapi = new PeopleApi();
 
-    var maxage = parseInt(maxagelist[e.detail.value]);
-    var minage = parseInt(this.Base.getMyData().info.minage);
+    var maxage = maxagelist[e.detail.value];
+    var minage = this.Base.getMyData().info.minage;
     if (minage > maxage) {
       maxage = minage;
     }
@@ -103,6 +106,7 @@ class Content extends AppBase {
     peopleapi.fieldupdate({ "fname": "maxage", "fkey": maxage}, (fieldupdate) => {
       var info = this.Base.getMyData().info;
       info.maxage = maxage;
+      console.log(maxage);
       this.Base.setMyData({ info: info});
     });
   }
@@ -113,10 +117,16 @@ class Content extends AppBase {
     var minheightlist = this.Base.getMyData().minheightlist;
     var peopleapi = new PeopleApi();
 
-    var minheight = parseInt(minheightlist[e.detail.value]);
-    var maxheight = parseInt(this.Base.getMyData().info.maxheight);
+    var minheight = minheightlist[e.detail.value];
+    var maxheight = this.Base.getMyData().info.maxheight;
     if (minheight > maxheight) {
       minheight = maxheight;
+    }
+    if (maxheight==0) {
+      minheight = minheight;
+    }
+    if (minheight == "") {
+      minheight = minheightlist[e.detail.value];
     }
 
     peopleapi.fieldupdate({ "fname": "minheight", "fkey": minheight }, (fieldupdate) => {
@@ -131,10 +141,13 @@ class Content extends AppBase {
     var maxheightlist = this.Base.getMyData().maxheightlist;
     var peopleapi = new PeopleApi();
 
-    var maxheight = parseInt(maxheightlist[e.detail.value]);
-    var minheight = parseInt(this.Base.getMyData().info.minheight);
+    var maxheight = maxheightlist[e.detail.value];
+    var minheight = this.Base.getMyData().info.minheight;
     if (minheight > maxheight) {
       maxheight = minheight;
+    }
+    if (maxheight == 0) {
+      maxheight = maxheight;
     }
 
     peopleapi.fieldupdate({ "fname": "maxheight", "fkey": maxheight }, (fieldupdate) => {
@@ -150,11 +163,15 @@ class Content extends AppBase {
     var minincomelist = this.Base.getMyData().minincomelist;
     var peopleapi = new PeopleApi();
 
-    var minincome = parseInt(minincomelist[e.detail.value]);
-    var maxincome = parseInt(this.Base.getMyData().info.maxincome);
+    var minincome = minincomelist[e.detail.value];
+    var maxincome = this.Base.getMyData().info.maxincome;
     if (minincome > maxincome) {
       minincome = maxincome;
     }
+    if (minincome == "") {
+      minincome = minincomelist[e.detail.value];
+    }
+    
 
     peopleapi.fieldupdate({ "fname": "minincome", "fkey": minincome }, (fieldupdate) => {
       var info = this.Base.getMyData().info;
@@ -168,8 +185,8 @@ class Content extends AppBase {
     var maxincomelist = this.Base.getMyData().maxincomelist;
     var peopleapi = new PeopleApi();
 
-    var maxincome = parseInt(maxincomelist[e.detail.value]);
-    var minincome = parseInt(this.Base.getMyData().info.minincome);
+    var maxincome = maxincomelist[e.detail.value];
+    var minincome = this.Base.getMyData().info.minincome;
     if (minincome > maxincome) {
       maxincome = minincome;
     }

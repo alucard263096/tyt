@@ -1,12 +1,20 @@
 <!--pages/blacklist/blacklist.wxml-->
+<view class='flex-row flex-column text-center' style='padding-top:100rpx;' wx:if="{{blackpeoplelist.length==0}}" >
+          <view>
+         <image src='{{uploadpath}}resource/{{res.bl}}' class='icon'></image>
+          </view>
+          <view class='txt-gray h4 margin-top-20'>
+            暂未添加任何用户
+          </view>
+</view>
 
-<view class='blacklist_data flex-row flex-center' wx:for="{{blackpeoplelist}}" wx:key="k">
+<view class='blacklist_data flex-row flex-center' wx:for="{{blackpeoplelist}}" wx:key="k"  wx:if="{{blackpeoplelist.length>0}}">
      <view class='blacklist_headimg flex-1 '>
       <image  class=' blacklist_img' src='{{uploadpath}}people/{{item.people_photo}}'></image>
      </view>
       <view class='blacklist_name fontcolor-1 h5 flex-1'>
         {{item.people_nkname}}
       </view>
-      <view class='flex-2 right'><button class='relieve_btn h5 ' id="{{item.people_id}}" hover-class='hover_btn' bindtap='remove'>解除</button></view>
+      <view class='flex-2 right'><button class='relieve_btn h5 ' id="{{item.people_id}}" hover-class='hover_btn' bindtap='remove'>解除   </button></view>
 </view>
 

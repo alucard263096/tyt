@@ -1,11 +1,11 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/shield/shield",
     "pages/mtf/mtf",
     "pages/mtm/mtm",
     "pages/mtt/mtt",
     "pages/details/details",
-    "pages/shield/shield",
     "pages/editing/editing",
     "pages/payment/payment",
     "pages/register/register",

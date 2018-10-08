@@ -29,9 +29,13 @@
   padding: 20rpx 20rpx 15rpx 30rpx;
 }
 .blacklist_name{
-  width: 140rpx;
+  width: 170rpx;
   font-family: 微软雅黑;
 }
 .right{
   padding-left: 200rpx;
+}
+.icon{
+  width: 150rpx;
+  height: 150rpx;
 }
