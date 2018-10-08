@@ -1,20 +1,18 @@
 <!--pages/details/details.wxml-->
 <view class='details_all'>
-  <view class='flex-row flex-column margin-top-10' style='position:absolute;padding-left:300rpx;'>
-    <view class='margin-top-10'>
+  <view class=' margin-top-10 ' style='position:absolute;width:750rpx'>
+    <view class='margin-top-10 flex-row flex-column'>
       <image src='{{uploadpath}}people/{{info.photo}}' style=';width:120rpx;height:120rpx;border-radius:50%'></image>
-
+      <view class='h4 padding-10'>{{info.nkname}}</view>
     </view>
-    <view class='h4 padding-10'>{{info.nkname}}</view>
-    <!-- <view class=' h5'></view> -->
   </view>
   <button class='btn' bindtap='show'>
     <image style='height:35rpx;width:65rpx;' src='{{uploadpath}}resource/{{res.slh}}'></image>
   </button>
   <view class="ll flex-row flex-column hide{{showView?'show':''}}">
     <view class='nice'></view>
-    <navigator class='flex-1 h6 text-center padding-top-20' url='/pages/report/report?people_id={{info.id}}' style='width:126rpx;background:white;border-bottom:1px solid gray'>举报</navigator>
-    <navigator class='flex-1 h6 text-center padding-top-20' url='/pages/blacklist/blacklist?people_id={{item.id}}' bindtap='addtoblack' style='width:126rpx;background:white;'>黑名单</navigator>
+    <navigator class='flex-1 h6 text-center padding-top-20' url='/pages/report/report?people_id={{info.id}}' style='width:136rpx;background:white;border-bottom:1px solid gray'>举 报</navigator>
+    <navigator class='flex-1 h6 text-center padding-top-20' url='/pages/blacklist/blacklist?people_id={{item.id}}' bindtap='addtoblack' style='width:136rpx;background:white;'>加入黑名单</navigator>
   </view>
   <image src='{{uploadpath}}resource/{{res.details_bg}}' style='width:750rpx;height:310rpx;'></image>
   <view class='details_mid'>

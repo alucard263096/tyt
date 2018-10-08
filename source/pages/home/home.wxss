@@ -1,5 +1,4 @@
 /* pages/home/home.wxss */
-
 page {
   width: 750rpx;
   overflow-x: hidden;
@@ -34,7 +33,6 @@ page {
 .pos {
   position: absolute;
 }
-
 .inleftswipe {
   animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
@@ -43,7 +41,6 @@ page {
 }
 
 .inrightswipe {
-  position: absolute;
   animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
   animation: right 0.5s;

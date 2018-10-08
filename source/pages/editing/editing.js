@@ -119,7 +119,6 @@ class Content extends AppBase {
       ip_nkname: e.detail.value
     });
     
-
     var peopleapi = new PeopleApi();
     var ip_nkname=e.detail.value;
     peopleapi.fieldupdate({ "fname": "nkname", "fkey": ip_nkname }, (fieldupdate) => {

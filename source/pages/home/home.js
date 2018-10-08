@@ -78,12 +78,12 @@ class Content extends AppBase {
     }
 
     //上下方向滑动
-    else {
-      if (ty < 0)
-        text = "向上滑动"
-      else if (ty > 0)
-        text = "向下滑动"
-    }
+    // else {
+    //   if (ty < 0)
+    //     text = "向上滑动"
+    //   else if (ty > 0)
+    //     text = "向下滑动"
+    // }
 
     console.log(text);
 

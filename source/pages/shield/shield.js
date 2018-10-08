@@ -79,6 +79,7 @@ class Content extends AppBase {
      if(minage>maxage){
        minage=maxage;
      }
+    
      
     peopleapi.fieldupdate({ "fname": "minage", "fkey": minage }, (fieldupdate) => {
       var info = this.Base.getMyData().info;
@@ -97,6 +98,7 @@ class Content extends AppBase {
     if (minage > maxage) {
       maxage = minage;
     }
+    
     
     peopleapi.fieldupdate({ "fname": "maxage", "fkey": maxage}, (fieldupdate) => {
       var info = this.Base.getMyData().info;

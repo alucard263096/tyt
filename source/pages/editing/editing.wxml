@@ -27,7 +27,7 @@
 <view class='editing_data'>
   <view class='data'>
   <label class='mine_dt h4-5'>昵称</label>
-        <input class='margin-top-3 h4-5 padding-right-40' bindinput='Nkname' placeholder='{{info.nkname}}' value='{{ip_nkname}}' name="quality" style='text-align:right'>
+        <input class='margin-top-3 h4-5 margin-right-40' bindinput='Nkname'  placeholder='请输入您的昵称' value='{{info.nkname}}' name="etg_nkname" style='text-align:right'>
         </input>
   </view>
 </view>
@@ -67,7 +67,7 @@
 <view class='editing_data'>
   <view class='data' style='margin-right:70rpx;'>
     <label class='mine_dt h4-5'>身高</label>
-    <label class='data_1 h4-5'>{{info.height}}
+    <label class='data_1 h4-5'>{{info.height}}cm
     </label>
   </view>
 </view>
@@ -118,7 +118,7 @@
 <view class='editing_data'>
   <view class='data'>
   <label class='mine_dt h4-5'>详细地址</label>
-        <input class='margin-top-3 h4-5 padding-right-40' bindinput='Xaddress' placeholder='{{info.address}}' value='{{address}}' style='text-align:right'>
+        <input class='margin-top-3 h4-5 padding-right-40' bindinput='Xaddress' placeholder='请输入您的详细地址' value='{{info.address}}' style='text-align:right'>
         </input>
   </view>
 </view>
