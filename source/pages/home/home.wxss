@@ -6,7 +6,7 @@ page {
 .syn {
   width: 600rpx;
   height: 160rpx;
-  background: #ffff;
+  background: white;
   border-radius: 25rpx;
   margin-top: 660rpx;
   margin-left: 25rpx;

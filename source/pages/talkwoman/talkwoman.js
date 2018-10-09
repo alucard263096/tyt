@@ -10,7 +10,6 @@ import {
 } from "../../apis/people.api.js";
 import { InterViewApi } from '../../apis/interview.api.js';
 
-
 class Content extends AppBase {
   constructor() {
     super();

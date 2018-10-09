@@ -1,7 +1,7 @@
 <!--pages/member/member.wxml-->
 <view class='flex-row flex-column text-center' style='padding-top:100rpx;' wx:if="{{list.length==0}}" >
           <view>
-         <image src='{{uploadpath}}resource/{{res.zanwuxiaoxi}}' class='icon-75'></image>
+         <image src='{{uploadpath}}resource/{{res.zanwuxiaoxi}}' class='icon'></image>
           </view>
           <view class='txt-gray h4 margin-top-20'>
             暂无消息记录

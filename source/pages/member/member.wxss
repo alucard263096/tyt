@@ -12,3 +12,7 @@
   float: right;
   margin: 30rpx 20rpx 10rpx 10rpx;
 }
+.icon{
+  width: 150rpx;
+  height: 150rpx;
+}

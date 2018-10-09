@@ -55,6 +55,7 @@ class Content extends AppBase {
       that.Base.setMyData({ images });
     },9);
   }
+
   uploadsave() {
     var that = this;
     var images = that.Base.getMyData().images;
@@ -77,7 +78,7 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.uploadimg = content.uploadimg; 
+body.uploadimg = content.uploadimg;
 body.minusImg = content.minusImg;
 body.uploadsave = content.uploadsave;
 Page(body)
