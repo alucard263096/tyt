@@ -1,0 +1,13 @@
+/* pages/report/report.wxss */
+.column{
+  flex-direction:column;
+  margin: 15rpx;
+}
+.btn{
+  background-color: #d15482;
+  color: white;
+}
+.btn_hv{
+   background-color: #c92561;
+     color: white;
+}

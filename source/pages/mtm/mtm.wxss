@@ -1,0 +1,14 @@
+/* pages/mtm/mtm.wxss */
+.abstract{
+  border-bottom:2px solid #ddd; 
+  height: 162rpx;
+}
+.img{
+  width: 114rpx;
+  height: 114rpx;
+  border-radius: 50%;
+}
+.mem_date{
+  float: right;
+  margin: 30rpx 20rpx 10rpx 10rpx;
+}

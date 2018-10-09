@@ -1,0 +1,39 @@
+
+
+
+<view class='top flex-row flex-center padding-top-20 '>
+  <view class='flex-1 text-center  flex-row flex-column' bindtap='tap1'>
+    <view class='h5 {{show==true?"pink":""}}' style='margin-bottom:5rpx;'>我发起的</view>
+    <view class='left {{show==true?"":"hide"}}'></view>
+  </view>
+
+  <view class='flex-1 text-center  flex-row flex-column' bindtap='tap2'>
+    <view class='h5 {{hide==true?"pink":""}}' style='margin-bottom:5rpx;'>被发起的</view>
+    <view class='left {{hide==true?"":"hide"}}'></view>
+  </view>
+</view>
+<view class='flex-row flex-column text-center' style='padding-top:100rpx;' wx:if="{{list.length==0}}" >
+          <view>
+         <image src='{{uploadpath}}resource/{{res.zanwuxiaoxi}}' class='icon-75'></image>
+          </view>
+          <view class='txt-gray h4 margin-top-20'>
+            暂无消息记录
+          </view>
+</view>
+<view wx:if="{{list.length>0}}">
+<navigator class='abstract flex-row flex-center {{show==true?"":"hide"}}' url='/pages/talk/talk?id={{item.id}}' wx:for="{{list}}" wx:key="k">
+  <view class="flex-1">
+    <image class='img margin-left-30' src='{{uploadpath}}people/{{item.viewpeople_photo}}'></image>
+  </view>
+  <view class="flex-2 h5">{{item.viewpeople_name}}</view>
+  <view class='flex-1 text-right margin-right-30 h5'>{{item.updated_date}}</view>
+</navigator>
+
+<navigator class='abstract flex-row flex-center {{hide==true?"":"hide"}} ' url='/pages/talkwoman/talkwoman?id={{item.id}}' wx:for="{{list}}" wx:key="k">
+  <view class="flex-1">
+    <image class='img margin-left-30' src='{{uploadpath}}people/{{item.starter_photo}}'></image>
+  </view>
+  <view class="flex-2 h5">{{item.starter_name}}</view>
+  <view class='flex-1 text-right margin-right-30 h5'>{{item.updated_date}}</view>
+</navigator>
+</view>

@@ -1,0 +1,199 @@
+<!--pages/mtt/mtt.wxml-->
+<view class=" padding-bottom-40 ">
+  <view class="margin-top-80 flex-row">
+    <view class='left'>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up'></view>
+      <view class='dialogue_right h6'>
+        {{starter_name}}已对 {{viewpeople_name}} 发起相亲,请耐心等对方回应......
+        <button class="cancel_btn h6 " disabled="true" hover-class='cancel_hover_btn' bindtap='QX4'>取消</button>
+      </view>
+    </view>
+    <view class='right'>
+      <image class=' headimg' src='{{uploadpath}}people/{{starter_photo}}'></image>
+    </view>
+  </view>
+
+  <view class="margin-top-80 flex-row  {{showView1=='sv1'?'':'hide'}}">
+    <view class='left'>
+      <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up2'></view>
+      <view class='dialogue_left h6'>
+        {{viewpeople_name}}已同意相亲
+      </view>
+    </view>
+    <view class='right'>
+    </view>
+  </view>
+
+
+  <view class="margin-top-80 flex-row {{showView2=='sv2'?'':'hide'}}">
+    <view class='left'>
+      <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up2'></view>
+      <view class='dialogue_left h6' style=''>支付已完成,挑一挑红娘将为您提供双方的详细信息以及媒人电话。
+
+        <view style='height:10rpx;'></view>
+        <view class='h6 fontcolor'>相亲时间:
+          <label class='h4-1' style='color:black'>{{created_date}}</label>
+        </view>
+        <view style='height:10rpx;'></view>
+        <view class='h6 fontcolor'>发起人姓名:
+          <label class='h4-1' style='color:black'>{{starter_name}}</label>
+        </view>
+        <view class='h6 fontcolor'>被发起人姓名:
+          <label class='h4-1' style='color:black'>{{viewpeople_name}}</label>
+        </view>
+        <view style='height:10rpx;'></view>
+        <view class='h6 fontcolor'>发起人地址：
+          <label class='h4-1' style='color:red;' >{{people.country_address}}</label>
+        </view>
+        <view style='height:10rpx;'></view>
+        <view class='h6 fontcolor'>被发起人地址：
+          <label class='h4-1' style='color:red;' >{{people.country_address}}</label>
+        </view>
+        <view style='height:10rpx;'></view>
+        <view class='h6 fontcolor'>媒人电话:
+          <label class='h4-1' style='color:red' >{{matcher_mobile}}</label>
+        </view>
+        <view style='height:10rpx;'></view>
+      </view>
+    </view>
+    <view class='right'>
+    </view>
+  </view>
+
+  <view class="margin-top-80 flex-row {{showView2=='sv2'?'':'hide'}}">
+    <view class='left'>
+      <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up2'></view>
+      <view class='dialogue_left h6'>
+        联系媒人确认相亲具体事项。
+      </view>
+    </view>
+    <view class='right'>
+    </view>
+  </view>
+
+  <view class="margin-top-80 flex-row {{showView2=='sv2'?'':'hide'}}">
+    <view class='left'>
+      <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up2'></view>
+      <view class='dialogue_left h6' style='white-space:pre-line;min-height:280rpx;'>如果已完成第一次相亲，双方将选择是否满意本次相亲，满意将继续进行第二次相亲。
+        <view style='height:70rpx;width:400rpx'>
+          <button class='cancel_btn2 h6' hover-class='cancel_hover_btn2' disabled="true" bindtap='QX2'>拒绝</button>
+          <view class='and h5'>或</view>
+          <button class='cancel_btn1 h6' hover-class='cancel_hover_btn1' disabled="true" bindtap='Agrpay2'>满意</button>
+        </view>
+        <view class='fontcolor h6' style='white-space:pre-line'>
+          满意，双方将进行第二次相亲。 拒绝，将结束本次相亲。
+        </view>
+      </view>
+    </view>
+    <view class='right'>
+    </view>
+  </view>
+
+  <view class="margin-top-80 flex-row {{showView3=='sv3'?'':'hide'}}">
+    <view class='left'>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up'></view>
+      <view class='dialogue_right h6'>
+        等待双方回应......
+        <button class='cancel_btn h6' hover-class='cancel_hover_btn' disabled="true" bindtap='QX5'>取消</button>
+      </view>
+    </view>
+    <view class='right'>
+      <image class=' headimg' src='{{uploadpath}}people/{{starter_photo}}'></image>
+    </view>
+  </view>
+
+  <view class="margin-top-80 flex-row {{showView6=='sv6'?'':'hide'}} {{showView7=='sv7'?'':'hide'}}">
+    <view class='left'>
+      <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up2'></view>
+      <view class='dialogue_left h6'>
+        恭喜，双方愿意继续进行第二次相亲，请及时与媒人联系相亲细节。
+      </view>
+    </view>
+    <view class='right'>
+    </view>
+  </view>
+
+  <view class="margin-top-80 flex-row {{showView6=='sv6'?'':'hide'}} {{showView7=='sv7'?'':'hide'}}">
+    <view class='left'>
+      <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up2'></view>
+      <view class='dialogue_left h6' style='white-space:pre-line;min-height:280rpx;'>如果已完成第二次相亲，双方将选择是否满意 本次相亲，满意将进行订婚。
+        <view style='height:70rpx;width:400rpx'>
+          <button class='cancel_btn2 h6' hover-class='cancel_hover_btn2' disabled="true" bindtap='QX3'>拒绝</button>
+          <view class='and h5'>或</view>
+          <button class='cancel_btn1 h6' hover-class='cancel_hover_btn1' disabled="true" bindtap='Agrpay3'>满意</button>
+        </view>
+        <view class='fontcolor h6' style='white-space:pre-line'>
+          满意，将进行订婚。 拒绝，将结束本次相亲。
+        </view>
+      </view>
+    </view>
+    <view class='right'>
+    </view>
+  </view>
+
+  <view class="margin-top-80 flex-row {{showView8=='sv8'?'':'hide'}}">
+    <view class='left'>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up'></view>
+      <view class='dialogue_right h6'>
+        等待双方回应......
+        <button class='cancel_btn h6' hover-class='cancel_hover_btn' bindtap='QX6' disabled="true" hidden='{{false}}'>取消</button>
+      </view>
+    </view>
+    <view class='right'>
+      <image class=' headimg' src='{{uploadpath}}people/{{starter_photo}}'></image>
+    </view>
+  </view>
+
+  <view class="margin-top-80 flex-row {{showView5=='sv5'?'':'hide'}}  {{showView10=='sv10'?'':'hide'}}">
+    <view class='left'>
+      <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up2'></view>
+      <view class='dialogue_left h6'>
+        恭喜，双方愿意继续进行订婚，请及时与媒人联系订婚细节。
+      </view>
+    </view>
+    <view class='right'>
+    </view>
+  </view>
+
+  <view class="margin-top-80 flex-row {{showView4=='sv4'?'':'hide'}}">
+    <view class='left'>
+      <image class=' headimg' src='{{uploadpath}}resource/{{res.reg_hn}}'></image>
+    </view>
+    <view class='mid flex-1'>
+      <view class='triangle-up2'></view>
+      <view class='dialogue_left h6'>
+        本次相亲结束
+      </view>
+    </view>
+    <view class='right'>
+    </view>
+  </view>
+</view>
+

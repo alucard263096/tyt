@@ -1,0 +1,28 @@
+<!--pages/report/report.wxml-->
+<form bindsubmit='confirm'>
+  <view class='border-bottom padding h5'>
+    请选择举报理由
+  </view>
+  <view class='padding-20'>
+    <radio-group class="radio-group " name="alert_id" bindchange="radioChange">
+     
+        <view class="radio flex-row column">
+         <view class='flex-1 '> <radio value="A" checked="" />年龄与本人不符</view>
+          <view class='flex-1 margin-top-20'><radio value="B" checked="" />照片与本人不符</view>
+          <view class='flex-1 margin-top-20'><radio value="C" checked="" />婚姻诈骗</view>
+         <view class='flex-1 margin-top-20'><radio value="O" checked="" />其他</view>
+        </view>
+    </radio-group>
+  </view>
+<view class='border-bottom padding h5'>
+    该用户存在其他违规行为
+  </view>
+  <view class='padding-20'>
+    <view class=' bg-gray padding-20' style=''>
+      <textarea class='fullimg h6' name="reason" value='{{reason}}'  placeholder='请详细描述被举报对象的违规行为（限200字）' maxlength='200'></textarea>
+    </view>
+  </view>
+  <view class='padding-20'>
+    <button class='btn'  hover-class='btn_hv'  form-type='submit'>提交</button>
+  </view>
+</form>

@@ -1,0 +1,14 @@
+/* pages/inactive/inactive.wxss */
+page{
+  padding-top: 200rpx;
+}
+.font-bold{
+font-weight:600;
+font-family: 黑体;
+}
+.width{
+  width: 80%;
+}
+.ft{
+  white-space: pre-line;
+}

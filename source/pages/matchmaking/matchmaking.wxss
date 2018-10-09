@@ -1,0 +1,33 @@
+/* pages/matchmaking/matchmaking.wxss */
+.abstract {
+  border-bottom: 2px solid #ddd;
+  height: 162rpx;
+}
+
+.img {
+  width: 114rpx;
+  height: 114rpx;
+  border-radius: 50%;
+}
+
+.mem_date {
+  float: right;
+  margin: 30rpx 20rpx 10rpx 10rpx;
+}
+.top{
+  border-bottom: 2px solid rgb(212, 211, 211);
+}
+.left{
+border-bottom: 2px solid rgb(250, 97, 148); 
+width: 120rpx;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
+.pink{
+  color: rgb(250, 97, 148);
+}
+

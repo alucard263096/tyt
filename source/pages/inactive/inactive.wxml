@@ -1,0 +1,13 @@
+<!--pages/inactive/inactive.wxml-->
+<view class='flex-row flex-column'>
+<view class='width text-center'><image src='{{uploadpath}}resource/{{res.jubao}}' class='icon-75'></image></view>
+<view class='width h4 text-center font-bold'>举报</view>
+<view class='width h5 fontcolor margin-top-40'>温馨提示：</view>
+<view class='width h5 fontcolor ft'>  
+  <label style='padding-left:50rpx;'>  您已被举报，请尽快联系我们的管理员查明</label>
+  原因，多谢合作。
+</view>
+<view class='width margin-top-40'>
+客服电话：<label style='color:red' bindtap='phoneCall' id="123345678">123345678</label>
+</view>
+</view>

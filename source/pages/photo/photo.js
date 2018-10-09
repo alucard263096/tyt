@@ -36,11 +36,11 @@ class Content extends AppBase {
   }
   minusImg(e) {
     var that = this;
-    var seq = e.currentTarget.id;
+    var poo = e.currentTarget.id;
     var images = that.Base.getMyData().images;
     var imgs = [];
     for (var i = 0; i < images.length; i++) {
-      if (seq != i) {
+      if (poo != i) {
         imgs.push(images[i]);
       }
     }
