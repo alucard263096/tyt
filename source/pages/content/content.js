@@ -14,7 +14,6 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({ order: 0, country_idx: -1,country_id:0 });
-    this.loaddata();
 
     var peopleapi = new PeopleApi();
     peopleapi.countrylist({}, (countrylist) => {
@@ -53,6 +52,8 @@ class Content extends AppBase {
     instapi.info({}, (info) => {
       that.Base.setMyData(info);
     });
+
+    this.loaddata();
   }
   loaddata(){
     var peopleapi = new PeopleApi();
