@@ -21,7 +21,11 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
-    this.Base.setMyData({id:1});
+    this.Base.setMyData({
+      id: 1,
+      dx: 0,
+      x: 125
+    });
   }
   onMyShow() {
     var that = this;
@@ -37,131 +41,84 @@ class Content extends AppBase {
       that.Base.setMyData(info);
     });
 
+
     var peopleapi = new PeopleApi();
     peopleapi.list({
-      random: "Y"
-    }, (people) => {
-      var people = people[0];
-      var birth = people.birth_timespan;
-      var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
-      people.age = age;
+
+    }, (peoplelist) => {
+
+      for (var i = 0; i < peoplelist.length; i++) {
+        var people2 = peoplelist[i];
+        var birth = people2.birth_timespan;
+        var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
+        people2.age = age;
+        peoplelist[i] = people2;
+      }
+
       this.Base.setMyData({
-        people
+
+        x: winWidth,
+        y: winHeight,
+        distance: "",
+        animationData: {},
+        peoplelist
       });
     });
-    peopleapi.list({
-      random: "Y"
-    }, (people) => {
-      var people2 = people[0];
-      var birth = people2.birth_timespan;
-      var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
-      people2.age = age;
-      this.Base.setMyData({
-        people2
-      });
-    });
-    
+
   }
-  handletouchmove(event) {
+
+
+  tap(e) {
     var that = this;
-    var currentX = event.touches[0].pageX
-    var currentY = event.touches[0].pageY
-    var tx = currentX - this.data.lastX
-    var ty = currentY - this.data.lastY
-    var text = ""
-    //左右方向滑动
-    if (Math.abs(tx) > Math.abs(ty)) {
-      if (tx < 0)
-        text = "向左滑动"
-      else if (tx > 0)
-        text = "向右滑动"
-    }
-
-    //上下方向滑动
-    // else {
-    //   if (ty < 0)
-    //     text = "向上滑动"
-    //   else if (ty > 0)
-    //     text = "向下滑动"
-    // }
-
-    console.log(text);
-
-    //将当前坐标进行保存以进行下一次计算
-    this.data.lastX = currentX;
-    this.data.lastY = currentY;
-    if (text == "向左滑动") {
-      this.Base.setMyData({
-        "inleftswipe": true
+    var data = this.Base.getMyData();
+    var distance = data.distance;
+    var linming=5;
+    console.log("cons~" + distance + "~" + (winWidth + winWidth / linming).toString());
+    if ((distance > (winWidth + winWidth / linming)) || (distance < (winWidth - winWidth / linming))) {
+      console.log("con1~");
+      var peoplelist = data.peoplelist;
+      var temp = (new Date()).getTime() % peoplelist.length;
+      var a = peoplelist[e.currentTarget.dataset.index];
+      peoplelist[e.currentTarget.dataset.index] = peoplelist[temp];
+      peoplelist[temp] = a;
+      console.log(temp);
+      //peoplelist.splice(e.currentTarget.dataset.index, 1);
+      that.Base.setMyData({
+        x: winWidth,
+        y: winHeight,
+        peoplelist: peoplelist
+      });
+    } else {
+      console.log("cons2");
+      that.Base.setMyData({
+        x: winWidth,
+        y: winHeight
       })
-
-      var peopleapi = new PeopleApi();
-      peopleapi.list({
-        random: "Y"
-      }, (people) => {
-        var people2 = people[0];
-        var birth = people2.birth_timespan;
-        var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
-        people2.age = age;
-        this.Base.setMyData({
-          people2
-        });
-      });
-      
-      setTimeout(function() {
-
-        that.Base.setMyData({
-          "inleftswipe": false
-        })
-      }, 1500);
     }
-    if (text == "向右滑动") {
-      this.Base.setMyData({
-        "inrightswipe": true
-      });
+  }
 
-      var peopleapi = new PeopleApi();
-      peopleapi.list({
-        random: "Y"
-      }, (people) => {
-        var people2 = people[0];
-        var birth = people2.birth_timespan;
-        var age = parseInt((new Date().getTime() - birth * 1000) / 365 / 24 / 3600 / 1000);
-        people2.age = age;
-        this.Base.setMyData({
-          people2
-        });
-      });
-      setTimeout(function() {
+  onChange(e) {
+    var that = this;
+    that.setData({
+      distance: e.detail.x
+    })
+  }
 
-        that.Base.setMyData({
-          "inrightswipe": false
-        })
-      }, 1500);
-
-    }
+  onScale(e) {
 
   }
-  //滑动开始事件
-  handletouchtart(event) {
-    this.data.lastX = event.touches[0].pageX
-    this.data.lastY = event.touches[0].pageY
 
-  }
-  //滑动结束事件
-  handletouchend(event) {
-    this.data.currentGesture = 0;
-    this.setData({
-      text: "没有滑动"
-    });
-  }
 
 }
+
+var winWidth = 414;
+var winHeight = 736;
+
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
-body.handletouchmove = content.handletouchmove;
-body.handletouchtart = content.handletouchtart;
-body.handletouchend = content.handletouchend;
+body.tap = content.tap;
+body.onChange = content.onChange;
+body.onScale = content.onScale;
 Page(body)

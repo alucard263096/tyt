@@ -1,8 +1,10 @@
 /* pages/home/home.wxss */
+
 page {
   width: 750rpx;
   overflow-x: hidden;
 }
+
 .syn {
   width: 600rpx;
   height: 160rpx;
@@ -10,7 +12,7 @@ page {
   border-radius: 25rpx;
   margin-top: 660rpx;
   margin-left: 25rpx;
-  position:absolute;
+  position: absolute;
 }
 
 .ifm {
@@ -30,9 +32,11 @@ page {
   /* box-shadow: rgb(238, 215, 215) 2rpx 2rpx 6rpx 2rpx; */
   margin-bottom: 20rpx;
 }
+
 .pos {
   position: absolute;
 }
+
 .inleftswipe {
   animation-iteration-count: infinite;
   -webkit-animation-iteration-count: infinite;
@@ -66,3 +70,32 @@ page {
     left: 100vw;
   }
 }
+
+.area {
+  top: -80vh;
+  left: -110vw;
+  height: calc(  100vh - 200rpx );
+  width:  200vw; /* background:#000; */
+  background: rgba(0, 0, 0, 0);
+}
+
+.mo_top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0);
+}
+
+.image {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.content_s {
+  z-index: 999;
+}
+
+
