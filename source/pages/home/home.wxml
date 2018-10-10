@@ -10,38 +10,25 @@
 </view>
 
 
-<view  class='pos flex-row flex-center'>
-  <view class='padding-L-T-R-40'>
-    <view class='syn'>
-      <view class='name_1 h4'>{{people2.nkname}}</view>
-      <view class='ifm h5'>
-        <label class='margin-right-10'>{{people2.age}}岁</label>|
-        <label class='margin-left-10 margin-right-10'>{{people2.height}}cm</label>|
-        <label class='margin-left-10 margin-right-10'>{{people2.quality_name}}</label>|
-        <label class='margin-left-10 margin-right-10'> {{people2.income_name}}</label>
-      </view>
-    </view>
-    <view>
-      <image class='ig border-radius-5 ' src='{{uploadpath}}people/{{people2.photo}}'>
-      </image>
-    </view>
-  </view>
-</view>
 
-<navigator url='/pages/details/details?id={{people2.id}}' class='pos flex-row flex-center {{inleftswipe==true?"inleftswipe":""}} {{inrightswipe==true?"inrightswipe":""}}' bindtouchstart="handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
+<movable-area class="area">    <movable-view wx:for="{{peoplelist}}" wx:key="index"  x="{{x}}" y="{{y}}" direction="horizontal" bindchange="onChange" out-of-bounds="true" data-index="{{index}}" catch:touchend="tap">    
+
+<navigator url='/pages/details/details?id={{people2.id}}' class='pos' >
   <view class='padding-L-T-R-40' >
     <view class='syn'>
-      <view class='name_1 h4'>{{people2.nkname}}</view>
+      <view class='name_1 h4'>{{item.nkname}}</view>
       <view class='ifm h5'>
-        <label class='margin-right-10'>{{people2.age}}岁</label>|
-        <label class='margin-left-10 margin-right-10'>{{people2.height}}cm</label>|
-        <label class='margin-left-10 margin-right-10'>{{people2.quality_name}}</label>|
-        <label class='margin-left-10 margin-right-10'> {{people2.income_name}}</label>
+        <label class='margin-right-10'>{{item.age}}岁</label>|
+        <label class='margin-left-10 margin-right-10'>{{item.height}}cm</label>|
+        <label class='margin-left-10 margin-right-10'>{{item.quality_name}}</label>|
+        <label class='margin-left-10 margin-right-10'> {{item.income_name}}</label>
       </view>
     </view>
     <view>
-      <image class='ig border-radius-5 ' src='{{uploadpath}}people/{{people2.photo}}'>
+      <image class='ig border-radius-5 ' src='{{uploadpath}}people/{{item.photo}}'>
       </image>
     </view>
   </view>
 </navigator>
+   </movable-view>  </movable-area>
+
