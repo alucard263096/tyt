@@ -22,12 +22,15 @@ class Content extends AppBase {
     
     var dom = ["请输入您的地址"];
     this.Base.setMyData({ dom });
+    
+    var marriagelist = ["未婚", "离异", "丧偶"];
+    this.Base.setMyData({ marriagelist})
 
     var region=[""];
     this.Base.setMyData({region})
    
 
-    this.Base.setMyData({  name: "", mobile: "", sex: "",  noticesuccess: false, photo: "", country_idx:-1,birth:"" });
+    this.Base.setMyData({  name: "", mobile: "", sex: "",  noticesuccess: false, photo: "", country_idx:-1,birth:"",marriage:"" });
     var peopleapi = new PeopleApi();
     peopleapi.countrylist({}, (countrylist) => {
       this.Base.setMyData({ countrylist });
@@ -41,6 +44,11 @@ class Content extends AppBase {
   bindPickerChange(e) {
     this.Base.setMyData({
       index: e.detail.value
+    })
+  }
+  bindmarriage(e) {
+    this.Base.setMyData({
+      mrg: e.detail.value
     })
   }
   bindRegion(e) {
@@ -90,6 +98,12 @@ class Content extends AppBase {
       return;
     }else{
       data.birth=birth;
+    }
+    if (data.marriage == "") {
+      this.Base.info("请选择婚姻状况");
+      return;
+    } else {
+      data.marriage = data.marriage == "未婚" ? "A" : "B","C";
     }
     if (country_idx==-1){
       this.Base.info("请选择城镇");
@@ -181,6 +195,7 @@ body.bindPickerChange = content.bindPickerChange;
 body.bind = content.bind; 
 body.choosePhoto = content.choosePhoto; 
 body.bindcountry = content.bindcountry;
+body.bindmarriage = content.bindmarriage;
 body.birthChange = content.birthChange;
 Page(body)
 

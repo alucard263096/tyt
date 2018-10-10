@@ -18,8 +18,7 @@ class Content extends AppBase {
     var that = this;
     var instapi = new InstApi();
     var interviewApi = new InterViewApi();
-    interviewApi.list({ orderby: " r_main.updated_date desc"}, (list) => {
-      var m = list[0];
+    interviewApi.list({}, (list) => {
       this.Base.setMyData({ list });
     })
   }

@@ -1,1 +1,10 @@
 /* pages/mtf/mtf.wxss */
+.icon{
+  width: 150rpx;
+  height: 150rpx;
+}
+.img{
+  width: 114rpx;
+  height: 114rpx;
+  border-radius: 50%;
+}

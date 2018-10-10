@@ -83,6 +83,21 @@
       </picker>
     </view>
   </view>
+
+  <view class='first flex-row flex-center'>
+    <view>
+      <image src='{{uploadpath}}resource/{{res.marriage}}' class='icon'></image>
+    </view>
+    <view class='user flex-1'>
+      <picker mode="selector" bindchange="bindmarriage" value="{{mrg}}" range="{{marriagelist}}">
+        <view class="reg_pf fontcolor h5">
+          <input disabled='disabled' class='h5' placeholder='请选择婚姻状况' value='{{marriagelist[mrg]}}' name="marriage">
+          </input>
+        </view>
+        <image class='icon_btm' src='{{uploadpath}}resource/{{res.icon_btm}}'></image>
+      </picker>
+    </view>
+  </view>
   
 <!-- <view class='first flex-row flex-center'>
     <view>

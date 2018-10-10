@@ -8,7 +8,7 @@
           </view>
 </view>
 <view  wx:for="{{list}}" wx:key="k" wx:if="{{list.length>0}}">
-<navigator class='abstract flex-row flex-center' url='/pages/talk/talk?id={{item.id}}'  wx:if="{{item.startpeople_id==UserInfo.people.id}}" >
+<navigator class='abstract flex-row flex-center' url='/pages/mtt/mtt?id={{item.id}}'  wx:if="{{item.startpeople_id==UserInfo.people.id}}" >
         <view class="flex-1">
         <image  class='img margin-left-30' src='{{uploadpath}}people/{{item.viewpeople_photo}}'></image>
         </view>
@@ -16,7 +16,7 @@
          <view class='flex-1 text-right margin-right-30 h5'>{{item.updated_date}}</view>
 </navigator>
 
-<navigator class='abstract flex-row flex-center' url='/pages/talkwoman/talkwoman?id={{item.id}}' wx:if="{{item.viewpeople_id==UserInfo.people.id}}" >
+<navigator class='abstract flex-row flex-center' url='/pages/mtt/mtt?id={{item.id}}' wx:if="{{item.viewpeople_id==UserInfo.people.id}}" >
         <view class="flex-1">
         <image  class='img margin-left-30' src='{{uploadpath}}people/{{item.starter_photo}}'></image>
         </view>

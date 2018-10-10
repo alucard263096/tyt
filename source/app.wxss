@@ -873,7 +873,7 @@ font-size: 28rpx;
   margin: 30rpx 20rpx 10rpx 10rpx;
 }
 .s1{
-  width: 400rpx;
+  width: 500rpx;
   height: 50rpx;
   font-family: 微软雅黑;
   float: left;
@@ -882,6 +882,7 @@ font-size: 28rpx;
 .s2{
   width: 500rpx;
   height: 44rpx;
+  margin-top: 10rpx;
   color: rgb(136, 134, 134);
   float: left;
 }

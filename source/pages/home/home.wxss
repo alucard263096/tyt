@@ -15,7 +15,7 @@ page {
 
 .ifm {
   margin-left: 20rpx;
-  margin-top: 20rpx;
+  margin-top: 30rpx;
 }
 
 .name_1 {

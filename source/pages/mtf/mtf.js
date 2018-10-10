@@ -17,6 +17,10 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var instapi = new InstApi();
+    var interviewApi = new InterViewApi();
+    interviewApi.list({}, (list) => {
+      this.Base.setMyData({ list });
+    })
   }
 }
 
