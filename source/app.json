@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/mtf/mtf",
     "pages/home/home",
+    "pages/mtf/mtf",
     "pages/register/register",
     "pages/shield/shield",
     "pages/mtm/mtm",

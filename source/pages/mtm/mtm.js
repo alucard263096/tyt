@@ -18,7 +18,7 @@ class Content extends AppBase {
     var that = this;
     var instapi = new InstApi();
     var interviewApi = new InterViewApi();
-    interviewApi.list({}, (list) => {
+    interviewApi.list({ id: this.Base.options.id}, (list) => {
       this.Base.setMyData({ list });
     })
   }
