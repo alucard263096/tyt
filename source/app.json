@@ -1,14 +1,14 @@
 {
   "pages":[
     "pages/home/home",
-    "pages/shield/shield",
     "pages/mtf/mtf",
+    "pages/register/register",
+    "pages/shield/shield",
     "pages/mtm/mtm",
     "pages/mtt/mtt",
     "pages/details/details",
     "pages/editing/editing",
     "pages/payment/payment",
-    "pages/register/register",
     "pages/report/report",
     "pages/member/member",
     "pages/inactive/inactive",

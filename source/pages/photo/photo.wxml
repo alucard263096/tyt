@@ -12,4 +12,3 @@
 <view>
 <view><button class='h5 details_btn' hover-class='hover_btn' bindtap='uploadsave'>保存</button></view>
 </view>
-
