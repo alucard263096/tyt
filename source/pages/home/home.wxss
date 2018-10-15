@@ -7,17 +7,17 @@ page {
 
 .syn {
   width: 600rpx;
-  height: 160rpx;
+  height: 180rpx;
   background: white;
   border-radius: 25rpx;
-  margin-top: 660rpx;
+  margin-top: 640rpx;
   margin-left: 25rpx;
   position: absolute;
 }
 
 .ifm {
   margin-left: 20rpx;
-  margin-top: 30rpx;
+  margin-top: 10rpx;
 }
 
 .name_1 {

@@ -13,7 +13,7 @@
 
 <movable-area class="area">    <movable-view wx:for="{{peoplelist}}" wx:key="index"  x="{{x}}" y="{{y}}" direction="horizontal" bindchange="onChange" out-of-bounds="true" data-index="{{index}}" catch:touchend="tap">    
 
-<navigator url='/pages/details/details?id={{people2.id}}' class='pos' >
+<navigator url='/pages/details/details?id={{item.id}}' class='pos' >
   <view class='padding-L-T-R-40' >
     <view class='syn'>
       <view class='name_1 h4'>{{item.nkname}}</view>

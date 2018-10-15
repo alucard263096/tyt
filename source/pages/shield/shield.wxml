@@ -83,20 +83,24 @@
 <view class='section'>
   <view class='section-title'>婚姻状况</view>
   <view class='ck flex-row flex-center'>
+  
     <label class='h5 flex-1'>
       <checkbox-group name='checkbox' bindchange='Check'>
         <checkbox value='checkbox2' checked='{{info.shield_wh=="Y"}}'></checkbox> 未婚
     </checkbox-group>
     </label>
+
     <label class='h5 flex-1'>
       <checkbox-group name='checkbox2' bindchange='Check2'>
         <checkbox value='checkbox2' checked='{{info.shieldly=="Y"}}'></checkbox> 离异
     </checkbox-group>
     </label>
+
     <label class='h5 flex-1'>
       <checkbox-group name='checkbox3' bindchange='Check3'>
         <checkbox value='checkbox2' checked='{{info.shieldso=="Y"}}'></checkbox> 丧偶
     </checkbox-group>
     </label>
+
   </view>
 </view>

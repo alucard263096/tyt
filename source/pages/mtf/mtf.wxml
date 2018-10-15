@@ -1,4 +1,5 @@
 <!--pages/mtf/mtf.wxml-->
+<view class='text-center h4 margin-top-10 margin-bottom-10' style='border-bottom:1rpx solid gray'>我的客户</view>
 <view class='flex-row flex-column text-center' style='padding-top:100rpx;' wx:if="{{peoplelist.length==0}}" >
           <view>
          <image src='{{uploadpath}}resource/{{res.zanwuxiaoxi}}' class='icon'></image>
