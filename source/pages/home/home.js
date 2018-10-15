@@ -98,10 +98,16 @@ class Content extends AppBase {
   }
 
   onChange(e) {
+
+    var kd = 5;
+    var dx = (e.detail.x - this.data.x)/100*kd;
+
     var that = this;
     that.setData({
-      distance: e.detail.x
-    })
+      distance: e.detail.x,
+      dx:dx
+    });
+    
   }
 
   onScale(e) {

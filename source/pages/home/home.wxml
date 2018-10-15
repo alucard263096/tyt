@@ -11,9 +11,9 @@
 
 
 
-<movable-area class="area">    <movable-view wx:for="{{peoplelist}}" wx:key="index"  x="{{x}}" y="{{y}}" direction="horizontal" bindchange="onChange" out-of-bounds="true" data-index="{{index}}" catch:touchend="tap">    
+<movable-area class="area">    <movable-view wx:for="{{peoplelist}}" wx:key="index"  x="{{x}}" y="{{y}}" direction="horizontal" bindchange="onChange" out-of-bounds="true" data-index="{{index}}" catch:touchend="tap" wx:for-index="idx">    
 
-<navigator url='/pages/details/details?id={{item.id}}' class='pos' >
+<navigator url='/pages/details/details?id={{item.id}}' class='pos'  style='transform:rotate({{idx==peoplelist.length-1?dx:0}}deg);' >
   <view class='padding-L-T-R-40' >
     <view class='syn'>
       <view class='name_1 h4'>{{item.nkname}}</view>

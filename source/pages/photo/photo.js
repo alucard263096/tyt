@@ -32,7 +32,9 @@ class Content extends AppBase {
       peopleapi.photolist({}, (photolist) => {
         var images = [];
         for (var i = 0; i < photolist.length; i++) {
-          images.push(photolist[i].photo);
+          if(photolist[i].photo.trim()!=""){
+            images.push(photolist[i].photo);
+          }
         }
         this.Base.setMyData({
           images
